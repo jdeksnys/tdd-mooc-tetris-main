@@ -37,4 +37,11 @@ export class Board {
       this.board[0][centre_x] = val;
     }
   }
+
+  tick() {
+    let centre_x = Math.floor(this.width / 2);
+    let val = this.board[0][centre_x];
+    this.board[0][centre_x] = ".";
+    this.board[1][centre_x] = val;
+  }
 }

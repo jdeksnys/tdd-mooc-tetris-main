@@ -6,10 +6,10 @@ export class Board {
     this.width = width;
     this.height = height;
     this.board = [];
+    this.initEmptyBoard();
   }
 
   toString() {
-    this.initEmptyBoard();
     let boardStr = "";
     for(let i=0; i<this.height; i++){
       for(let j=0; j<this.height; j++){
@@ -31,7 +31,9 @@ export class Board {
   }
 
   drop(val) {
-    let centre_x = Math.floor(this.width / 2);
-    this.board[0][centre_x] = val;
+    if(val){
+      let centre_x = Math.floor(this.width / 2);
+      this.board[0][centre_x] = val;
+    }
   }
 }

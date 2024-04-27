@@ -30,7 +30,8 @@ export class Board {
     }
   }
 
-  drop() {
+  drop(val) {
     let centre_x = Math.floor(this.width / 2);
+    this.board[0][centre_x] = val;
   }
 }

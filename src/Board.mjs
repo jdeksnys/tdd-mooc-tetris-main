@@ -18,7 +18,7 @@ export class Board {
     }
     return boardStr;
   }
-  
+
   getEmptyBoard() {
     for(let i=0; i<this.height; i++){
       let row = [];
@@ -27,5 +27,9 @@ export class Board {
       }
       this.board.push(row);
     }
+  }
+
+  drop() {
+    let centre_x = Math.floor(this.width / 2);
   }
 }

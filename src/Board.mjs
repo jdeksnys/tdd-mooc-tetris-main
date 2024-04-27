@@ -5,9 +5,17 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
+    this.board = [];
   }
 
   toString() {
-    return "TODO";
+    let boardStr = "";
+    for(let i=0; i<this.height; i++){
+      for(let j=0; j<this.height; j++){
+        boardStr += ".";
+      }
+      boardStr += "\n";
+    }
+    return boardStr;
   }
 }

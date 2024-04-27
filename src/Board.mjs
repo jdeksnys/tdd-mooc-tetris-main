@@ -5,8 +5,7 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.board = [];
-    this.initEmptyBoard();
+    this.board = this.initEmptyBoard();
   }
 
   toString() {
@@ -21,13 +20,15 @@ export class Board {
   }
 
   initEmptyBoard() {
+    let board = [];
     for(let i=0; i<this.height; i++){
       let row = [];
       for(let j=0; j<this.height; j++){
         row.push(".");
       }
-      this.board.push(row);
+      board.push(row);
     }
+    return board;
   }
 
   drop(val) {

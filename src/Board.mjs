@@ -18,4 +18,14 @@ export class Board {
     }
     return boardStr;
   }
+  
+  getEmptyBoard() {
+    for(let i=0; i<this.height; i++){
+      let row = [];
+      for(let j=0; j<this.height; j++){
+        row.push('.');
+      }
+      this.board.push(row);
+    }
+  }
 }

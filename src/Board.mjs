@@ -24,7 +24,7 @@ export class Board {
     for(let i=0; i<this.height; i++){
       let row = [];
       for(let j=0; j<this.height; j++){
-        row.push('.');
+        row.push(".");
       }
       this.board.push(row);
     }

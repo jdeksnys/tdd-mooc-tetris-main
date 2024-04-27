@@ -33,9 +33,9 @@ export class Board {
   }
 
   drop(val) {
-    this.fallBlock = new FallingBlock(val);
+    this.fallBlock = new FallingBlock(val, this.width, this.height);
     if(val){
-      this.board[0][1] = this.fallBlock.shape;
+      this.board[0][this.fallBlock.x] = this.fallBlock.shape;
     }
   }
 

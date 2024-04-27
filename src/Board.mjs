@@ -9,11 +9,11 @@ export class Board {
   }
 
   toString() {
+    this.initEmptyBoard();
     let boardStr = "";
     for(let i=0; i<this.height; i++){
       for(let j=0; j<this.height; j++){
-        // boardStr += this.board[i][j];
-        boardStr += ".";
+        boardStr += this.board[i][j];
       }
       boardStr += "\n";
     }

@@ -33,9 +33,9 @@ export class Board {
   }
 
   drop(val) {
+    this.fallBlock = new FallingBlock(val);
     if(val){
-      let centre_x = Math.floor(this.width / 2);
-      this.board[0][centre_x] = val;
+      this.board[0][1] = this.fallBlock.shape;
     }
   }
 
@@ -52,9 +52,9 @@ class FallingBlock {
   x;
   y;
   shape;
-  constructor(shape){
-    x = Math.floor(this.width / 2);
-    y = 0;
-    shape = shape;
+  constructor(shape, board_width, board_height){
+    this.x = Math.floor(board_width / 2);
+    this.y = 0;
+    this.shape = shape;
   }
 }

@@ -9,17 +9,19 @@ export class Board {
   }
 
   toString() {
+    initEmptyBoard();
     let boardStr = "";
+    
     for(let i=0; i<this.height; i++){
       for(let j=0; j<this.height; j++){
-        boardStr += ".";
+        boardStr += this.board[i][j];
       }
       boardStr += "\n";
     }
     return boardStr;
   }
 
-  getEmptyBoard() {
+  initEmptyBoard() {
     for(let i=0; i<this.height; i++){
       let row = [];
       for(let j=0; j<this.height; j++){

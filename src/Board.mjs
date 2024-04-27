@@ -6,6 +6,7 @@ export class Board {
     this.width = width;
     this.height = height;
     this.board = this.initEmptyBoard();
+    this.fallBlock = new FallingBlock;
   }
 
   toString() {
@@ -44,4 +45,11 @@ export class Board {
     this.board[0][centre_x] = ".";
     this.board[1][centre_x] = val;
   }
+}
+
+
+class FallingBlock {
+  x;
+  y;
+  shape;
 }

@@ -1,0 +1,8 @@
+
+class RotatingShape{
+    
+    fromString(str){
+        
+    }
+
+}

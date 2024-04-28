@@ -3,7 +3,7 @@ export class Tetromino {
     constructor(shape){
         this.shape = shape;
     }
-    static T_SHAPE = new RotatingShape("XXX\n.X.\n.X.");
+    static T_SHAPE = new RotatingShape(".T.\nTTT\n...");
     rotateRight() {
         return new Tetromino(this.rotatingShape.rotateRight());
     }

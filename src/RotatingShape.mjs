@@ -1,6 +1,7 @@
 
 export class RotatingShape{
     shape = "";
+    
     constructor(str){
         for(let i=0; i<str.length; i++){
             if(str[i] != '\t' && str[i] != ' '){
@@ -8,8 +9,10 @@ export class RotatingShape{
             }
         }
     }
+    
     static fromString(str) {
         return new RotatingShape(str);
     }
+    
     toString = () => this.shape + "\n";
   }

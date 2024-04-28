@@ -58,6 +58,13 @@ export class Board {
   }
 
   hasFalling = () => this.hasFallingBlock;
+
+  heightToEnd() {
+    if(!this.hasFallingBlock){
+      return 0;
+    }
+    let height = 0;
+  }
 }
 
 

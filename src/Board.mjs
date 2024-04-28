@@ -43,7 +43,6 @@ export class Board {
   }
 
   tick() {
-    let centre_x = Math.floor(this.width / 2);
     this.board[this.fallBlock.y][this.fallBlock.x] = ".";
     this.fallBlock.y += 1;
     this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;

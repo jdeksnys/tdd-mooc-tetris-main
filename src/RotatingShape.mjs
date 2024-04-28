@@ -44,7 +44,6 @@ export class RotatingShape{
             this.shape.map(row => row[col])
         );
         transposed = transposed.map(row => row.reverse());
-        debugger;
         let str = "";
         transposed.forEach(row => {
           row.forEach(char => {

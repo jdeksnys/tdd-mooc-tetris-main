@@ -48,13 +48,18 @@ export class Board {
   }
 
   tick() {
-    this.board[this.fallBlock.y][this.fallBlock.x] = ".";
     if(this.fallBlock.y < this.height){
+      this.board[this.fallBlock.y][this.fallBlock.x] = ".";
       this.fallBlock.y += 1;
       this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
+    } else if (this.fallBlock.y == this.height){
     } else {
       this.hasFalling = false;
     }
+  }
+
+  hasFalling(){
+    return this.hasFalling;
   }
 }
 

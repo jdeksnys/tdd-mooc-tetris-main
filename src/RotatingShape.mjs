@@ -38,4 +38,8 @@ export class RotatingShape{
         })
         return res;
     }
+
+    rotateRight() {
+        
+    }
   }

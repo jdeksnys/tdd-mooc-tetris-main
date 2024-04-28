@@ -1,11 +1,15 @@
 
 export class RotatingShape{
-    shape;
+    shape = "";
     constructor(str){
-        if(str){this.shape = str;}
+        for(let i=0; i<str.length; i++){
+            if(str[i] != '\t' && str[i] != ' '){
+                this.shape += str[i];
+            }
+        }
     }
     static fromString(str) {
         return new RotatingShape(str);
     }
-    static toString = () => this.shape;
+    toString = () => this.shape + "\n";
   }

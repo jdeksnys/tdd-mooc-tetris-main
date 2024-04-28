@@ -40,6 +40,10 @@ export class RotatingShape{
     }
 
     rotateRight() {
-        
+        let transposed = this.shape[0].map((char, col) =>
+            this.shape.map(row => row[col])
+        );
+        this.shape = transposed.map(row => row.reverse());
+        return this;
     }
   }

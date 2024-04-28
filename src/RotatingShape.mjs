@@ -11,17 +11,17 @@ export class RotatingShape{
             if(str[i] == '\t' || str[i] == ' '){
                 continue;
             }
-                if(i == str.length-1 || str[i] == '\n'){
-                    if(str[i] != '\n'){
-                        row.push(str[i]);
-                    }
-                    this.cols = cols;
-                    this.rows += 1;
-                    this.shape.push(row);
-                    row = [];
-                    cols = 0;
-                    continue;
+            if(i == str.length-1 || str[i] == '\n'){
+                if(str[i] != '\n'){
+                    row.push(str[i]);
                 }
+                this.cols = cols;
+                this.rows += 1;
+                this.shape.push(row);
+                row = [];
+                cols = 0;
+                continue;
+            }
                 row.push(str[i]);
                 cols += 1;
         }

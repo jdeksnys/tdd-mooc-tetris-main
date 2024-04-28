@@ -3,14 +3,14 @@ export class Board {
   height;
   board;
   fallBlock;
-  hasFalling;
+  hasFallingBlock;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.board = this.initEmptyBoard();
     this.fallBlock = null;
-    this.hasFalling = false;
+    this.hasFallingBlock = false;
   }
 
   toString() {
@@ -37,10 +37,10 @@ export class Board {
   }
 
   drop(val) {
-    if(this.hasFalling){
+    if(this.hasFallingBlock){
       throw new Error("already falling");
     }
-    this.hasFalling = true;
+    this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock(val, this.width, this.height);
     if(val){
       this.board[0][this.fallBlock.x] = this.fallBlock.shape;
@@ -53,14 +53,12 @@ export class Board {
       this.fallBlock.y += 1;
       this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
     } else if (this.fallBlock.y == this.height){
-    } else {
-      this.hasFalling = false;
+      this.hasFallingBlock = this.fallBlock.isFalling && this.hasFallingBlock;
+      this.fallBlock.isFalling = false;
     }
   }
 
-  hasFalling(){
-    return this.hasFalling;
-  }
+  hasFalling = () => this.hasFallingBlock;
 }
 
 
@@ -68,10 +66,12 @@ class FallingBlock {
   x;
   y;
   shape;
+  isFalling;
   constructor(shape, board_width, board_height){
     this.x = Math.floor(board_width / 2);
     this.y = 0;
     this.shape = shape;
+    this.isFalling = true;
   }
 }
 

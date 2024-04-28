@@ -65,12 +65,10 @@ class FallingBlock {
   x;
   y;
   shape;
-  isFalling;
   constructor(shape, board_width, board_height){
     this.x = Math.floor(board_width / 2);
     this.y = 0;
     this.shape = shape;
-    this.isFalling = true;
   }
 }
 

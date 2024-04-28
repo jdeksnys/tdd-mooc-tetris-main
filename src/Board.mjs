@@ -48,13 +48,12 @@ export class Board {
   }
 
   tick() {
-    if(this.fallBlock.y < this.height){
+    if(this.fallBlock.y+1 < this.height){
       this.board[this.fallBlock.y][this.fallBlock.x] = ".";
       this.fallBlock.y += 1;
       this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
-    } else if (this.fallBlock.y == this.height){
-      this.hasFallingBlock = this.fallBlock.isFalling && this.hasFallingBlock;
-      this.fallBlock.isFalling = false;
+    } else if (this.fallBlock.y+1 == this.height){
+      this.hasFallingBlock = false;
     }
   }
 

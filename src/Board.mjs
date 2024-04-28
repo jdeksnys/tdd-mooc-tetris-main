@@ -33,6 +33,9 @@ export class Board {
   }
 
   drop(val) {
+    if(this.fallBlock != null){
+      throw new Error("already falling");
+    }
     this.fallBlock = new FallingBlock(val, this.width, this.height);
     if(val){
       this.board[0][this.fallBlock.x] = this.fallBlock.shape;

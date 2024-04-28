@@ -1,12 +1,16 @@
 export class Board {
   width;
   height;
+  board;
+  fallBlock;
+  hasFalling;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.board = this.initEmptyBoard();
     this.fallBlock = null;
+    this.hasFalling = false;
   }
 
   toString() {
@@ -36,6 +40,7 @@ export class Board {
     if(this.fallBlock != null){
       throw new Error("already falling");
     }
+    this.hasFalling == true;
     this.fallBlock = new FallingBlock(val, this.width, this.height);
     if(val){
       this.board[0][this.fallBlock.x] = this.fallBlock.shape;
@@ -44,9 +49,11 @@ export class Board {
 
   tick() {
     this.board[this.fallBlock.y][this.fallBlock.x] = ".";
-    if(this.fallBlock.y+1 <= this.height){
+    if(this.fallBlock.y < this.height){
       this.fallBlock.y += 1;
       this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
+    } else {
+      this.hasFalling = false;
     }
   }
 }

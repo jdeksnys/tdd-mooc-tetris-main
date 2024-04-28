@@ -4,6 +4,14 @@ export class Tetromino {
     constructor(shape){
         this.shape = shape;
     }
-    static T_SHAPE = new RotatingShape(".T.\nTTT\n...");
-    static I_SHAPE = new RotatingShape(".....\n.....\nIIII.\n.....\n.....");
+    static T_SHAPE = new RotatingShape(
+        `.T.
+         TTT
+         ...`);
+    static I_SHAPE = new RotatingShape(
+        `.....
+         .....
+         IIII.
+         .....
+         .....`);
 }

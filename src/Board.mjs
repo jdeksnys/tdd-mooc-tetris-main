@@ -64,6 +64,12 @@ export class Board {
       return 0;
     }
     let height = 0;
+    for(let i=this.fallBlock.y; i<this.height; i++){
+      if(this.board[this.fallBlock.x][i+1] != "."){
+        return height;
+      }
+      height += 1;
+    }
   }
 }
 

@@ -1,39 +1,39 @@
 
-// import { describe, test } from "vitest";
-// import { expect } from "chai";
-// import { RotatingShape } from "../src/RotatingShape.mjs";
+import { describe, test } from "vitest";
+import { expect } from "chai";
+import { RotatingShape } from "../src/RotatingShape.mjs";
 
-// describe("Rotating 3x3 shape", () => {
-//   const shape = RotatingShape.fromString(
-//     `ABC
-//      DEF
-//      GHI`
-//   );
+describe("Rotating 3x3 shape", () => {
+  const shape = RotatingShape.fromString(
+    `ABC
+     DEF
+     GHI`
+  );
 
-//   test("initial orientation", () => {
-//     expect(shape.toString()).to.equalShape(
-//       `ABC
-//        DEF
-//        GHI`
-//     );
-//   });
+  test("initial orientation", () => {
+    expect(shape.toString()).to.equalShape(
+      `ABC
+       DEF
+       GHI`
+    );
+  });
 
-//   test.skip("can be rotated right/clockwise", () => {
-//     expect(shape.rotateRight().toString()).to.equalShape(
-//       `GDA
-//        HEB
-//        IFC`
-//     );
-//   });
+  test.skip("can be rotated right/clockwise", () => {
+    expect(shape.rotateRight().toString()).to.equalShape(
+      `GDA
+       HEB
+       IFC`
+    );
+  });
 
-//   test.skip("can be rotated left/counter-clockwise", () => {
-//     expect(shape.rotateLeft().toString()).to.equalShape(
-//       `CFI
-//        BEH
-//        ADG`
-//     );
-//   });
-// });
+  test.skip("can be rotated left/counter-clockwise", () => {
+    expect(shape.rotateLeft().toString()).to.equalShape(
+      `CFI
+       BEH
+       ADG`
+    );
+  });
+});
 
 
 /*

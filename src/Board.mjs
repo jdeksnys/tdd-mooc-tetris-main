@@ -51,11 +51,12 @@ export class Board {
     if(!this.hasFalling){
       return;
     }
-    if(this.heightToEnd() > 0){
+    let heightToEnd_ = this.heightToEnd();
+    if(heightToEnd_ > 0){
       this.board[this.fallBlock.y][this.fallBlock.x] = ".";
       this.fallBlock.y += 1;
       this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
-    } else if (this.fallBlock.y+1 == this.height){
+    } else if (this.fallBlock.y+1 == this.height || heightToEnd_ == 0){
       this.hasFallingBlock = false;
     }
   }
@@ -67,12 +68,13 @@ export class Board {
       return 0;
     }
     let height = 0;
-    for(let i=this.fallBlock.y; i<this.height; i++){
-      if(this.board[this.fallBlock.x][i+1] != "."){
+    for(let i=this.fallBlock.y; i<this.height-1; i++){
+      if(this.board[i+1][this.fallBlock.x] != "."){
         return height;
       }
       height += 1;
     }
+    return height;
   }
 }
 

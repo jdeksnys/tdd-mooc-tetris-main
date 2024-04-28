@@ -44,8 +44,10 @@ export class Board {
 
   tick() {
     this.board[this.fallBlock.y][this.fallBlock.x] = ".";
-    this.fallBlock.y += 1;
-    this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
+    if(this.fallBlock.y+1 <= this.height){
+      this.fallBlock.y += 1;
+      this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
+    }
   }
 }
 

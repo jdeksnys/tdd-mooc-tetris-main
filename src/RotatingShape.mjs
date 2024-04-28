@@ -12,7 +12,9 @@ export class RotatingShape{
                 continue;
             }
                 if(i == str.length-1 || str[i] == '\n'){
-                    if(str[i] != '\n'){row.push(str[i]);}
+                    if(str[i] != '\n'){
+                        row.push(str[i]);
+                    }
                     this.cols = cols;
                     this.rows += 1;
                     this.shape.push(row);
@@ -31,7 +33,10 @@ export class RotatingShape{
     
     toString() {
         let res = "";
-        this.shape.forEach(row => {row.forEach(char => {res += char;});res += "\n";})
+        this.shape.forEach(row => {
+            row.forEach(char => {res += char;});
+            res += "\n";
+        })
         return res;
     }
   }

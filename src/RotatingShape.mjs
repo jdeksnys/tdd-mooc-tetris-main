@@ -1,4 +1,3 @@
-
 export class RotatingShape{
     shape = [];
     rows = 0;
@@ -22,8 +21,8 @@ export class RotatingShape{
                 cols = 0;
                 continue;
             }
-                row.push(str[i]);
-                cols += 1;
+            row.push(str[i]);
+            cols += 1;
         }
     }
     

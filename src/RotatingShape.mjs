@@ -8,7 +8,9 @@ export class RotatingShape{
         let cols = 0;
         for(let i=0; i<str.length; i++){
             if(str[i] != '\t' && str[i] != ' '){
-                if(str[i] == '\n'){
+                if(i == str.length && str[i] != '\n'){
+                    this.rows += 1;
+                } else if(str[i] == '\n'){
                     this.cols = cols;
                     this.rows += 1;
                 }

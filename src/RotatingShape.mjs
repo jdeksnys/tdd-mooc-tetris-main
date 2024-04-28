@@ -54,13 +54,17 @@ export class RotatingShape{
         return new RotatingShape(str);
     }
     rotateLeft() {
-        let transposed = this.shape[0].map((char, col) =>this.shape.map(row => row[col]));
+        let transposed = this.shape[0].map((char, col) =>
+            this.shape.map(row => row[col])
+        );
         transposed = transposed.reverse();
         let str = "";
         transposed.forEach(row => {
           row.forEach(char => {
             str += char;
-          });str += "\n";})
+          });
+          str += "\n";
+        })
         return new RotatingShape(str);
     }
   }

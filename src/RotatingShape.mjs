@@ -54,7 +54,10 @@ export class RotatingShape{
         return new RotatingShape(str);
     }
     
-    rotateLeft() {let res = "";let addLast = null;let firstLineNull = true;
+    rotateLeft() {
+        let res = "";
+        let addLast = null;
+        let firstLineNull = true;
         for (let j=this.shape[0].length-1; j>=0; j--) {
           let row = "";
           for (let i=0; i<this.shape.length; i++) {row += this.shape[i][j];}

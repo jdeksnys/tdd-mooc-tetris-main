@@ -53,18 +53,11 @@ export class RotatingShape{
     
     rotateLeft() {
         let res = "";
-        let addLast = null;
         let firstLineNull = true;
         for (let j=this.shape[0].length-1; j>=0; j--) {
             let row = "";
             for (let i=0; i<this.shape.length; i++) {
               row += this.shape[i][j];
-            }
-            if(j==this.shape[0].length-1){
-              firstLineNull = [...row].every(c => c==row[0]);
-              addLast = firstLineNull ? row+"\n" : null;
-            }
-            if((j==this.shape[0].length-1 && !firstLineNull) || j!=this.shape[0].length-1){
             }
             res += row + "\n";}
         let arr = (new RotatingShape(res)).shape;

@@ -62,12 +62,14 @@ export class RotatingShape{
           let row = "";
           for (let i=0; i<this.shape.length; i++) {
             row += this.shape[i][j];
-        }
-        if(j==this.shape[0].length-1){
-            firstLineNull = [...row].every(c => c==row[0]);
-            addLast = firstLineNull ? row+"\n" : null;
-        }
-          if((j==this.shape[0].length-1 && !firstLineNull) || j!=this.shape[0].length-1){
-            res += row + "\n";}}res += firstLineNull ? addLast : "";return new RotatingShape(res);
+            }
+            if(j==this.shape[0].length-1){
+                firstLineNull = [...row].every(c => c==row[0]);
+                addLast = firstLineNull ? row+"\n" : null;
+            }
+            if((j==this.shape[0].length-1 && !firstLineNull) || j!=this.shape[0].length-1){
+                res += row + "\n";
+            }
+        }res += firstLineNull ? addLast : "";return new RotatingShape(res);
       }
   }

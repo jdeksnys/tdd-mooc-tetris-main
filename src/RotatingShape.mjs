@@ -59,17 +59,21 @@ export class RotatingShape{
         for (let j=this.shape[0].length-1; j>=0; j--) {
             let row = "";
             for (let i=0; i<this.shape.length; i++) {
-            row += this.shape[i][j];
+              row += this.shape[i][j];
             }
             if(j==this.shape[0].length-1){
-                firstLineNull = [...row].every(c => c==row[0]);
-                addLast = firstLineNull ? row+"\n" : null;
+              firstLineNull = [...row].every(c => c==row[0]);
+              addLast = firstLineNull ? row+"\n" : null;
             }
             if((j==this.shape[0].length-1 && !firstLineNull) || j!=this.shape[0].length-1){
-                res += row + "\n";
             }
-        }
-        res += firstLineNull ? addLast : "";
+            res += row + "\n";}
+        let arr = (new RotatingShape(res)).shape;
+        let R_null = arr.every(rec => rec[rec.length-1] == arr[0][rec.length-1]);
+        let L_null = arr.every(rec => rec[0] == arr[0][0]);
+        let U_null = arr[0].every(c => c==arr[0]);
+        let B_null = arr[arr.length-1].every(c => c==arr[arr.length-1][0]);
+        if(R_null && U_null && L_null){let temp = arr[0];arr = arr.slice(1).push(temp);return arr;}
         return new RotatingShape(res);
       }
   }

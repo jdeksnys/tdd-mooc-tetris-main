@@ -40,16 +40,15 @@ export class RotatingShape{
     }
 
     rotateRight() {
-        let transposed = this.shape[0].map((char, col) =>
-            this.shape.map(row => row[col])
-        );
-        transposed = transposed.map(row => row.reverse());
-        let str = "";
-        transposed.forEach(row => {
-          row.forEach(char => str += char);
-          str += "\n";
-        })
-        return new RotatingShape(str);
+        let res = "";
+        for (let j=0; j<this.shape[0].length; j++) {
+          let row = "";
+          for (let i=this.shape.length-1; i>=0; i--) {
+            row += this.shape[i][j];
+          }
+          res += row + "\n";
+        }
+        return new RotatingShape(res);
     }
     
     rotateLeft() {

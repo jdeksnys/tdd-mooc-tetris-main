@@ -70,12 +70,17 @@ export class RotatingShape{
         let arr = (new RotatingShape(res)).shape;
         let R_null = arr.every(rec => rec[rec.length-1] == arr[0][rec.length-1]);
         let L_null = arr.every(rec => rec[0] == arr[0][0]);
-        let U_null = arr[0].every(c => c==arr[0]);
+        let U_null = arr[0].every(c => c==arr[0][0]);
         let B_null = arr[arr.length-1].every(c => c==arr[arr.length-1][0]);
         if(R_null && U_null && L_null){
-            let temp = arr[0];
-            arr = arr.slice(1).push(temp);
-            return arr;}
-        return new RotatingShape(res);
+            const firstArr = arr.shift();
+            arr.push(firstArr);
+        }
+        let res2 = "";
+        arr.forEach(row => {
+          let rowStr = "";
+          row.forEach(c => rowStr += c);
+          res2 += rowStr + "\n";})
+        return new RotatingShape(res2);
       }
   }

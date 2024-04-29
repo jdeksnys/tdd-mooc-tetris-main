@@ -48,6 +48,12 @@ export class RotatingShape{
           }
           res += row + "\n";
         }
+        // return new RotatingShape(res);
+        let arr = (new RotatingShape(res)).shape;
+        let R_null = arr.every(rec => rec[rec.length-1] == arr[0][rec.length-1]);
+        let L_null = arr.every(rec => rec[0] == arr[0][0]);
+        let U_null = arr[0].every(c => c==arr[0][0]);
+        let B_null = arr[arr.length-1].every(c => c==arr[arr.length-1][0]);
         return new RotatingShape(res);
     }
     

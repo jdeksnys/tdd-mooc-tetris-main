@@ -58,11 +58,11 @@ export class RotatingShape{
             const firstArr = arr.shift();
             arr.push(firstArr);
         }
-        let res2 = this.trimEdges(arr);
+        let res2 = this.arrToString(arr);
         return new RotatingShape(res2);
     }
-    
-    trimEdges(arr){
+
+    arrToString(arr){
         let res2 = "";
         arr.forEach(row => {
           let rowStr = "";
@@ -90,12 +90,7 @@ export class RotatingShape{
             const firstArr = arr.shift();
             arr.push(firstArr);
         }
-        let res2 = "";
-        arr.forEach(row => {
-          let rowStr = "";
-          row.forEach(c => rowStr += c);
-          res2 += rowStr + "\n";
-        })
+        let res2 = this.arrToString(arr);
         return new RotatingShape(res2);
       }
   }

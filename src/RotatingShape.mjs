@@ -54,13 +54,14 @@ export class RotatingShape{
         return new RotatingShape(str);
     }
     
-    rotateLeft() {
-        let transposed = this.shape[0].map((char, col) =>
-            this.shape.map(row => row[col]));
-        transposed = transposed.reverse();
-        let str = "";
-        transposed.forEach(row => {row.forEach(char => {
-            str += char;
-          });str += "\n";})
-        return new RotatingShape(str);}
+    rotateLeft() {let res = "";let addLast = null;let firstLineNull = true;
+        for (let j=this.shape[0].length-1; j>=0; j--) {
+          let row = "";
+          for (let i=0; i<this.shape.length; i++) {row += this.shape[i][j];}
+          if(j==this.shape[0].length-1){
+            firstLineNull = [...row].every(c => c==row[0]);
+            addLast = firstLineNull ? row+"\n" : null;}
+          if((j==this.shape[0].length-1 && !firstLineNull) || j!=this.shape[0].length-1){
+            res += row + "\n";}}res += firstLineNull ? addLast : "";return new RotatingShape(res);
+      }
   }

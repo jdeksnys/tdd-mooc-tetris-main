@@ -61,6 +61,8 @@ export class RotatingShape{
         if(R_null && U_null && L_null){
             const firstArr = arr.shift();
             arr.push(firstArr);
+        } else if(U_null && L_null && B_null){
+            
         }
         return arr;
     }

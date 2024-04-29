@@ -46,9 +46,7 @@ export class RotatingShape{
         transposed = transposed.map(row => row.reverse());
         let str = "";
         transposed.forEach(row => {
-          row.forEach(char => {
-            str += char;
-          })
+          row.forEach(char => str += char);
           str += "\n";
         })
         return new RotatingShape(str);

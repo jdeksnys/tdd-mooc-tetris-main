@@ -58,8 +58,7 @@ export class RotatingShape{
             const firstArr = arr.shift();
             arr.push(firstArr);
         }
-        let res2 = this.arrToString(arr);
-        return new RotatingShape(res2);
+        return new RotatingShape(this.arrToString(arr));
     }
 
     arrToString(arr){
@@ -90,7 +89,6 @@ export class RotatingShape{
             const firstArr = arr.shift();
             arr.push(firstArr);
         }
-        let res2 = this.arrToString(arr);
-        return new RotatingShape(res2);
+        return new RotatingShape(this.arrToString(arr));
       }
   }

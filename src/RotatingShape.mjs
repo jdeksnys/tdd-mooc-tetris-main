@@ -62,7 +62,10 @@ export class RotatingShape{
             const firstArr = arr.shift();
             arr.push(firstArr);
         } else if(U_null && L_null && B_null){
-            
+            arr.forEach(row => {
+                let firsChar = row.shift();
+                row.push(firsChar);
+            })
         }
         return arr;
     }

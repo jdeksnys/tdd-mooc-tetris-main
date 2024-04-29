@@ -66,7 +66,11 @@ export class RotatingShape{
                 let firsChar = row.shift();
                 row.push(firsChar);
             })
-        } else if(L_null && U_null){
+        } else if(!L_null && !U_null && B_null && R_null){
+            arr.forEach(row => {
+                let lastChar = row.pop();
+                row.unshift(lastChar);
+            })
         }
         return arr;
     }

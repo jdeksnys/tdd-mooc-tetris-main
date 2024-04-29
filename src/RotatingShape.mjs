@@ -62,7 +62,8 @@ export class RotatingShape{
         arr.forEach(row => {
           let rowStr = "";
           row.forEach(c => rowStr += c);
-          res2 += rowStr + "\n";})
+          res2 += rowStr + "\n";
+        })
         return new RotatingShape(res2);
     }
     

@@ -101,7 +101,7 @@ describe("The O shape", () => {
     );
   });
 
-  test.skip("cannot be rotated right/clockwise", () => {
+  test("cannot be rotated right/clockwise", () => {
     expect(shape.rotateRight().toString()).to.equalShape(
       `.OO
        .OO

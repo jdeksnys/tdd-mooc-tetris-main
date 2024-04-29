@@ -58,7 +58,7 @@ export class RotatingShape{
         let L_null = arr.every(rec => rec[0] == arr[0][0]);
         let U_null = arr[0].every(c => c==arr[0][0]);
         let B_null = arr[arr.length-1].every(c => c==arr[arr.length-1][0]);
-        if(R_null && U_null && L_null){
+        if((R_null && U_null && L_null) || (L_null && U_null && !R_null && !B_null)){
             const firstArr = arr.shift();
             arr.push(firstArr);
         } else if(U_null && L_null && B_null){
@@ -66,6 +66,7 @@ export class RotatingShape{
                 let firsChar = row.shift();
                 row.push(firsChar);
             })
+        } else if(L_null && U_null){
         }
         return arr;
     }

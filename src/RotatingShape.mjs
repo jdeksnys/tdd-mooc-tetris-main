@@ -60,10 +60,13 @@ export class RotatingShape{
         let firstLineNull = true;
         for (let j=this.shape[0].length-1; j>=0; j--) {
           let row = "";
-          for (let i=0; i<this.shape.length; i++) {row += this.shape[i][j];}
-          if(j==this.shape[0].length-1){
+          for (let i=0; i<this.shape.length; i++) {
+            row += this.shape[i][j];
+        }
+        if(j==this.shape[0].length-1){
             firstLineNull = [...row].every(c => c==row[0]);
-            addLast = firstLineNull ? row+"\n" : null;}
+            addLast = firstLineNull ? row+"\n" : null;
+        }
           if((j==this.shape[0].length-1 && !firstLineNull) || j!=this.shape[0].length-1){
             res += row + "\n";}}res += firstLineNull ? addLast : "";return new RotatingShape(res);
       }

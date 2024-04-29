@@ -48,7 +48,6 @@ export class RotatingShape{
           }
           res += row + "\n";
         }
-        // return new RotatingShape(res);
         let arr = (new RotatingShape(res)).shape;
         arr = this.trimEdges(arr);
         return new RotatingShape(this.arrToString(arr));
@@ -86,14 +85,7 @@ export class RotatingShape{
             }
             res += row + "\n";}
         let arr = (new RotatingShape(res)).shape;
-        let R_null = arr.every(rec => rec[rec.length-1] == arr[0][rec.length-1]);
-        let L_null = arr.every(rec => rec[0] == arr[0][0]);
-        let U_null = arr[0].every(c => c==arr[0][0]);
-        let B_null = arr[arr.length-1].every(c => c==arr[arr.length-1][0]);
-        if(R_null && U_null && L_null){
-            const firstArr = arr.shift();
-            arr.push(firstArr);
-        }
+        arr = this.trimEdges(arr);
         return new RotatingShape(this.arrToString(arr));
       }
   }

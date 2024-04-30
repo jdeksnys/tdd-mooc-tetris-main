@@ -76,18 +76,17 @@ export class RotatingShape{
     }
 
     arrToString(arr){
-        let res2 = "";
+        let res = "";
         arr.forEach(row => {
           let rowStr = "";
           row.forEach(c => rowStr += c);
-          res2 += rowStr + "\n";
+          res += rowStr + "\n";
         })
-        return res2;
+        return res;
     }
     
     rotateLeft() {
         let res = "";
-        let firstLineNull = true;
         for (let j=this.shape[0].length-1; j>=0; j--) {
             let row = "";
             for (let i=0; i<this.shape.length; i++) {

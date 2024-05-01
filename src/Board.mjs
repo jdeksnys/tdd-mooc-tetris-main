@@ -42,8 +42,9 @@ export class Board {
     }
     this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock(val, this.width, this.height);
+    let actual_rows = this.get_shape_actual_rows();
     if (val) {
-      for(let j=this.fallBlock.y_pos; j<this.fallBlock.shape.rows; j++){
+      for(let j=this.fallBlock.y_pos; j<actual_rows; j++){
         for(let i=0; i<this.fallBlock.shape.cols; i++){
           this.board[j][i+this.fallBlock.x_pos] = this.fallBlock.shape.shape[j][i];
         }
@@ -51,32 +52,61 @@ export class Board {
     }
   }
 
+  get_shape_actual_rows(){
+    let res = 0;
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      let line_empty = true;
+      for(let j=0; j<this.fallBlock.shape.cols; j++){
+        let test = this.fallBlock.shape.shape[i][j];
+        if (test != ".") {
+          line_empty = false;
+        }
+      }
+      if(!line_empty){
+        res += 1;
+      }
+    }
+    return res;
+  }
+
   tick() {
     if (!this.hasFalling) {
       return;
     }
     let heightToEnd_ = this.heightToEnd();
-    if (heightToEnd_ > 0) {
-      this.board[this.fallBlock.y_pos][this.fallBlock.x_pos] = ".";
-      this.fallBlock.y_pos += 1;
-      this.board[this.fallBlock.y_pos][this.fallBlock.x_pos] = this.fallBlock.shape;
-    } else if (this.fallBlock.y_pos + 1 == this.height || heightToEnd_ == 0) {
+    // if (this.fallBlock.y_pos + this.fallBlock.shape.cols == this.height || heightToEnd_ == 0) {
+    if (heightToEnd_ == 0) {
       this.hasFallingBlock = false;
+    }
+    let actual_rows = this.get_shape_actual_rows();
+    for(let h=0; h<heightToEnd_; h++){
+      for(let i = this.fallBlock.y_pos+actual_rows-1; i>=0; i--) {
+        for(let j=0; j<this.fallBlock.shape.cols; j++) {
+          let y = this.fallBlock.x_pos+j;
+          this.board[i+1][y] = this.board[i][y];
+          this.board[i][y] = ".";
+        }
+        heightToEnd_ -= 1;
+      }
+      this.fallBlock.y_pos += 1;
     }
   }
 
   hasFalling = () => this.hasFallingBlock;
 
-  heightToEnd() {
+  heightToEnd () {
     if (!this.hasFallingBlock) {
       return 0;
     }
     let height = 0;
     let has_start = false;
-    for (let i = this.fallBlock.y_pos; i < this.height - 1; i++) {
+
+    for (let i = this.fallBlock.y_pos; i < this.height; i++) {
       let line_empty = true;
+    
       for(let j=0; j<this.fallBlock.shape.cols; j++){
-        if (this.board[i][this.fallBlock.x_pos+j] != ".") {
+        let test = this.board[i][this.fallBlock.x_pos+j];
+        if (test != ".") {
           line_empty = false;
         }
       }

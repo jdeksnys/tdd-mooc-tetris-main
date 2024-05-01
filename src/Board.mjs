@@ -1,3 +1,5 @@
+import { RotatingShape } from "./RotatingShape.mjs";
+
 export class Board {
   width;
   height;
@@ -37,6 +39,10 @@ export class Board {
   }
 
   drop(val) {
+    if (typeof val === 'string') {
+      debugger;
+      val = new RotatingShape(val);
+    }
     if (this.hasFallingBlock) {
       throw new Error("already falling");
     }
@@ -126,7 +132,8 @@ class FallingBlock {
   y_pos;
   shape;
   constructor(shape, board_width, board_height) {
-    this.x_pos = Math.floor(board_width / 2) - Math.round(shape.cols/2);
+    let temp = shape.cols==1 ? 0 : Math.round(shape.cols/2);
+    this.x_pos = Math.floor(board_width / 2) - temp;
     this.y_pos = 0;
     this.shape = shape;
   }

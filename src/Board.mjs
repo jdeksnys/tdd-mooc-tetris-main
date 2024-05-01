@@ -43,9 +43,9 @@ export class Board {
     this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock(val, this.width, this.height);
     if (val) {
-      for(let j=this.fallBlock.y; j<this.fallBlock.shape.rows; j++){
+      for(let j=this.fallBlock.y_pos; j<this.fallBlock.shape.rows; j++){
         for(let i=0; i<this.fallBlock.shape.cols; i++){
-          this.board[j][i+this.fallBlock.x] = this.fallBlock.shape.shape[j][i];
+          this.board[j][i+this.fallBlock.x_pos] = this.fallBlock.shape.shape[j][i];
         }
       }
     }
@@ -57,10 +57,10 @@ export class Board {
     }
     let heightToEnd_ = this.heightToEnd();
     if (heightToEnd_ > 0) {
-      this.board[this.fallBlock.y][this.fallBlock.x] = ".";
-      this.fallBlock.y += 1;
-      this.board[this.fallBlock.y][this.fallBlock.x] = this.fallBlock.shape;
-    } else if (this.fallBlock.y + 1 == this.height || heightToEnd_ == 0) {
+      this.board[this.fallBlock.y_pos][this.fallBlock.x_pos] = ".";
+      this.fallBlock.y_pos += 1;
+      this.board[this.fallBlock.y_pos][this.fallBlock.x_pos] = this.fallBlock.shape;
+    } else if (this.fallBlock.y_pos + 1 == this.height || heightToEnd_ == 0) {
       this.hasFallingBlock = false;
     }
   }
@@ -72,8 +72,8 @@ export class Board {
       return 0;
     }
     let height = 0;
-    for (let i = this.fallBlock.y; i < this.height - 1; i++) {
-      if (this.board[i + 1][this.fallBlock.x] != ".") {
+    for (let i = this.fallBlock.y_pos; i < this.height - 1; i++) {
+      if (this.board[i + 1][this.fallBlock.x_pos] != ".") {
         return height;
       }
       height += 1;
@@ -83,12 +83,12 @@ export class Board {
 }
 
 class FallingBlock {
-  x;
-  y;
+  x_pos;
+  y_pos;
   shape;
   constructor(shape, board_width, board_height) {
-    this.x = Math.floor(board_width / 2) - Math.round(shape.cols/2);
-    this.y = 0;
+    this.x_pos = Math.floor(board_width / 2) - Math.round(shape.cols/2);
+    this.y_pos = 0;
     this.shape = shape;
   }
 }

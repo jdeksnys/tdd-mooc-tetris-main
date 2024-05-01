@@ -16,7 +16,7 @@ export class Board {
   toString() {
     let boardStr = "";
     for (let i = 0; i < this.height; i++) {
-      for (let j = 0; j < this.height; j++) {
+      for (let j = 0; j < this.width; j++) {
         boardStr += this.board[i][j];
       }
       boardStr += "\n";
@@ -28,7 +28,7 @@ export class Board {
     let board = [];
     for (let i = 0; i < this.height; i++) {
       let row = [];
-      for (let j = 0; j < this.height; j++) {
+      for (let j = 0; j < this.width; j++) {
         row.push(".");
       }
       board.push(row);
@@ -43,7 +43,11 @@ export class Board {
     this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock(val, this.width, this.height);
     if (val) {
-      this.board[0][this.fallBlock.x] = this.fallBlock.shape;
+      for(let j=this.fallBlock.y; j<this.fallBlock.shape.rows; j++){
+        for(let i=0; i<this.fallBlock.shape.cols; i++){
+          this.board[j][i+this.fallBlock.x] = this.fallBlock.shape.shape[j][i];
+        }
+      }
     }
   }
 
@@ -83,7 +87,7 @@ class FallingBlock {
   y;
   shape;
   constructor(shape, board_width, board_height) {
-    this.x = Math.floor(board_width / 2);
+    this.x = Math.floor(board_width / 2) - Math.round(shape.cols/2);
     this.y = 0;
     this.shape = shape;
   }

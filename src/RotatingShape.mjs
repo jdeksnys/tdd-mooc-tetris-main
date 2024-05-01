@@ -10,6 +10,7 @@ export class RotatingShape{
             if(str[i] == '\t' || str[i] == ' '){
                 continue;
             }
+            cols += 1;
             if(i == str.length-1 || str[i] == '\n'){
                 if(str[i] != '\n'){
                     row.push(str[i]);
@@ -22,7 +23,6 @@ export class RotatingShape{
                 continue;
             }
             row.push(str[i]);
-            cols += 1;
         }
     }
     

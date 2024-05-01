@@ -76,8 +76,7 @@ export class Board {
     for (let i = this.fallBlock.y_pos; i < this.height - 1; i++) {
       let line_empty = true;
       for(let j=0; j<this.fallBlock.shape.cols; j++){
-        let test = this.board[i][this.fallBlock.x_pos+j];
-        if (test != ".") {
+        if (this.board[i][this.fallBlock.x_pos+j] != ".") {
           line_empty = false;
         }
       }

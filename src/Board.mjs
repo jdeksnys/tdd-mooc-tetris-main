@@ -113,7 +113,16 @@ export class Board {
     let dist_to_walls = {};
     let actual_rows = this.get_shape_actual_rows();
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
-
+      let r_ended = false;
+      let dist = 0;
+      for(let j=this.get_shape_R_most_coord(i)+1; j<this.board[0].length; j++){
+        if(!r_ended){
+          dist += 1;
+        }
+        if (this.board[i][j] != "."){
+          r_ended = true;
+        }
+      }
       dist_to_walls[i.toString()] = dist;
     }
     return dist_to_walls;

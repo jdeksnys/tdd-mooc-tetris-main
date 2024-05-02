@@ -95,12 +95,6 @@ export class Board {
     }
   }
 
-  get_L_most_wall(){
-    let l_started = false;
-    for(let j=0; j<this.fallBlock.shape.cols; j++){
-    }
-  }
-
   tick() {
     if (!this.hasFalling) {
       return;

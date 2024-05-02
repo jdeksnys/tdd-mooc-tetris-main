@@ -176,13 +176,6 @@ export class Board {
     return height;
   }
 
-  moveLeft2() {
-    if(!this.hasFalling()){
-      return;
-    }
-    this.fallBlock.x_pos -= 1;
-  }
-
   moveLeft() {
     if(!this.hasFalling()){
       return;

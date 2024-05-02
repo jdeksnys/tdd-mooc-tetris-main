@@ -195,13 +195,14 @@ export class Board {
       return 0;
     }
     let heights = {};
-    let has_start = false;
     
     for(let j=this.fallBlock.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
+      let shape_started = false;
       
       for (let i = this.fallBlock.y_pos; i < this.height; i++) {
+        if(i<=this.fallBlock.y_pos+this.fallBlock.rows && this.board[i][j] != "." && !shape_started){}
       }
-      
+
     }
     return heights;
   }

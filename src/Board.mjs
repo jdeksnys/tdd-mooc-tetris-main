@@ -200,20 +200,26 @@ export class Board {
     
     for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
       let shape_started = false;
+      let shape_ended = false;
       let col_height = 0;
       
       for (let i = this.fallBlock.y_pos; i < this.height; i++) {
-        if(i<=this.fallBlock.y_pos+this.fallBlock.rows && this.board[i][j] != "." && !shape_started){
+        if(i<=this.fallBlock.y_pos+this.fallBlock.shape.rows && this.board[i][j] != "." && !shape_started){
           shape_started = true;
         } else if(shape_started){
           if(this.board[i][j] == "."){
-            col_height += 1;
+            if(!shape_ended){
+              col_height += 1;
+            } else {
+              shape_ended = true;
+            }
           } else {
-            heights[i.toString()] = col_height;
+            if(shape_ended){
+              heights[i.toString()] = col_height;
+            }
           }
         }
       }
-
     }
     return heights;
   }

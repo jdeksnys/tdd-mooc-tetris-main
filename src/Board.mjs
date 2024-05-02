@@ -85,14 +85,12 @@ export class Board {
     }
   }
 
-  get_L_most_coord(){
+  get_dist_to_wall_L(){
     let dist_to_walls = {};
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-
       let r_started = false;
       let r_ended = false;
       let dist = 0;
-
       for(let j=this.fallBlock.x_pos+this.fallBlock.shape.cols-1; j>=0; j--){
         if(r_started && !r_ended){
           dist += 1;
@@ -162,8 +160,7 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    // let dist_to_wall = this.get_L_most_coord();
-    let dist_to_wall = Math.min(Object.values(this.get_L_most_coord()));
+    let dist_to_wall = Math.min(Object.values(this.get_dist_to_wall_L()));
     if(dist_to_wall <= 0){
       return;
     }

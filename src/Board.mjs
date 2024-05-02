@@ -94,7 +94,7 @@ export class Board {
       let dist = 0;
 
       for(let j=this.fallBlock.x_pos+this.fallBlock.cols-1; j>=0; j--){
-        if(r_started){
+        if(r_started && !r_ended){
           dist += 1;
         }
         if (this.fallBlock.shape.shape[i][j] != "."){
@@ -107,8 +107,6 @@ export class Board {
         }
       }
     }
-
-
     for(let j=0; j<this.fallBlock.shape.cols; j++){
       for(let i=0; i<this.fallBlock.shape.rows; i++){
         if (this.fallBlock.shape.shape[i][j] != ".") {

@@ -126,11 +126,11 @@ export class Board {
   get_dist_to_wall_L(){
     let dist_to_walls = {};
     let actual_rows = this.get_shape_actual_rows();
-    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
+    for(let i=0; i<actual_rows; i++){
       let l_ended = false;
       let dist = 0;
       for(let j=this.get_shape_L_most_coord(i)-1; j>=0; j--){
-        if (this.board[i][j] != "."){
+        if (this.board[i+this.fallBlock.y_pos][j] != "."){
           l_ended = true;
         }
         if(!l_ended){

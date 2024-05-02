@@ -98,6 +98,13 @@ export class Board {
   get_L_most_wall(){
     let l_started = false;
     for(let j=0; j<this.fallBlock.shape.cols; j++){
+      for(let i=0; i<this.rows; i++){
+        if (this.fallBlock.shape.shape[i][j] != ".") {
+          if(!l_started){
+            l_started = true;
+          }
+        }
+      }
     }
   }
 

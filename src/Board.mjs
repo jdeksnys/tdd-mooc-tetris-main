@@ -86,10 +86,12 @@ export class Board {
   }
 
   get_L_most_coord(){
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
       let r_started = false;
       for(let j=this.fallBlock.x_pos+this.fallBlock.cols-1; j>=0; j--){
-        
+        if (this.fallBlock.shape.shape[i][j] != "."){
+          // if(r_started)
+        }
       }
     }
 

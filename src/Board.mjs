@@ -202,13 +202,6 @@ export class Board {
       
       for(let j=0; j<this.fallBlock.shape.cols; j++){
       }
-      
-      if(line_empty && !has_start){
-        has_start = true;
-      } else if(!line_empty && has_start){
-        return height;
-      }
-      height += 1 ? has_start : 0;
     }
     return height;
   }

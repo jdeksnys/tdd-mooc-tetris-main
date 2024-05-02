@@ -75,7 +75,13 @@ export class Board {
     return res;
   }
 
-  get_shape_R_most_coord(shape_row){for(let j=this.fallBlock.shape.cols-1; j>=0; j--){if (this.fallBlock.shape.shape[shape_row][j] != ".") {return this.fallBlock.x_pos + j;}}}
+  get_shape_R_most_coord(shape_row){
+    for(let j=this.fallBlock.shape.cols-1; j>=0; j--){
+      if (this.fallBlock.shape.shape[shape_row][j] != ".") {
+        return this.fallBlock.x_pos + j;
+      }
+    }
+  }
 
   get_dist_to_wall_R(){
     let dist_to_walls = {};

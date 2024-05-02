@@ -196,7 +196,14 @@ export class Board {
     let height = 0;
     let has_start = false;
     for (let i = this.fallBlock.y_pos; i < this.height; i++) {
-      height += 1 ? has_start : 0;}
+      let line_empty = true;
+      if(line_empty && !has_start){
+        has_start = true;
+      } else if(!line_empty && has_start){
+        return height;
+      }
+      height += 1 ? has_start : 0;
+    }
     return height;
   }
 

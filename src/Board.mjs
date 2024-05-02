@@ -203,6 +203,14 @@ export class Board {
     if(dist_to_wall <= 0){
       return;
     }
+    let actual_rows = this.get_shape_actual_rows()
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
+      for(let j=this.get_shape_R_most_coord(i); j>this.get_shape_R_most_coord(i)-this.fallBlock.shape.cols; j--){
+          this.board[i][j+1] = this.board[i][j];
+          this.board[i][j] = ".";
+      }
+    }
+    this.fallBlock.x_pos += 1;
   }
   
   moveRight() {

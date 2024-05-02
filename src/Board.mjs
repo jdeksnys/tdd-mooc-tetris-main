@@ -194,16 +194,13 @@ export class Board {
     if (!this.hasFallingBlock) {
       return 0;
     }
-    let height = 0;
-    let has_start = false;
+    let heights = {};
     
     for (let i = this.fallBlock.y_pos; i < this.height; i++) {
-      let line_empty = true;
-      
       for(let j=0; j<this.fallBlock.shape.cols; j++){
       }
     }
-    return height;
+    return heights;
   }
 
   moveLeft() {

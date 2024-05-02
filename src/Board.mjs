@@ -245,7 +245,7 @@ export class Board {
 
   updateFallblockInBoard(clean=false){
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      for(let j=0; i<this.fallBlock.shape.cols; j++){
+      for(let j=0; j<this.fallBlock.shape.cols; j++){
         if(clean){
           if(this.fallBlock.shape[i][j] != "."){
             this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = ".";

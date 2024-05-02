@@ -75,14 +75,14 @@ export class Board {
     return res;
   }
 
-  get_R_most_coord(){
-    for(let j=this.fallBlock.shape.cols-1; j>=0; j--){
-      for(let i=0; i<this.fallBlock.shape.rows; i++){
-        if (this.fallBlock.shape.shape[i][j] != ".") {
-          return this.fallBlock.x_pos + j;
-        }
+  get_shape_R_most_coord(shape_row){for(let j=this.fallBlock.shape.cols-1; j>=0; j--){if (this.fallBlock.shape.shape[shape_row][j] != ".") {return this.fallBlock.x_pos + j;}}}
+
+  get_dist_to_wall_R(){
+    let dist_to_walls = {};let actual_rows = this.get_shape_actual_rows();for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){let r_ended = false;let dist = 0;for(let j=this.get_shape_R_most_coord(i)+1; j<this.board[0].length; j++){if(!r_ended){dist += 1;}if (this.board[i][j] != "."){r_ended = true;}
       }
+      dist_to_walls[i.toString()] = dist;
     }
+    return dist_to_walls;
   }
 
   get_dist_to_wall_L(){
@@ -179,12 +179,13 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    let dist_to_wall = this.board[0].length - 1 - this.get_R_most_coord()
+    let dist_to_wall = Math.min(...Object.values(this.get_dist_to_wall_R()));
     if(dist_to_wall <= 0){
       return;
     }
-    for(let j=this.get_R_most_coord(); j>=this.fallBlock.x_pos; j--){
-      for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
+    let actual_rows = this.get_shape_actual_rows()
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
+      for(let j=this.get_shape_R_most_coord(i); j>this.get_shape_R_most_coord(i)-this.fallBlock.shape.cols; j--){
           this.board[i][j+1] = this.board[i][j];
           this.board[i][j] = ".";
       }

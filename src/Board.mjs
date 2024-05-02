@@ -240,6 +240,15 @@ export class Board {
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.x_pos, this.y_pos);
   }
+
+  updateFallblockInBoard(clean=false){
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      for(let j=0; i<this.fallBlock.shape.cols; j++){
+        if(clean){
+        }
+      }
+    }
+  }
 }
 
 class FallingBlock {

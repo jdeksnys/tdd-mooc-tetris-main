@@ -173,18 +173,8 @@ export class Board {
   hasFalling = () => this.hasFallingBlock;
 
   heightToEnd () {
-    if (!this.hasFallingBlock) {
-      return 0;
-    }
-    let height = 0;
-    let has_start = false;
-
     for (let i = this.fallBlock.y_pos; i < this.height; i++) {
       for(let j=0; j<this.fallBlock.shape.cols; j++){
-        let test = this.board[i][this.fallBlock.x_pos+j];
-        if (test != ".") {
-          line_empty = false;
-        }
       }
     }
     return height;

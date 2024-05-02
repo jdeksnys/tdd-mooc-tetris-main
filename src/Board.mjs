@@ -77,6 +77,13 @@ export class Board {
   get_shape_actual_cols(){
     let res = {};
     for(let i=0; i<this.get_shape_actual_rows(); i++){
+      let cols = 0;
+      for(let j=0; j<this.fallBlock.shape.cols; j++){
+        if (this.fallBlock.shape.shape[i][j] != ".") {;
+          cols += 1;
+        }
+      }
+      res[(i+this.fallBlock.y_pos).toString()] = cols;
     }
     return res;
   }

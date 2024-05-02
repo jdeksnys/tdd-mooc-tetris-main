@@ -137,6 +137,13 @@ export class Board {
       }
     }
   }
+  moveRight() {
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
+      for(let j=this.fallBlock.x_pos+this.fallBlock.shape.cols; j>=this.fallBlock.x_pos; j--){
+        this.board[i][j+1] = this.board[i][j];
+        this.board[i][j] = ".";
+      }
+    }}
 }
 
 class FallingBlock {

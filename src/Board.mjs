@@ -84,8 +84,9 @@ export class Board {
       }
     }
   }
+
   get_L_most_coord(){
-    for(let j=0; j<this.shape.x_pos+this.fallBlock.shape.cols; j--){
+    for(let j=0; j<this.fallBlock.shape.cols; j++){
       for(let i=0; i<this.fallBlock.shape.rows; i++){
         if (this.fallBlock.shape.shape[i][j] != ".") {
           return this.fallBlock.x_pos + j;
@@ -146,9 +147,9 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    let dist_to_wall = this.get_R_most_coord();
+    let dist_to_wall = this.get_L_most_coord();
     if(dist_to_wall <= 0){
-
+      return
     }
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
       for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){

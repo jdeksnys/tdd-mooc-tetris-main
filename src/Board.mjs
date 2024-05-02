@@ -95,6 +95,12 @@ export class Board {
     }
   }
 
+  get_L_most_wall(){
+    let l_started = false;
+    for(let j=0; j<this.fallBlock.shape.cols; j++){
+    }
+  }
+
   tick() {
     if (!this.hasFalling) {
       return;
@@ -149,7 +155,7 @@ export class Board {
     }
     let dist_to_wall = this.get_L_most_coord();
     if(dist_to_wall <= 0){
-      return
+      return;
     }
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
       for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){

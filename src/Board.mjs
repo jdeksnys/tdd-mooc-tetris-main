@@ -135,6 +135,7 @@ export class Board {
         this.board[i][j] = ".";
       }
     }
+    this.fallBlock.x_pos -= 1;
   }
   
   moveRight() {
@@ -147,6 +148,7 @@ export class Board {
         this.board[i][j] = ".";
       }
     }
+    this.fallBlock.x_pos += 1;
   }
 
   moveDown() {

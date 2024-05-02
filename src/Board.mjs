@@ -201,6 +201,13 @@ export class Board {
   }
 
   heightToEnd2 () {
+    if (!this.hasFallingBlock) {
+      return 0;
+    }
+    let heights = {};
+    for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
+    }
+    return heights;
   }
 
   moveLeft() {

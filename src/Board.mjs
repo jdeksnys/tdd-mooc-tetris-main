@@ -83,7 +83,15 @@ export class Board {
         }
       }
     }
-    return this.fallBlock.x_pos + j;
+  }
+  get_L_most_coord(){
+    for(let j=0; j<this.shape.x_pos+this.fallBlock.shape.cols; j--){
+      for(let i=0; i<this.fallBlock.shape.rows; i++){
+        if (this.fallBlock.shape.shape[i][j] != ".") {
+          return this.fallBlock.x_pos + j;
+        }
+      }
+    }
   }
 
   tick() {

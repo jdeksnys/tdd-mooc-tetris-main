@@ -200,7 +200,11 @@ export class Board {
       let shape_started = false;
       
       for (let i = this.fallBlock.y_pos; i < this.height; i++) {
-        if(i<=this.fallBlock.y_pos+this.fallBlock.rows && this.board[i][j] != "." && !shape_started){}
+        if(i<=this.fallBlock.y_pos+this.fallBlock.rows && this.board[i][j] != "." && !shape_started){
+          shape_started = true;
+        } else if(shape_started && this.board[i][j] == "."){
+          
+        }
       }
 
     }

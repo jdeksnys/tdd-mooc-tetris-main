@@ -185,7 +185,7 @@ describe("Moving falling tetrominoes", () => {
     );
   });
 
-  test.skip("cannot be moved down (rot-right-fit) onto another block", () => {
+  test("cannot be moved down (rot-right-fit) onto another block", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
 

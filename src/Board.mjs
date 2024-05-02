@@ -78,7 +78,16 @@ export class Board {
   get_shape_R_most_coord(shape_row){for(let j=this.fallBlock.shape.cols-1; j>=0; j--){if (this.fallBlock.shape.shape[shape_row][j] != ".") {return this.fallBlock.x_pos + j;}}}
 
   get_dist_to_wall_R(){
-    let dist_to_walls = {};let actual_rows = this.get_shape_actual_rows();for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){let r_ended = false;let dist = 0;for(let j=this.get_shape_R_most_coord(i)+1; j<this.board[0].length; j++){if(!r_ended){dist += 1;}if (this.board[i][j] != "."){r_ended = true;}
+    let dist_to_walls = {};
+    let actual_rows = this.get_shape_actual_rows();
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
+      let r_ended = false;
+      let dist = 0;
+      for(let j=this.get_shape_R_most_coord(i)+1; j<this.board[0].length; j++){
+        if(!r_ended){
+          dist += 1;
+        }
+        if (this.board[i][j] != "."){r_ended = true;}
       }
       dist_to_walls[i.toString()] = dist;
     }

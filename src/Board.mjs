@@ -197,9 +197,11 @@ export class Board {
     let heights = {};
     let has_start = false;
     
-    for(let j=0; j<this.fallBlock.shape.cols; j++){
+    for(let j=this.fallBlock.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
+      
       for (let i = this.fallBlock.y_pos; i < this.height; i++) {
       }
+      
     }
     return heights;
   }

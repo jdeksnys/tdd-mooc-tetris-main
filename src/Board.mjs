@@ -40,7 +40,6 @@ export class Board {
 
   drop(val) {
     if (typeof val === 'string') {
-      debugger;
       val = new RotatingShape(val);
     }
     if (this.hasFallingBlock) {

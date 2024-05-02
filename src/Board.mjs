@@ -80,7 +80,6 @@ export class Board {
       return;
     }
     let heightToEnd_ = this.heightToEnd();
-    // if (this.fallBlock.y_pos + this.fallBlock.shape.cols == this.height || heightToEnd_ == 0) {
     if (heightToEnd_ == 0) {
       this.hasFallingBlock = false;
     }
@@ -148,6 +147,10 @@ export class Board {
         this.board[i][j] = ".";
       }
     }
+  }
+
+  moveDown() {
+    this.tick();
   }
 }
 

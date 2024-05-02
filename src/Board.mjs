@@ -147,6 +147,8 @@ export class Board {
       return;
     }
     let heightToEnd_ = this.heightToEnd();
+    let heights = this.heightToEnd2();
+    // if (Math.min(...Object.values(heights)) == 0) {
     if (heightToEnd_ == 0) {
       this.hasFallingBlock = false;
       return;
@@ -196,7 +198,7 @@ export class Board {
     }
     let heights = {};
     
-    for(let j=this.fallBlock.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
+    for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
       let shape_started = false;
       let col_height = 0;
       

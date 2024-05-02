@@ -166,7 +166,7 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    let dist_to_wall = this.board.cols - 1 - this.get_R_most_coord()
+    let dist_to_wall = this.board[0].length - 1 - this.get_R_most_coord()
     if(dist_to_wall <= 0){
       return;
     }

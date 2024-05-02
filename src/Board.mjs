@@ -115,7 +115,7 @@ export class Board {
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
       let l_ended = false;
       let dist = 0;
-      for(let j=this.get_shape_L_most_coord(i)-1; j>=0; j++){
+      for(let j=this.get_shape_L_most_coord(i)-1; j>=0; j--){
         if(!l_ended){
           dist += 1;
         }
@@ -138,13 +138,7 @@ export class Board {
         if(l_started && !l_ended){
           dist += 1;
         }
-        if (this.board[i][j] != "."){
-          if(!l_started){
-            l_started = true;
-          } else if(!l_ended){
-            l_ended = true;
-          }
-        }
+
       }
       dist_to_walls[i.toString()] = dist;
     }

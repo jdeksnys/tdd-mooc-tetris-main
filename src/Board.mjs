@@ -238,7 +238,9 @@ export class Board {
     }
     debugger;
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
+    this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.x_pos, this.y_pos);
+    this.updateFallblockInBoard(false);
   }
 
   updateFallblockInBoard(clean=false){

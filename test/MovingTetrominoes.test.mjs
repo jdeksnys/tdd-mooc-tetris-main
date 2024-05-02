@@ -75,6 +75,8 @@ describe("Moving falling tetrominoes", () => {
     board.moveLeft();
     board.moveLeft();
     board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
     expect(board.toString()).to.equalShape(
       `.T........
        TTT.......
@@ -87,6 +89,8 @@ describe("Moving falling tetrominoes", () => {
 
   test.skip("cannot be moved right beyond the board", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.moveRight();
+    board.moveRight();
     board.moveRight();
     board.moveRight();
     board.moveRight();

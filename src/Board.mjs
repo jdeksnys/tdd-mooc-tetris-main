@@ -82,6 +82,14 @@ export class Board {
     }
   }
 
+  get_shape_L_most_coord(shape_row){
+    for(let j=0; j<this.fallBlock.shape.cols; j++){
+      if (this.fallBlock.shape.shape[shape_row][j] != ".") {
+        return this.fallBlock.x_pos + j;
+      }
+    }
+  }
+
   get_dist_to_wall_R(){
     let dist_to_walls = {};
     let actual_rows = this.get_shape_actual_rows();

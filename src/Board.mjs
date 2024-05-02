@@ -131,16 +131,7 @@ export class Board {
   get_dist_to_wall_L3(){
     let dist_to_walls = {};
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-      let l_started = false;
-      let l_ended = false;
-      let dist = 0;
-      for(let j=this.fallBlock.x_pos+this.fallBlock.shape.cols-1; j>=0; j--){
-        if(l_started && !l_ended){
-          dist += 1;
-        }
 
-      }
-      dist_to_walls[i.toString()] = dist;
     }
     return dist_to_walls;
   }

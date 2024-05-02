@@ -93,27 +93,21 @@ export class Board {
       let r_ended = false;
       let dist = 0;
 
-      for(let j=this.fallBlock.x_pos+this.fallBlock.cols-1; j>=0; j--){
+      for(let j=this.fallBlock.x_pos+this.fallBlock.shape.cols-1; j>=0; j--){
         if(r_started && !r_ended){
           dist += 1;
         }
-        if (this.fallBlock.shape.shape[i][j] != "."){
+        if (this.board[i][j] != "."){
           if(!r_started){
             r_started = true;
           } else if(!r_ended){
             r_ended = true;
-            dist_to_walls[i.toString()] = dist;
           }
         }
       }
+      dist_to_walls[i.toString()] = dist;
     }
-    for(let j=0; j<this.fallBlock.shape.cols; j++){
-      for(let i=0; i<this.fallBlock.shape.rows; i++){
-        if (this.fallBlock.shape.shape[i][j] != ".") {
-          return this.fallBlock.x_pos + j;
-        }
-      }
-    }
+    return dist_to_walls;
   }
 
   tick() {
@@ -168,7 +162,8 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    let dist_to_wall = this.get_L_most_coord();
+    // let dist_to_wall = this.get_L_most_coord();
+    let dist_to_wall = Math.min(Object.values(this.get_L_most_coord()));
     if(dist_to_wall <= 0){
       return;
     }

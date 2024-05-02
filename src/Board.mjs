@@ -128,14 +128,6 @@ export class Board {
     return dist_to_walls;
   }
 
-  get_dist_to_wall_L3(){
-    let dist_to_walls = {};
-    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-
-    }
-    return dist_to_walls;
-  }
-
   tick() {
     if (!this.hasFalling) {
       return;
@@ -201,6 +193,16 @@ export class Board {
       }
     }
     this.fallBlock.x_pos -= 1;
+  }
+
+  moveLeft2() {
+    if(!this.hasFalling()){
+      return;
+    }
+    let dist_to_wall = Math.min(...Object.values(this.get_dist_to_wall_R()));
+    if(dist_to_wall <= 0){
+      return;
+    }
   }
   
   moveRight() {

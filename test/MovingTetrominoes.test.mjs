@@ -116,6 +116,8 @@ describe("Moving falling tetrominoes", () => {
     board.moveDown();
     board.moveDown();
     board.moveDown();
+    board.moveDown();
+    board.moveDown();
     expect(board.toString()).to.equalShape(
       `..........
       ..........

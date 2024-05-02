@@ -190,6 +190,16 @@ export class Board {
     return height;
   }
 
+  heightToEnd2 () {
+    if (!this.hasFallingBlock) {
+      return 0;}
+    let height = 0;
+    let has_start = false;
+    for (let i = this.fallBlock.y_pos; i < this.height; i++) {
+      height += 1 ? has_start : 0;}
+    return height;
+  }
+
   moveLeft() {
     if(!this.hasFalling()){
       return;

@@ -109,6 +109,16 @@ export class Board {
     return dist_to_walls;
   }
 
+  get_dist_to_wall_L2(){
+    let dist_to_walls = {};
+    let actual_rows = this.get_shape_actual_rows();
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
+
+      dist_to_walls[i.toString()] = dist;
+    }
+    return dist_to_walls;
+  }
+
   get_dist_to_wall_L(){
     let dist_to_walls = {};
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){

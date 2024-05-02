@@ -199,11 +199,12 @@ export class Board {
       return;
     }
     let actual_rows = this.get_shape_actual_rows();
-
-    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
-      for(let j=this.get_shape_L_most_coord(i); j<this.get_shape_L_most_coord(i)+this.fallBlock.shape.cols; j++){
-          this.board[i][j-1] = this.board[i][j];
-          this.board[i][j] = ".";
+    let actual_cols = this.get_shape_actual_cols();
+    for(let i=0; i<actual_rows; i++){
+      let actual_cols_i = actual_cols[i+this.fallBlock.y_pos];
+      for(let j=this.get_shape_L_most_coord(i); j<this.get_shape_L_most_coord(i)+actual_cols_i; j++){
+          this.board[i+this.fallBlock.y_pos][j-1] = this.board[i+this.fallBlock.y_pos][j];
+          this.board[i+this.fallBlock.y_pos][j] = ".";
       }
     }
     this.fallBlock.x_pos -= 1;

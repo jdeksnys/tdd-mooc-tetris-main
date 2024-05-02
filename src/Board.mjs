@@ -236,8 +236,11 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
+    debugger;
     let rotatingShape = new RotatingShape(this.fallBlock.shape.toString());
-    this.fallBlock = new FallingBlock(rotatingShape.rotateLeft(), this.width, this.height);
+    let test = rotatingShape.rotateLeft();
+
+    this.fallBlock = new FallingBlock(test, this.width, this.height);
   }
 }
 

@@ -82,19 +82,17 @@ export class Board {
     let heightToEnd_ = this.heightToEnd();
     if (heightToEnd_ == 0) {
       this.hasFallingBlock = false;
+      return;
     }
     let actual_rows = this.get_shape_actual_rows();
-    for(let h=0; h<heightToEnd_; h++){
       for(let i = this.fallBlock.y_pos+actual_rows-1; i>=0; i--) {
         for(let j=0; j<this.fallBlock.shape.cols; j++) {
           let y = this.fallBlock.x_pos+j;
           this.board[i+1][y] = this.board[i][y];
           this.board[i][y] = ".";
         }
-        heightToEnd_ -= 1;
       }
       this.fallBlock.y_pos += 1;
-    }
   }
 
   hasFalling = () => this.hasFallingBlock;

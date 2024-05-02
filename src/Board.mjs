@@ -248,8 +248,10 @@ export class Board {
           if(this.fallBlock.shape[i][j] != "."){
             this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = ".";
           }
-        } else if(clean) {
-
+        } else if(!clean) {
+          if(this.fallBlock.shape[i][j] != "."){
+            this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
+          }
         }
       }
     }

@@ -88,18 +88,18 @@ export class Board {
   get_dist_to_wall_L(){
     let dist_to_walls = {};
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-      let r_started = false;
-      let r_ended = false;
+      let l_started = false;
+      let l_ended = false;
       let dist = 0;
       for(let j=this.fallBlock.x_pos+this.fallBlock.shape.cols-1; j>=0; j--){
-        if(r_started && !r_ended){
+        if(l_started && !l_ended){
           dist += 1;
         }
         if (this.board[i][j] != "."){
-          if(!r_started){
-            r_started = true;
-          } else if(!r_ended){
-            r_ended = true;
+          if(!l_started){
+            l_started = true;
+          } else if(!l_ended){
+            l_ended = true;
           }
         }
       }

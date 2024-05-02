@@ -87,7 +87,9 @@ export class Board {
         if(!r_ended){
           dist += 1;
         }
-        if (this.board[i][j] != "."){r_ended = true;}
+        if (this.board[i][j] != "."){
+          r_ended = true;
+        }
       }
       dist_to_walls[i.toString()] = dist;
     }

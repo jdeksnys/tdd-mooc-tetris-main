@@ -159,15 +159,16 @@ export class Board {
       this.hasFallingBlock = false;
       return;
     }
-    let actual_rows = this.get_shape_actual_rows();
-      for(let i = this.fallBlock.y_pos+actual_rows-1; i>=0; i--) {
-        for(let j=0; j<this.fallBlock.shape.cols; j++) {
-          let y = this.fallBlock.x_pos+j;
-          this.board[i+1][y] = this.board[i][y];
-          this.board[i][y] = ".";
-        }
+    let min_h = Math.min(...Object.values(heights));
+    for(let j=0; j<this.fallBlock.shape.cols; j++) {
+      for(let i = this.get_shape_B_most_coord(j); i>=this.fallBlock.y_pos; i--) {
+        let j_ = this.fallBlock.x_pos+j;
+        this.board[i+1][j_] = this.board[i][j_];
+        this.board[i][j_] = ".";
+
       }
-      this.fallBlock.y_pos += 1;
+    }
+    this.fallBlock.y_pos += 1;
   }
 
   hasFalling = () => this.hasFallingBlock;
@@ -238,7 +239,6 @@ export class Board {
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.x_pos, this.y_pos);
-    debugger;
     this.updateFallblockInBoard(false);
   }
 

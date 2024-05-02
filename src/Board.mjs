@@ -216,15 +216,7 @@ export class Board {
           shape_started = true;
         } else if(shape_started){
           if(this.board[i][j] == "."){
-            if(!shape_ended){
-              col_height += 1;
-            } else {
-              shape_ended = true;
-            }
           } else {
-            if(shape_ended){
-              heights[i.toString()] = col_height;
-            }
           }
         }
       }

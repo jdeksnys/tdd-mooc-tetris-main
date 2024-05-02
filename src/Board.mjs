@@ -198,12 +198,17 @@ export class Board {
     
     for(let j=this.fallBlock.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
       let shape_started = false;
+      let col_height = 0;
       
       for (let i = this.fallBlock.y_pos; i < this.height; i++) {
         if(i<=this.fallBlock.y_pos+this.fallBlock.rows && this.board[i][j] != "." && !shape_started){
           shape_started = true;
-        } else if(shape_started && this.board[i][j] == "."){
-          
+        } else if(shape_started){
+          if(this.board[i][j] == "."){
+            col_height += 1;
+          } else {
+            heights[i.toString()] = col_height;
+          }
         }
       }
 

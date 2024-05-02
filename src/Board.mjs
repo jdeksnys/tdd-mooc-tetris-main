@@ -185,12 +185,6 @@ export class Board {
       return;
     }
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-      for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
-        if(this.fallBlock.x_pos > 0){
-          this.board[i][j-1] = this.board[i][j];
-          this.board[i][j] = ".";
-        }
-      }
     }
     this.fallBlock.x_pos -= 1;
   }

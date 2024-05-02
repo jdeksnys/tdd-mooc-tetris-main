@@ -236,7 +236,9 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
-    this.fallBlock = new FallingBlock(val, this.width, this.height);}
+    let rotatingShape = new RotatingShape(this.fallBlock.shape.toString());
+    this.fallBlock = new FallingBlock(rotatingShape.rotateLeft(), this.width, this.height);
+  }
 }
 
 class FallingBlock {

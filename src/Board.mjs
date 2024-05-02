@@ -243,6 +243,16 @@ export class Board {
     this.updateFallblockInBoard(false);
   }
 
+  rotateRight() {
+    if(!this.fallBlock){
+      return;
+    }
+    let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
+    this.updateFallblockInBoard(true);
+    this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.x_pos, this.y_pos);
+    this.updateFallblockInBoard(false);
+  }
+
   updateFallblockInBoard(clean=false){
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       for(let j=0; j<this.fallBlock.shape.cols; j++){

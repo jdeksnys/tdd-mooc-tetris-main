@@ -180,20 +180,12 @@ export class Board {
     let has_start = false;
 
     for (let i = this.fallBlock.y_pos; i < this.height; i++) {
-      let line_empty = true;
-    
       for(let j=0; j<this.fallBlock.shape.cols; j++){
         let test = this.board[i][this.fallBlock.x_pos+j];
         if (test != ".") {
           line_empty = false;
         }
       }
-      if(line_empty && !has_start){
-        has_start = true;
-      } else if(!line_empty && has_start){
-        return height;
-      }
-      height += 1 ? has_start : 0;
     }
     return height;
   }

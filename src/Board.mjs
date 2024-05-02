@@ -231,6 +231,12 @@ export class Board {
   moveDown() {
     this.tick();
   }
+
+  rotateLeft() {
+    if(!this.fallBlock){
+      return;
+    }
+    this.fallBlock = new FallingBlock(val, this.width, this.height);}
 }
 
 class FallingBlock {

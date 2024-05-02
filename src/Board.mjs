@@ -236,24 +236,18 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
-    debugger;
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.x_pos, this.y_pos);
+    debugger;
     this.updateFallblockInBoard(false);
   }
 
   updateFallblockInBoard(clean=false){
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       for(let j=0; j<this.fallBlock.shape.cols; j++){
-        if(clean){
-          if(this.fallBlock.shape[i][j] != "."){
-            this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = ".";
-          }
-        } else if(!clean) {
-          if(this.fallBlock.shape[i][j] != "."){
-            this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
-          }
+        if(this.fallBlock.shape.shape[i][j] != "."){
+          this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = clean ? "." : this.fallBlock.shape.shape[i][j];
         }
       }
     }

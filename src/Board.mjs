@@ -199,11 +199,11 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    let dist_to_wall = Math.min(...Object.values(this.get_dist_to_wall_R()));
+    let dist_to_wall = Math.min(...Object.values(this.get_dist_to_wall_L()));
     if(dist_to_wall <= 0){
       return;
     }
-    let actual_rows = this.get_shape_actual_rows()
+    let actual_rows = this.get_shape_actual_rows();
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
       for(let j=this.get_shape_R_most_coord(i); j>this.get_shape_R_most_coord(i)-this.fallBlock.shape.cols; j--){
           this.board[i][j+1] = this.board[i][j];
@@ -221,7 +221,7 @@ export class Board {
     if(dist_to_wall <= 0){
       return;
     }
-    let actual_rows = this.get_shape_actual_rows()
+    let actual_rows = this.get_shape_actual_rows();
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+actual_rows; i++){
       for(let j=this.get_shape_R_most_coord(i); j>this.get_shape_R_most_coord(i)-this.fallBlock.shape.cols; j--){
           this.board[i][j+1] = this.board[i][j];

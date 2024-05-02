@@ -239,7 +239,7 @@ export class Board {
     }
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
-    this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.x_pos, this.y_pos);
+    this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
     this.updateFallblockInBoard(false);
   }
 
@@ -249,7 +249,7 @@ export class Board {
     }
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
-    this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.x_pos, this.y_pos);
+    this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
     this.updateFallblockInBoard(false);
   }
 
@@ -271,7 +271,7 @@ class FallingBlock {
   constructor(shape, board_width, board_height, x_pos=null, y_pos=null) {
     let temp = shape.cols==1 ? 0 : Math.round(shape.cols/2);
     this.x_pos = x_pos!=null ? x_pos : (Math.floor(board_width / 2) - temp);
-    this.y_pos = y_pos!=null ? x_pos : 0;
+    this.y_pos = y_pos!=null ? y_pos : 0;
     this.shape = shape;
   }
 }

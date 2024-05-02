@@ -28,7 +28,7 @@ describe("Rotating falling tetrominoes", () => {
     board = new Board(10, 6);
   });
 
-  test.skip("rotate left but no moving tetrominoes", () => {
+  test("rotate left but no moving tetrominoes", () => {
     board.rotateLeft();
     expect(board.toString()).to.equalShape(
       `..........
@@ -40,7 +40,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("rotate right but no moving tetrominoes", () => {
+  test("rotate right but no moving tetrominoes", () => {
     board.rotateRight();
     expect(board.toString()).to.equalShape(
       `..........
@@ -67,7 +67,7 @@ describe("Rotating falling tetrominoes", () => {
 
   test.skip("rotate left after drop", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
+    board.rotateLeft();
     expect(board.toString()).to.equalShape(
         `....T.....
          ...TT.....
@@ -80,13 +80,30 @@ describe("Rotating falling tetrominoes", () => {
 
   test.skip("rotate left after drop+tick", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
+    board.tick();
+    board.tick();
+    board.rotateLeft();
     expect(board.toString()).to.equalShape(
         `..........
+        ..........
          ....T.....
          ...TT.....
          ....T.....
-         ..........
+         ..........`
+    );
+  });
+
+  test.skip("rotate right after drop+tick", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.tick();
+    board.tick();
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+        `..........
+        ..........
+         ....T.....
+         ....TT....
+         ....T.....
          ..........`
     );
   });

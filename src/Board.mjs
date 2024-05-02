@@ -180,12 +180,6 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    let dist_to_wall = Math.min(Object.values(this.get_dist_to_wall_L()));
-    if(dist_to_wall <= 0){
-      return;
-    }
-    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-    }
     this.fallBlock.x_pos -= 1;
   }
 

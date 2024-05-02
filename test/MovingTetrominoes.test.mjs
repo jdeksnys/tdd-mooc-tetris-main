@@ -209,9 +209,8 @@ describe("Moving falling tetrominoes", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
 
-    const shape = Tetromino.T_SHAPE;
-    shape.rotateLeft();
-    board.drop(shape);
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateLeft();
     board.moveRight();
     fallToBottom(board);
 

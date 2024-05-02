@@ -248,10 +248,10 @@ class FallingBlock {
   x_pos;
   y_pos;
   shape;
-  constructor(shape, board_width, board_height) {
+  constructor(shape, board_width, board_height, x_pos=null, y_pos=null) {
     let temp = shape.cols==1 ? 0 : Math.round(shape.cols/2);
-    this.x_pos = Math.floor(board_width / 2) - temp;
-    this.y_pos = 0;
+    this.x_pos = x_pos!=null ? x_pos : Math.floor(board_width / 2) - temp;
+    this.y_pos = y_pos!=null ? x_pos : 0;
     this.shape = shape;
   }
 }

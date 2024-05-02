@@ -14,9 +14,9 @@ function initGame() {
     tickDuration: 1000,
     nextTick: 0,
   };
-  game.scoring = new ScoringSystem();
+  // game.scoring = new ScoringSystem();
   game.board = new Board(game.columns, game.rows);
-  game.board.onClearLine = (lineCount) => {
+  // game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);
   };
   game.tetrominoes = new ShuffleBag([

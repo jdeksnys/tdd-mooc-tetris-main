@@ -154,10 +154,8 @@ export class Board {
     if (!this.hasFalling) {
       return;
     }
-    let heightToEnd_ = this.heightToEnd();
     let heights = this.heightToEnd2();
-    // if (Math.min(...Object.values(heights)) == 0) {
-    if (heightToEnd_ == 0) {
+    if (!heights || Math.min(...Object.values(heights)) == 0) {
       this.hasFallingBlock = false;
       return;
     }
@@ -202,7 +200,7 @@ export class Board {
 
   heightToEnd2 () {
     if (!this.hasFallingBlock) {
-      return 0;
+      return null;
     }
     let heights = {};
     for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){

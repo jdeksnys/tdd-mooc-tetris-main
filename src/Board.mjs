@@ -206,6 +206,14 @@ export class Board {
     }
     let heights = {};
     for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
+      let col_height = 0;
+      debugger;
+      for (let i = this.get_shape_B_most_coord(j-this.fallBlock.x_pos)+1; i < this.height; i++) {
+        if(this.board[i][j] == "."){
+          col_height += 1;
+        }
+      }
+      heights[j.toString()] = col_height;
     }
     return heights;
   }

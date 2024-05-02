@@ -245,6 +245,11 @@ export class Board {
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       for(let j=0; i<this.fallBlock.shape.cols; j++){
         if(clean){
+          if(this.fallBlock.shape[i][j] != "."){
+            this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = ".";
+          }
+        } else if(clean) {
+
         }
       }
     }

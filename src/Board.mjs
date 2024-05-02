@@ -75,6 +75,11 @@ export class Board {
     return res;
   }
 
+  get_R_most_coord(){
+    for(let j=this.fallBlock.shape.cols-1; j>=0; j--){
+      for(let i=0; i<this.fallBlock.shape.rows; i++){
+        if (this.fallBlock.shape.shape[i][j] != ".") {return this.fallBlock.x_pos + j;}}}
+  }
   tick() {
     if (!this.hasFalling) {
       return;
@@ -142,10 +147,11 @@ export class Board {
     if(!this.hasFalling()){
       return;
     }
-    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-      for(let j=this.fallBlock.x_pos+this.fallBlock.shape.cols; j>=this.fallBlock.x_pos; j--){
-        this.board[i][j+1] = this.board[i][j];
-        this.board[i][j] = ".";
+    if(this.board.cols - 1 - this.get_R_most_coord() <= 0){return;}
+    for(let j=this.get_R_most_coord(); j>=this.fallBlock.x_pos; j--){
+      for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
+          this.board[i][j+1] = this.board[i][j];
+          this.board[i][j] = ".";
       }
     }
     this.fallBlock.x_pos += 1;

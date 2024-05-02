@@ -184,6 +184,46 @@ describe("Moving falling tetrominoes", () => {
       ...TTT....`
     );
   });
+
+  test("cannot be moved down (rot-right-fit) onto another block", () => {
+    board.drop(Tetromino.T_SHAPE);
+    fallToBottom(board);
+
+    const shape = Tetromino.T_SHAPE;
+    shape.rotateRight();
+    board.drop(shape);
+    board.moveLeft();
+    fallToBottom(board);
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ...T......
+       ...TT.....
+       ...TT.....
+       ...TTT....`
+    );
+  });
+
+  test.skip("cannot be moved down (rot-left-fit) onto another block", () => {
+    board.drop(Tetromino.T_SHAPE);
+    fallToBottom(board);
+
+    const shape = Tetromino.T_SHAPE;
+    shape.rotateRight();
+    board.drop(shape);
+    board.moveLeft();
+    fallToBottom(board);
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       .....T....
+       ....TT....
+       ....TT....
+       ...TTT....`
+    );
+  });
 });
 
 

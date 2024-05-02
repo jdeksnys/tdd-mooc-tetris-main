@@ -84,6 +84,7 @@ export class Board {
       }
     }
   }
+
   tick() {
     if (!this.hasFalling) {
       return;
@@ -135,6 +136,10 @@ export class Board {
   moveLeft() {
     if(!this.hasFalling()){
       return;
+    }
+    let dist_to_wall = this.get_R_most_coord();
+    if(dist_to_wall <= 0){
+      
     }
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
       for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){

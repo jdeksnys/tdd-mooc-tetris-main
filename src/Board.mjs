@@ -283,8 +283,8 @@ export class Board {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
     let can_rotate = true;
-    for(let j=0; j<this.fallBlock.shape.cols; j++){
-      if(dist_L[j] <= 0 || dist_R[j] <= 0){
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      if(dist_L[i] <= 0 || dist_R[i] <= 0){
         can_rotate = false;
         break;
       }
@@ -295,9 +295,7 @@ export class Board {
   can_wall_kick() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
-    let can_rotate = true;
 
-    return can_rotate;
   }
 
   rotateRight() {

@@ -244,13 +244,6 @@ export class Board {
   }
 
   check_shape_pos() {
-    let l_coords = {};
-    let r_coords = {};
-    let b_coords = {};
-
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
-    }
-
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
     let can_rotate = false;

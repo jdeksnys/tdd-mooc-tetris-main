@@ -196,7 +196,7 @@ export class Board {
     }
 
     let l_most_coord = Math.min(...Object.values(l_coords));
-    let r_most_coord = Math.min(...Object.values(r_coords));
+    let r_most_coord = Math.max(...Object.values(r_coords));
 
     for(let j=l_most_coord; j<=r_most_coord; j++){
       let col_height = 0;

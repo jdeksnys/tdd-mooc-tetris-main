@@ -145,11 +145,14 @@ export class Board {
 
   get_dist_to_wall_L(){
     let dist_to_walls = {};
-    let actual_rows = this.get_shape_actual_rows();
-    for(let i=0; i<actual_rows; i++){
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
       let l_ended = false;
       let dist = 0;
-      for(let j=this.get_shape_L_most_coord(i)-1; j>=0; j--){
+      let l_coord = this.get_shape_L_most_coord(i);
+      if(l_coord == null || l_coord == undefined){
+        continue;
+      }
+      for(let j=l_coord-1; j>=0; j--){
         if (this.board[i+this.fallBlock.y_pos][j] != "."){
           l_ended = true;
         }

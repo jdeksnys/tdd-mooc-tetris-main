@@ -253,6 +253,9 @@ export class Board {
       let r = this.get_shape_R_most_coord(i);
       if(l){
         this.l_coords[i.toString()] = l;
+        if(l >= 0){
+          
+        }
       }
       if(r){
         this.r_coords[i.toString()] = r;
@@ -260,6 +263,9 @@ export class Board {
     }
     for(let j=0; j<this.fallBlock.shape.cols; j++){
       let b = this.get_shape_B_most_coord(i);
+      if(b){
+        b_coords[j.toString()] = b;
+      }
     }
 
   }

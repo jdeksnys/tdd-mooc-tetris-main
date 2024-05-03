@@ -243,16 +243,25 @@ export class Board {
     this.updateFallblockInBoard(false);
   }
 
+  check_shape_pos() {
+    
+  }
+
   rotateRight() {
     if(!this.fallBlock){
       return;
     }
     let l_coords = {};
+    let r_coords = {};
+    
     for(let i=0; i<this.fallBlock.rows; i++){
       let l = this.get_shape_L_most_coord(i);
       let r = this.get_shape_L_most_coord(i);
       if(l){
         this.l_coords[i.toString()] = l;
+      }
+      if(r){
+        this.l_coords[i.toString()] = r;
       }
     }
 

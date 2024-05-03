@@ -200,7 +200,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("no room to rotate right (R side test)", () => {
+  test("no room to rotate right (R side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
     board.moveRight();
@@ -235,7 +235,7 @@ describe("Rotating falling tetrominoes", () => {
   });
 
 
-  test.skip("no room to rotate left (R side test)", () => {
+  test("no room to rotate left (R side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
     board.moveRight();

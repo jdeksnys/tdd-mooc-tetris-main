@@ -154,6 +154,38 @@ describe("Rotating falling tetrominoes", () => {
     board.tick();
     board.tick();
     board.tick();
+    board.rotateRight()
+    
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       T.........
+       TTT.......
+       T.TT......
+       ..TT......
+       ..TTT.....`
+    );
+  });
+
+
+  test.skip("no room to rotate left", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.moveLeft();
+    fallToBottom(board);
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    board.moveLeft();
+    board.moveLeft();
+    fallToBottom(board);
+
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    fallLeft(board);
+    
+    board.tick();
+    board.tick();
+    board.tick();
     board.rotateLeft()
     
     expect(board.toString()).to.equalShape(

@@ -257,10 +257,10 @@ export class Board {
       return;
     }
 
-    // let test = this.can_rotate();
-    // if(!test){
-    //   return;
-    // }
+    let test = this.can_rotate();
+    if(!test){
+      return;
+    }
 
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);

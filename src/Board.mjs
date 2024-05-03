@@ -256,6 +256,12 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
+
+    // let test = this.can_rotate();
+    // if(!test){
+    //   return;
+    // }
+
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
@@ -277,14 +283,9 @@ export class Board {
   }
 
   rotateRight() {
-    if(!this.fallBlock){
+    if(!this.fallBlock || !this.can_rotate()){
       return;
     }
-    let test = this.can_rotate();
-    if(!test){
-      return;
-    }
-
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);

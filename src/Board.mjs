@@ -113,6 +113,15 @@ export class Board {
     return 0;
   }
 
+  get_shape_U_most_coord(shape_col){
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      if (this.fallBlock.shape.shape[i][shape_col] != ".") {
+        return this.fallBlock.y_pos + i;
+      }
+    }
+    return 0;
+  }
+
   get_dist_to_wall_R(){
     let dist_to_walls = {};
     let actual_rows = this.get_shape_actual_rows();

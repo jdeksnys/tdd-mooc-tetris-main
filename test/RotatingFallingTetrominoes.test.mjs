@@ -343,6 +343,24 @@ describe("Rotating falling tetrominoes", () => {
        ..........`
     );
   });
+
+  test.skip("wallkick rotate left (L wall)", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    fallLeft(board);
+    board.rotateLeft();
+    
+    expect(board.toString()).to.equalShape(
+      `.T........
+       TTT.......
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
 });
 
 

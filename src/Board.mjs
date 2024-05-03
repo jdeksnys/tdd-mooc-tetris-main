@@ -327,19 +327,17 @@ export class Board {
       let dist_R_old = this.get_dist_to_wall_R();
       let actual_cols_old = this.get_shape_actual_cols();
       let actual_rows_old = this.get_shape_actual_rows();
-      let rotated_shape_old = rot_shape.rotateRight();
-      let new_x = 0;
-      let new_y = 0;
-      
-      let l_coord = this.get_shape_L_most_coord()
+      let rotated_shape = rot_shape.rotateRight();
+      let new_x = null;
+      let new_y = null;
 
       if(dist_L_old + actual_cols_old < actual_rows_old){
         new_x = this.fallBlock.x_pos - dist_L_old;
       } else if(dist_R_old + actual_cols_old < actual_rows_old){
         new_x = this.fallBlock.x_pos - dist_R_old;
       }
-      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
-      // this.updateFallblockInBoard(false);
+      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, new_x, new_y);
+      this.updateFallblockInBoard(false);
 
     }
   }

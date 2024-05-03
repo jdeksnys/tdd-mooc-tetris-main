@@ -282,9 +282,11 @@ export class Board {
   can_rotate() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
+    let actual_cols = this.get_shape_actual_cols();
+    let actual_rows = this.get_shape_actual_rows();
     let can_rotate = true;
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      if(dist_L[i] <= 0 || dist_R[i] <= 0){
+      if(dist_L[i] <= 0 || dist_R[i] <= 0 || actual_rows > (actual_cols+dist_L[i]+dist_R[i])){
         can_rotate = false;
         break;
       }

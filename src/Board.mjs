@@ -295,7 +295,13 @@ export class Board {
         : this.fallBlock.x_pos;
       let y = this.fallBlock.y_pos;
 
-
+      if(dist_L_old + actual_cols_old < actual_rows_old){
+        x = x - dist_L_old;
+      } else if(dist_R_old + actual_cols_old < actual_rows_old){
+        x = x - dist_R_old;
+      }
+      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, x, y);
+      this.updateFallblockInBoard(false);
     }
   }
 

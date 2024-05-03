@@ -306,7 +306,10 @@ export class Board {
       if(l != null && l != undefined){
         l_coords.push(l);
       }
-      if(r != null && r != undefined){r_coords.push(r);}}
+      if(r != null && r != undefined){
+        r_coords.push(r);
+      }
+    }
 
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       if(dist_L[i] <= 0 || dist_R[i] <= 0){

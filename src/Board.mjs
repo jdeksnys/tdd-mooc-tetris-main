@@ -257,15 +257,6 @@ export class Board {
 
         }
       }
-      if(r){
-        this.r_coords[i.toString()] = r;
-      }
-    }
-    for(let j=0; j<this.fallBlock.shape.cols; j++){
-      let b = this.get_shape_B_most_coord(i);
-      if(b){
-        b_coords[j.toString()] = b;
-      }
     }
 
     let dist_L = this.get_dist_to_wall_L();

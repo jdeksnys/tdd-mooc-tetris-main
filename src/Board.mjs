@@ -323,13 +323,17 @@ export class Board {
     } else if(false){
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
-      let rotated_shape = rot_shape.rotateRight();
+      let dist_L_old = this.get_dist_to_wall_L();
+      let dist_R_old = this.get_dist_to_wall_R();
+      let actual_cols_old = this.get_shape_actual_cols();
+      let actual_rows_old = this.get_shape_actual_rows();
+      let rotated_shape_old = rot_shape.rotateRight();
+      let new_x = 0;
+      let new_y = 0;
       // let dist_L = this.get_dist_to_wall_L();
       // let dist_R = this.get_dist_to_wall_R();
       // let actual_cols = this.get_shape_actual_cols();
       // let actual_rows = this.get_shape_actual_rows();
-      let new_x = 0;
-      let new_y = 0;
 
       // if(dist_L + actual_cols < actual_rows){
       //   new_x = 

@@ -310,7 +310,6 @@ export class Board {
   }
 
   rotateRight() {
-    // let can_kick = this.can_wall_kick();
     if(!this.fallBlock){
       return;
     }
@@ -320,6 +319,13 @@ export class Board {
       this.updateFallblockInBoard(true);
       this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       this.updateFallblockInBoard(false);
+
+    } else if(this.can_wall_kick()){
+      let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
+      this.updateFallblockInBoard(true);
+      // this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
+      this.updateFallblockInBoard(false);
+
     }
   }
 

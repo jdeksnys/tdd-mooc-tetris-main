@@ -179,6 +179,14 @@ export class Board {
       return null;
     }
     let heights = {};
+    
+    // get left most coord in all rows; update height function: loop until coord+actual rows
+    let l_coords = [];
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      l_coords.push(this.get_shape_L_most_coord(i));
+    }
+    let l_most_coord = Math.min(...Object.values(l_coords));
+
     for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){
       let col_height = 0;
       for (let i = this.get_shape_B_most_coord(j-this.fallBlock.x_pos)+1; i < this.height; i++) {
@@ -261,7 +269,6 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
-
     let test = this.can_rotate();
 
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());

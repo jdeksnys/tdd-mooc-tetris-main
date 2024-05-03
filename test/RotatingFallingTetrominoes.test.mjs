@@ -144,6 +144,7 @@ describe("Rotating falling tetrominoes", () => {
     board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
     board.moveLeft();
+    board.moveLeft();
     fallToBottom(board);
 
     board.drop(Tetromino.T_SHAPE);

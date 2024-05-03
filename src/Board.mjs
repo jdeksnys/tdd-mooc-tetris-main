@@ -243,7 +243,7 @@ export class Board {
     this.updateFallblockInBoard(false);
   }
 
-  check_shape_pos() {
+  can_rotate() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
     let can_rotate = false;
@@ -261,6 +261,8 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
+
+    let test = this.can_rotate();
 
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);

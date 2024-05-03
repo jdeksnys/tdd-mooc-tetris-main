@@ -265,7 +265,7 @@ export class Board {
   can_rotate() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
-    let can_rotate = false;
+    let can_rotate = true;
 
     for(let j=0; j<this.fallBlock.shape.cols; j++){
       if(dist_L[j] <= 0 || dist_R[j] <= 0){
@@ -281,6 +281,9 @@ export class Board {
       return;
     }
     let test = this.can_rotate();
+    if(!test){
+      return;
+    }
 
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);

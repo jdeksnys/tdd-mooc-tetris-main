@@ -292,6 +292,14 @@ export class Board {
     return can_rotate;
   }
 
+  can_wall_kick() {
+    let dist_L = this.get_dist_to_wall_L();
+    let dist_R = this.get_dist_to_wall_R();
+    let can_rotate = true;
+
+    return can_rotate;
+  }
+
   rotateRight() {
     if(!this.fallBlock || !this.can_rotate()){
       return;

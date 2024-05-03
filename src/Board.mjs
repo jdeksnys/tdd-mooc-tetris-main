@@ -244,16 +244,21 @@ export class Board {
   }
 
   check_shape_pos() {
+    let l_coords = {};
+    let r_coords = {};
+
     for(let i=0; i<this.fallBlock.rows; i++){
       let l = this.get_shape_L_most_coord(i);
-      let r = this.get_shape_L_most_coord(i);
+      let r = this.get_shape_R_most_coord(i);
+      let b = this.get_shape_B_most_coord(i);
       if(l){
         this.l_coords[i.toString()] = l;
       }
       if(r){
-        this.l_coords[i.toString()] = r;
+        this.r_coords[i.toString()] = r;
       }
     }
+
   }
 
   rotateRight() {

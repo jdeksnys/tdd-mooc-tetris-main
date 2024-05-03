@@ -307,13 +307,7 @@ export class Board {
         break;
       }
     }
-
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
-      if(dist_L[i] <= 0 || dist_R[i] <= 0){
-        can_kick = false;
-        break;
-      }
-    }
+    
     return can_kick;
   }
 

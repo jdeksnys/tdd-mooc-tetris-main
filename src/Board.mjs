@@ -288,6 +288,14 @@ export class Board {
       let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
       let actual_rows_old = this.get_shape_actual_rows();
       let rotated_shape = rot_shape.rotateRight();
+      let x = this.fallBlock.x_pos < 0
+      ? 0
+      : this.fallBlock.x_pos >= this.width
+        ? this.width-1
+        : this.fallBlock.x_pos;
+      let y = this.fallBlock.y_pos;
+
+
     }
   }
 

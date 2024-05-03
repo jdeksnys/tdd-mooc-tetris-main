@@ -279,6 +279,15 @@ export class Board {
       this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       this.updateFallblockInBoard(false);
 
+    } else if(false){
+      let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
+      this.updateFallblockInBoard(true);
+
+      let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
+      let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
+      let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
+      let actual_rows_old = this.get_shape_actual_rows();
+      let rotated_shape = rot_shape.rotateRight();
     }
   }
 

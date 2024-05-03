@@ -194,8 +194,6 @@ export class Board {
       }
     }
     let l_most_coord = Math.min(...Object.values(l_coords));
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
-    }
     let r_most_coord = Math.min(...Object.values(r_coords));
 
     // for(let j=this.fallBlock.x_pos; j<this.fallBlock.x_pos+this.fallBlock.shape.cols; j++){

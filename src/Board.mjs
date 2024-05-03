@@ -126,8 +126,7 @@ export class Board {
 
   get_dist_to_wall_R(){
     let dist_to_walls = {};
-    let actual_rows = this.get_shape_actual_rows();
-    for(let i=0; i<actual_rows; i++){
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
       let r_ended = false;
       let dist = 0;
       let r_coord = this.get_shape_R_most_coord(i);

@@ -279,7 +279,7 @@ export class Board {
       this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       this.updateFallblockInBoard(false);
 
-    } else if(false){
+    } else if(this.can_wall_kick()){
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
 
@@ -287,7 +287,7 @@ export class Board {
       let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
       let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
       let actual_rows_old = this.get_shape_actual_rows();
-      let rotated_shape = rot_shape.rotateRight();
+      let rotated_shape = rot_shape.rotateLeft();
       let x = this.fallBlock.x_pos < 0
       ? 0
       : this.fallBlock.x_pos >= this.width

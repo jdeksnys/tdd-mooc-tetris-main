@@ -137,7 +137,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test("no room to rotate right", () => {
+  test("no room to rotate right (R side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     fallToBottom(board);
@@ -169,7 +169,7 @@ describe("Rotating falling tetrominoes", () => {
   });
 
 
-  test("no room to rotate left", () => {
+  test("no room to rotate left (R side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     fallToBottom(board);
@@ -197,6 +197,71 @@ describe("Rotating falling tetrominoes", () => {
        T.TT......
        ..TT......
        ..TTT.....`
+    );
+  });
+
+  test.skip("no room to rotate right (L side test)", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.moveRight();
+    board.moveRight();
+    fallToBottom(board);
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateLeft();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    fallToBottom(board);
+
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateLeft();
+    fallRight(board);
+    
+    board.tick();
+    board.tick();
+    board.tick();
+    board.rotateRight()
+    
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       .........T
+       .......TTT
+       ......TT.T
+       ......TT..
+       .....TTT..`
+    );
+  });
+
+
+  test.skip("no room to rotate left (L side test)", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.moveLeft();
+    fallToBottom(board);
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    board.moveLeft();
+    board.moveLeft();
+    fallToBottom(board);
+
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    fallLeft(board);
+    
+    board.tick();
+    board.tick();
+    board.tick();
+    board.rotateLeft()
+    
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       .........T
+       .......TTT
+       ......TT.T
+       ......TT..
+       .....TTT..`
     );
   });
 });

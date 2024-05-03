@@ -141,7 +141,7 @@ export class Board {
           dist += 1;
         }
       }
-      dist_to_walls[(i+this.fallBlock.y_pos).toString()] = dist;
+      dist_to_walls[i.toString()] = dist;
     }
     return dist_to_walls;
   }
@@ -320,9 +320,9 @@ export class Board {
       this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       this.updateFallblockInBoard(false);
 
-    } else if(this.can_wall_kick()){
+    } else if(false){
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
-      // this.updateFallblockInBoard(true);
+      this.updateFallblockInBoard(true);
 
       let dist_L_old = this.get_dist_to_wall_L();
       let dist_R_old = this.get_dist_to_wall_R();
@@ -337,8 +337,8 @@ export class Board {
       } else if(dist_R_old + actual_cols_old < actual_rows_old){
         new_x = this.fallBlock.x_pos - dist_R_old;
       }
-      // this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, new_x, new_y);
-      // this.updateFallblockInBoard(false);
+      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, new_x, new_y);
+      this.updateFallblockInBoard(false);
 
     }
   }

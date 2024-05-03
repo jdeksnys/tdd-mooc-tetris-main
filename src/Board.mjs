@@ -49,9 +49,9 @@ export class Board {
     this.fallBlock = new FallingBlock(val, this.width, this.height);
     let actual_rows = this.get_shape_actual_rows();
     if (val) {
-      for(let j=this.fallBlock.y_pos; j<actual_rows; j++){
-        for(let i=0; i<this.fallBlock.shape.cols; i++){
-          this.board[j][i+this.fallBlock.x_pos] = this.fallBlock.shape.shape[j][i];
+      for(let i=this.fallBlock.y_pos; i<actual_rows; i++){
+        for(let j=0; j<this.fallBlock.shape.cols; j++){
+          this.board[i][j+this.fallBlock.x_pos] = this.fallBlock.shape.shape[i][j];
         }
       }
     }

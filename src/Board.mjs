@@ -253,15 +253,9 @@ export class Board {
   }
 
   rotateLeft() {
-    if(!this.fallBlock){
+    if(!this.fallBlock || !this.can_rotate()){
       return;
     }
-
-    let test = this.can_rotate();
-    if(!test){
-      return;
-    }
-
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateLeft(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
@@ -272,7 +266,6 @@ export class Board {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
     let can_rotate = true;
-
     for(let j=0; j<this.fallBlock.shape.cols; j++){
       if(dist_L[j] <= 0 || dist_R[j] <= 0){
         can_rotate = false;

@@ -137,7 +137,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("no room to rotate right", () => {
+  test("no room to rotate right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     fallToBottom(board);
@@ -169,7 +169,7 @@ describe("Rotating falling tetrominoes", () => {
   });
 
 
-  test.skip("no room to rotate left", () => {
+  test("no room to rotate left", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     fallToBottom(board);

@@ -187,10 +187,10 @@ export class Board {
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       let l = this.get_shape_L_most_coord(i);
       let r = this.get_shape_R_most_coord(i);
-      if(l){
+      if(l != null && l != undefined){
         l_coords.push(l);
       }
-      if(r){
+      if(r != null && r != undefined){
         r_coords.push(r);
       }
     }

@@ -333,7 +333,9 @@ export class Board {
       let rotated_shape = rot_shape.rotateRight();
       let x = this.fallBlock.x_pos < 0
         ? 0
-        : this.fallBlock.x_pos >= this.width? this.width-1: this.fallBlock.x_pos;
+        : this.fallBlock.x_pos >= this.width
+          ? this.width-1
+          : this.fallBlock.x_pos;
       let y = this.fallBlock.y_pos;
 
       if(dist_L_old + actual_cols_old < actual_rows_old){

@@ -85,7 +85,7 @@ export class Board {
           cols += 1;
         }
       }
-      res[(i+this.fallBlock.y_pos).toString()] = cols;
+      res[i.toString()] = cols;
     }
     return res;
   }
@@ -238,7 +238,7 @@ export class Board {
     let actual_rows = this.get_shape_actual_rows();
     let actual_cols = this.get_shape_actual_cols();
     for(let i=0; i<actual_rows; i++){
-      let actual_cols_i = actual_cols[i+this.fallBlock.y_pos];
+      let actual_cols_i = actual_cols[i];
       for(let j=this.get_shape_L_most_coord(i); j<this.get_shape_L_most_coord(i)+actual_cols_i; j++){
           this.board[i+this.fallBlock.y_pos][j-1] = this.board[i+this.fallBlock.y_pos][j];
           this.board[i+this.fallBlock.y_pos][j] = ".";
@@ -286,7 +286,7 @@ export class Board {
     let actual_rows = this.get_shape_actual_rows();
     let can_rotate = true;
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      if(dist_L[i] <= 0 || dist_R[i] <= 0 || actual_rows > (actual_cols+dist_L[i]+dist_R[i])){
+      if(dist_L[i] <= 0 || dist_R[i] <= 0 || actual_rows > (actual_cols[i]+dist_L[i]+dist_R[i])){
         can_rotate = false;
         break;
       }
@@ -301,7 +301,9 @@ export class Board {
     let actual_rows = this.get_shape_actual_rows();
     let can_kick = true;
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      if(actual_rows > (actual_cols+dist_L[i]+dist_R[i])){
+      let test0 = dist_L[i];
+      let test1 = dist_R[i];
+      if(actual_rows > (actual_cols[i]+test0+test1)){
         can_kick = false;
         break;
       }
@@ -320,13 +322,13 @@ export class Board {
       this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       this.updateFallblockInBoard(false);
 
-    } else if(false){
+    } else if(this.can_wall_kick()){
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
 
       let dist_L_old = this.get_dist_to_wall_L();
       let dist_R_old = this.get_dist_to_wall_R();
-      let actual_cols_old = this.get_shape_actual_cols();
+      let actual_cols_old = Math.min(...Object.values(this.get_shape_actual_cols()));
       let actual_rows_old = this.get_shape_actual_rows();
       let rotated_shape = rot_shape.rotateRight();
       let new_x = null;

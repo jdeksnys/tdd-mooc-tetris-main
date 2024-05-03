@@ -300,25 +300,27 @@ export class Board {
     let actual_cols = this.get_shape_actual_cols();
     let actual_rows = this.get_shape_actual_rows();
     let can_kick = true;
-
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       if(actual_rows > (actual_cols+dist_L[i]+dist_R[i])){
         can_kick = false;
         break;
       }
     }
-    
     return can_kick;
   }
 
   rotateRight() {
-    if(!this.fallBlock || !this.can_rotate()){
+    // let can_kick = this.can_wall_kick();
+    if(!this.fallBlock){
       return;
     }
+
+    if(this.can_rotate()){
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);
     this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
     this.updateFallblockInBoard(false);
+    }
   }
 
   updateFallblockInBoard(clean=false){

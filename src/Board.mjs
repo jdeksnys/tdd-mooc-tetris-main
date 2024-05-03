@@ -182,19 +182,19 @@ export class Board {
     
     // get left most coord in all rows; update height function: loop until coord+actual rows
     let l_coords = [];
+    let r_coords = [];
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      let c = this.get_shape_L_most_coord(i);
-      if(c){
-        l_coords.push(c);
+      let l = this.get_shape_L_most_coord(i);
+      let r = this.get_shape_R_most_coord(i);
+      if(l){
+        l_coords.push(l);
+      }
+      if(r){
+        r_coords.push(r);
       }
     }
     let l_most_coord = Math.min(...Object.values(l_coords));
-    let r_coords = [];
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      let c = this.get_shape_R_most_coord(i);
-      if(c){
-        r_coords.push(c);
-      }
     }
     let r_most_coord = Math.min(...Object.values(r_coords));
 

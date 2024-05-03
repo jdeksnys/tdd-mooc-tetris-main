@@ -137,7 +137,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test("no room to rotate right (R side test)", () => {
+  test("no room to rotate right (L side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     fallToBottom(board);
@@ -169,7 +169,7 @@ describe("Rotating falling tetrominoes", () => {
   });
 
 
-  test("no room to rotate left (R side test)", () => {
+  test("no room to rotate left (L side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     fallToBottom(board);
@@ -200,18 +200,19 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("no room to rotate right (L side test)", () => {
+  test.skip("no room to rotate right (R side test)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
     board.moveRight();
     fallToBottom(board);
+    
     board.drop(Tetromino.T_SHAPE);
     board.rotateLeft();
     board.moveRight();
     board.moveRight();
     board.moveRight();
     fallToBottom(board);
-
+    
     board.drop(Tetromino.T_SHAPE);
     board.rotateLeft();
     fallRight(board);
@@ -234,23 +235,27 @@ describe("Rotating falling tetrominoes", () => {
   });
 
 
-  test.skip("no room to rotate left (L side test)", () => {
+  test.skip("no room to rotate left (R side test)", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.moveLeft();
+    board.moveRight();
+    board.moveRight();
     fallToBottom(board);
+    
     board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
-    board.moveLeft();
-    board.moveLeft();
+    board.rotateLeft();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
     fallToBottom(board);
-
+    
     board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
-    fallLeft(board);
+    board.rotateLeft();
+    fallRight(board);
     
     board.tick();
     board.tick();
     board.tick();
+    console.log(board.toString());
     board.rotateLeft()
     
     expect(board.toString()).to.equalShape(
@@ -264,6 +269,7 @@ describe("Rotating falling tetrominoes", () => {
        .....TTT..`
     );
   });
+
 });
 
 

@@ -295,7 +295,16 @@ export class Board {
   can_wall_kick() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
+    let actual_cols = this.get_shape_actual_cols();
+    let can_kick = true;
 
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      if(dist_L[i] <= 0 || dist_R[i] <= 0){
+        can_kick = false;
+        break;
+      }
+    }
+    return can_kick;
   }
 
   rotateRight() {

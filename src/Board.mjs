@@ -323,6 +323,12 @@ export class Board {
     } else if(this.can_wall_kick()){
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
+      let dist_L = this.get_dist_to_wall_L();
+      let dist_R = this.get_dist_to_wall_R();
+      let actual_cols = this.get_shape_actual_cols();
+      let actual_rows = this.get_shape_actual_rows();
+      let new_x = 0;
+      let new_y = 0;
       // this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       this.updateFallblockInBoard(false);
 

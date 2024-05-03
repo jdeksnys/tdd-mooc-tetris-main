@@ -130,7 +130,11 @@ export class Board {
     for(let i=0; i<actual_rows; i++){
       let r_ended = false;
       let dist = 0;
-      for(let j=this.get_shape_R_most_coord(i)+1; j<this.board[0].length; j++){
+      let r_coord = this.get_shape_R_most_coord(i);
+      if(r_coord == null || r_coord == undefined){
+        continue;
+      }
+      for(let j=r_coord+1; j<this.board[0].length; j++){
         if (this.board[i+this.fallBlock.y_pos][j] != "."){
           r_ended = true;
         }

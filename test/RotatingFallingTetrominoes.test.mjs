@@ -326,6 +326,23 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
+  test("wallkick rotate right (L wall)", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    fallLeft(board);
+    board.rotateRight();
+    
+    expect(board.toString()).to.equalShape(
+      `..........
+       TTT.......
+       .T........
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
 });
 
 

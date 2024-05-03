@@ -326,20 +326,22 @@ export class Board {
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
 
-      let dist_L_old = this.get_dist_to_wall_L();
-      let dist_R_old = this.get_dist_to_wall_R();
-      let actual_cols_old = Math.min(...Object.values(this.get_shape_actual_cols()));
+      let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
+      let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
+      let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
       let actual_rows_old = this.get_shape_actual_rows();
       let rotated_shape = rot_shape.rotateRight();
-      let new_x = null;
-      let new_y = null;
+      let x = this.fallBlock.x_pos < 0
+        ? 0
+        : this.fallBlock.x_pos >= this.width? this.width-1: this.fallBlock.x_pos;
+      let y = this.fallBlock.y_pos;
 
       if(dist_L_old + actual_cols_old < actual_rows_old){
-        new_x = this.fallBlock.x_pos - dist_L_old;
+        x = x - dist_L_old;
       } else if(dist_R_old + actual_cols_old < actual_rows_old){
-        new_x = this.fallBlock.x_pos - dist_R_old;
+        x = x - dist_R_old;
       }
-      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, new_x, new_y);
+      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, x, y);
       this.updateFallblockInBoard(false);
 
     }

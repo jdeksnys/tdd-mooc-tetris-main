@@ -249,14 +249,6 @@ export class Board {
     let b_coords = {};
 
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      let l = this.get_shape_L_most_coord(i);
-      let r = this.get_shape_R_most_coord(i);
-      if(l){
-        this.l_coords[i.toString()] = l;
-        if(l >= 0){
-
-        }
-      }
     }
 
     let dist_L = this.get_dist_to_wall_L();

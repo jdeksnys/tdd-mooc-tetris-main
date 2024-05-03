@@ -260,11 +260,6 @@ export class Board {
     if(!this.fallBlock){
       return;
     }
-    let l_coords = {};
-    let r_coords = {};
-    
-
-
 
     let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
     this.updateFallblockInBoard(true);

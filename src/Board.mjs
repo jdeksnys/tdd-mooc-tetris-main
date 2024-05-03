@@ -298,6 +298,16 @@ export class Board {
     let actual_cols = this.get_shape_actual_cols();
     let can_kick = true;
 
+    let l_coords = [];
+    let r_coords = [];
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
+      let l = this.get_shape_L_most_coord(i);
+      let r = this.get_shape_R_most_coord(i);
+      if(l != null && l != undefined){
+        l_coords.push(l);
+      }
+      if(r != null && r != undefined){r_coords.push(r);}}
+
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       if(dist_L[i] <= 0 || dist_R[i] <= 0){
         can_kick = false;

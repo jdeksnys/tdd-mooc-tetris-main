@@ -298,18 +298,13 @@ export class Board {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
     let actual_cols = this.get_shape_actual_cols();
+    let actual_rows = this.get_shape_actual_rows();
     let can_kick = true;
 
-    let l_coords = [];
-    let r_coords = [];
     for(let i=0; i<this.fallBlock.shape.rows; i++){
-      let l = this.get_shape_L_most_coord(i);
-      let r = this.get_shape_R_most_coord(i);
-      if(l != null && l != undefined){
-        l_coords.push(l);
-      }
-      if(r != null && r != undefined){
-        r_coords.push(r);
+      if(actual_rows > (actual_cols+dist_L[i]+dist_R[i])){
+        can_kick = false;
+        break;
       }
     }
 

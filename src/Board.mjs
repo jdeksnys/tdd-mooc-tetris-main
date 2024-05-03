@@ -246,17 +246,20 @@ export class Board {
   check_shape_pos() {
     let l_coords = {};
     let r_coords = {};
+    let b_coords = {};
 
-    for(let i=0; i<this.fallBlock.rows; i++){
+    for(let i=0; i<this.fallBlock.shape.rows; i++){
       let l = this.get_shape_L_most_coord(i);
       let r = this.get_shape_R_most_coord(i);
-      let b = this.get_shape_B_most_coord(i);
       if(l){
         this.l_coords[i.toString()] = l;
       }
       if(r){
         this.r_coords[i.toString()] = r;
       }
+    }
+    for(let j=0; j<this.fallBlock.shape.cols; j++){
+      let b = this.get_shape_B_most_coord(i);
     }
 
   }

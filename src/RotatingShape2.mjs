@@ -1,5 +1,5 @@
-export class RotatingShape{
-    shape = [];
+export class RotatingShape2{
+    shapes = [];
     rows = 0;
     cols = 0;
     

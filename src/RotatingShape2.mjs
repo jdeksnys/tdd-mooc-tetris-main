@@ -59,16 +59,15 @@ export class RotatingShape2{
 
     rotateRight_str() {
         let res = "";
-        for (let j=0; j<this.shape[0].length; j++) {
+        let shape = this.stringToArray(shape_str);
+        for (let j=0; j<shape[0].length; j++) {
           let row = "";
-          for (let i=this.shape.length-1; i>=0; i--) {
-            row += this.shape[i][j];
+          for (let i=shape.length-1; i>=0; i--) {
+            row += shape[i][j];
           }
           res += row + "\n";
         }
-        let arr = (new RotatingShape(res)).shape;
-        arr = this.trimEdges(arr);
-        return this.arrToString(arr);
+        return res;
     }
 
     trimEdges(arr){

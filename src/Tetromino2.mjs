@@ -35,8 +35,3 @@ export class Tetromino2 {
         ...`
     );
 }
-
-class Tetromino2Inner{
-    i;
-    shapes;
-}

@@ -317,7 +317,7 @@ export class Board2 {
           this.board[i+this.fallBlock.y_pos][j] = ".";
       }
     }
-    this.fallBlock.x_pos -= 1;
+    this.fallBlock.x_pos += 1;
   }
 
   moveDown() {

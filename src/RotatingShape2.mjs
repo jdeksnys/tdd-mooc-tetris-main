@@ -44,6 +44,7 @@ export class RotatingShape2{
         let str1 = this.rotateRight_str(str0);
         let str2 = this.rotateRight_str(str1);
         let str3 = this.rotateRight_str(str2);
+        return new RotatingShape2([str0, str1, str2, str3]);
     }
     
     toString() {

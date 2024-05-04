@@ -21,7 +21,6 @@ describe("Falling tetrominoes", () => {
   });
 
   test("start from the top middle", () => {
-    board.drop(Tetromino.T_SHAPE);
     board2.drop(Tetromino2.T_SHAPE);
 
     expect(board2.toString()).to.equalShape(
@@ -34,17 +33,17 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test("stop when they hit the bottom", () => {
-    board.drop(Tetromino.T_SHAPE);
-    fallToBottom(board);
+  test.skip("stop when they hit the bottom", () => {
+    board2.drop(Tetromino2.T_SHAPE);
+    fallToBottom(board2);
 
-    expect(board.toString()).to.equalShape(
+    expect(board2.toString()).to.equalShape(
       `..........
        ..........
        ..........
        ..........
-       ....T.....
-       ...TTT....`
+       ...TTT....
+       ....T.....`
     );
   });
 

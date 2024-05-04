@@ -286,7 +286,6 @@ export class Board2 {
     if(dist_to_wall <= 0){
       return;
     }
-    let actual_rows = this.get_shape_actual_rows();
     let actual_cols = this.get_shape_actual_cols();
     for(let i=0; i<this.fallBlock.shape.length; i++){
       if(!actual_cols[i]){
@@ -299,7 +298,7 @@ export class Board2 {
     }
     this.fallBlock.x_pos -= 1;
   }
-  
+
   moveRight() {
     if(!this.hasFalling()){
       return;
@@ -308,14 +307,17 @@ export class Board2 {
     if(dist_to_wall <= 0){
       return;
     }
-    let actual_rows = this.get_shape_actual_rows();
-    for(let i=0; i<actual_rows; i++){
-      for(let j=this.get_shape_R_most_coord(i); j>=this.fallBlock.x_pos; j--){
+    let actual_cols = this.get_shape_actual_cols();
+    for(let i=0; i<this.fallBlock.shape.length; i++){
+      if(!actual_cols[i]){
+        continue;
+      }
+      for(let j=this.get_shape_R_most_coord(i); j>=this.get_shape_L_most_coord(i); j--){
           this.board[i+this.fallBlock.y_pos][j+1] = this.board[i+this.fallBlock.y_pos][j];
           this.board[i+this.fallBlock.y_pos][j] = ".";
       }
     }
-    this.fallBlock.x_pos += 1;
+    this.fallBlock.x_pos -= 1;
   }
 
   moveDown() {

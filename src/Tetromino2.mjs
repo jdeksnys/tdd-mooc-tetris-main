@@ -21,13 +21,15 @@ export class Tetromino2 {
          ....`]);
     
 
-    static I_SHAPE = new RotatingShape(
-        `.....
-         .....
-         IIII.
-         .....
-         .....`
-    );
+    static I_SHAPE = new RotatingShape2([
+        `....
+         TTTT
+         ....
+         ....`,
+        `..T.
+         ..T.
+         ..T.
+         ..T.`]);
     
     static O_SHAPE = new RotatingShape(
         `.OO

@@ -72,19 +72,20 @@ export class RotatingShape2{
     }
 
     rotateRight() {
-        this.i += 1;
-        if(this.i > 3){
-            this.i = 0;
+        let i = this.i + 1;
+        if(i > 3){
+            i = 0;
         }
-        return new RotatingShape2(this.shapes, this.i);
+        return new RotatingShape2(this.shapes, i);
     }
 
     rotateLeft() {
         this.i -= 1;
-        if(this.i < 0){
-            this.i = 3;
+        let i = this.i - 1;
+        if(i < 0){
+            i = 3;
         }
-        return new RotatingShape2(this.shapes, this.i);
+        return new RotatingShape2(this.shapes, i);
     }
 
     trimEdges(arr){

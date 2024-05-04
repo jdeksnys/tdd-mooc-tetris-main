@@ -30,12 +30,14 @@ export class RotatingShape2{
         return res;
     }
 
-    constructor(shape_strings){
-        this.i = 0;
+    constructor(shape_strings, i=0){
+        this.i = i;
         this.shapes = []
         shape_strings.forEach(rec => {
-            let test = RotatingShape2.stringToArray(rec);
-            this.shapes.push(test);
+          if(!Array.isArray(rec)){
+            rec = RotatingShape2.stringToArray(rec);
+          }
+            this.shapes.push(rec);
         });
     }
     
@@ -70,14 +72,15 @@ export class RotatingShape2{
         return res;
     }
 
-    static rotateRight(shape_str) {
+    rotateRight() {
         this.i += 1;
         if(this.i > 3){
             this.i = 0;
         }
+        return new RotatingShape2(this.shapes, this.i);
     }
 
-    static rotateLeft(shape_str) {
+    static rotateLeft() {
         this.i -= 1;
         if(this.i < 0){
             this.i = 3;
@@ -105,7 +108,7 @@ export class RotatingShape2{
         }
         return arr;
     }
-
+  
     arrToString(arr){
         let res = "";
         arr.forEach(row => {

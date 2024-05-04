@@ -40,7 +40,9 @@ export class RotatingShape2{
     }
     
     static fromString(str) {
-        
+        for(let i=0; i<4; i++){
+            let shape
+        }
     }
     
     toString() {
@@ -52,7 +54,7 @@ export class RotatingShape2{
         return res;
     }
 
-    rotateRight() {
+    rotateRight_str() {
         let res = "";
         for (let j=0; j<this.shape[0].length; j++) {
           let row = "";
@@ -63,7 +65,7 @@ export class RotatingShape2{
         }
         let arr = (new RotatingShape(res)).shape;
         arr = this.trimEdges(arr);
-        return new RotatingShape(this.arrToString(arr));
+        return this.arrToString(arr);
     }
 
     trimEdges(arr){
@@ -98,7 +100,7 @@ export class RotatingShape2{
         return res;
     }
     
-    rotateLeft() {
+    rotateLeft_str() {
         let res = "";
         for (let j=this.shape[0].length-1; j>=0; j--) {
             let row = "";
@@ -108,6 +110,6 @@ export class RotatingShape2{
             res += row + "\n";}
         let arr = (new RotatingShape(res)).shape;
         arr = this.trimEdges(arr);
-        return new RotatingShape(this.arrToString(arr));
+        return this.arrToString(arr);
       }
   }

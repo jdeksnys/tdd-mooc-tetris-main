@@ -185,6 +185,7 @@ export class Board2 {
         r_coords.push(r);
       }
     }
+
 		for(let j=0; j<this.fallBlock.shape[0].length; j++){
       let u = this.get_shape_U_most_coord(j);
       let b = this.get_shape_B_most_coord(j);
@@ -195,6 +196,12 @@ export class Board2 {
         b_coords.push(b);
       }
     }
+
+		let l_most_coord = Math.min(...Object.values(l_coords));
+    let r_most_coord = Math.max(...Object.values(r_coords));
+    let u_most_coord = Math.min(...Object.values(u_coords));
+    let b_most_coord = Math.max(...Object.values(b_coords));
+
 	}
 
   tick() {

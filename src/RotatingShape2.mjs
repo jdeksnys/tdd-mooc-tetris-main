@@ -77,6 +77,13 @@ export class RotatingShape2{
         }
     }
 
+    static rotateLeft(shape_str) {
+        this.i -= 1;
+        if(this.i < 0){
+            this.i = 3;
+        }
+    }
+
     trimEdges(arr){
         let R_null = arr.every(rec => rec[rec.length-1] == arr[0][rec.length-1]);
         let L_null = arr.every(rec => rec[0] == arr[0][0]);

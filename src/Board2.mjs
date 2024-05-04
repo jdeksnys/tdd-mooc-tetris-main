@@ -201,7 +201,13 @@ export class Board2 {
     let r_most_coord = Math.max(...Object.values(r_coords));
     let u_most_coord = Math.min(...Object.values(u_coords));
     let b_most_coord = Math.max(...Object.values(b_coords));
+    let res = {};
+    res["L"] = l_most_coord;
+    res["R"] = r_most_coord;
+    res["U"] = u_most_coord;
+    res["B"] = b_most_coord;
 
+    return res;
 	}
 
   tick() {

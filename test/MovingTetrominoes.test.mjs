@@ -154,17 +154,6 @@ describe("Moving falling tetrominoes", () => {
 
 
   test("cannot be moved right onto another block", () => {
-    // board.drop(Tetromino.T_SHAPE);
-    // fallRight(board);
-    // fallToBottom(board);
-
-    // board.drop(Tetromino.T_SHAPE);
-    // fallLeft(board);
-    // board.tick();
-    // board.tick();
-    // board.tick();
-    // board.tick();
-    // fallRight(board);
     board2.drop(Tetromino2.T_SHAPE);
     fallRight(board2);
     fallToBottom(board2);
@@ -187,18 +176,18 @@ describe("Moving falling tetrominoes", () => {
   });
 
   test("cannot be moved down onto another block", () => {
-    board.drop(Tetromino.T_SHAPE);
-    fallToBottom(board);
-    board.drop(Tetromino.T_SHAPE);
-    fallToBottom(board);
+    board2.drop(Tetromino2.T_SHAPE);
+    fallToBottom(board2);
+    board2.drop(Tetromino2.T_SHAPE);
+    fallToBottom(board2);
 
-    expect(board.toString()).to.equalShape(
+    expect(board2.toString()).to.equalShape(
       `..........
       ..........
-      ....T.....
       ...TTT....
       ....T.....
-      ...TTT....`
+      ...TTT....
+      ....T.....`
     );
   });
 

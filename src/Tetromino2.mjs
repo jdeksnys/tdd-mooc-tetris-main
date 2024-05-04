@@ -39,9 +39,13 @@ export class Tetromino2 {
          ..I.
          ..I.`]);
     
-    static O_SHAPE = new RotatingShape(
-        `.OO
-        .OO
-        ...`
-    );
+    static O_SHAPE = new RotatingShape2([
+        `....
+         .OO.
+         .OO.
+         ....`,
+        `..I.
+        ..I.
+        ..I.
+        ..I.`]);
 }

@@ -3,9 +3,10 @@ export class RotatingShape2{
     rows = 0;
     cols = 0;
     
-    constructor2(str){
+    stringToArray(str){
         let cols = 0;
         let row = [];
+        let res = [];
         for(let i=0; i<str.length; i++){
             if(str[i] == '\t' || str[i] == ' '){
                 continue;
@@ -19,22 +20,27 @@ export class RotatingShape2{
                 }
                 this.cols = cols;
                 this.rows += 1;
-                this.shape.push(row);
+                res.push(row);
                 row = [];
                 cols = 0;
                 continue;
             }
             row.push(str[i]);
         }
+        return res;
     }
 
-    constructor(){
+    constructor(shape_strings){
         this.i = 0;
         this.shapes = []
+        shape_strings.forEach(rec => {
+            let test = this.stringToArray(res);
+            this.shapes.push();
+        });
     }
     
     static fromString(str) {
-        return new RotatingShape(str);
+        
     }
     
     toString() {

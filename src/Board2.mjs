@@ -1,6 +1,6 @@
 import { RotatingShape } from "./RotatingShape.mjs";
 
-export class Board {
+export class Board2 {
   width;
   height;
   board;
@@ -38,7 +38,8 @@ export class Board {
     return board;
   }
 
-  drop(val) {
+  drop(rot_shape2) {
+    let val = rot_shape2.shapes[rot_shape2.i];
     if (typeof val === 'string') {
       val = new RotatingShape(val);
     }
@@ -386,7 +387,7 @@ export class Board {
   }
 }
 
-class FallingBlock {
+class FallingBlock2 {
   x_pos;
   y_pos;
   shape;

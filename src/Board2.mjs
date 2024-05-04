@@ -228,7 +228,10 @@ export class Board2 {
       if(start_i == null || start_i == undefined){
         continue;
       }
-      for(let i = start_i; i>=extreme_coords["U"]; i--) {let j_ = extreme_coords["L"]+j;this.board[i+1][j_] = this.board[i][j_];this.board[i][j_] = ".";
+      for(let i = start_i; i>=extreme_coords["U"]; i--) {
+				let j_ = extreme_coords["L"]+j;
+				this.board[i+1][j_] = this.board[i][j_];
+				this.board[i][j_] = ".";
 
       }
     }

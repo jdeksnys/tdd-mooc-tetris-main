@@ -8,14 +8,6 @@ export class Tetromino2 {
                            .T..
                            ....`),
         new RotatingShape(`.T..
-                           TT..
-                           .T..
-                           ....`),
-        new RotatingShape(`....
-                           .T..
-                           TTT.
-                           ....`),
-        new RotatingShape(`.T..
                            .TT.
                            .T..
                            ....`)

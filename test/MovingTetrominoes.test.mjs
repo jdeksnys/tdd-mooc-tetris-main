@@ -130,47 +130,59 @@ describe("Moving falling tetrominoes", () => {
 
 
   test("cannot be moved left onto another block", () => {
-    board.drop(Tetromino.T_SHAPE);
-    fallLeft(board);
-    fallToBottom(board);
+    board2.drop(Tetromino2.T_SHAPE);
+    fallLeft(board2);
+    fallToBottom(board2);
 
-    board.drop(Tetromino.T_SHAPE);
-    fallRight(board);
-    board.tick();
-    board.tick();
-    board.tick();
-    board.tick();
-    fallLeft(board);
-    expect(board.toString()).to.equalShape(
+    board2.drop(Tetromino2.T_SHAPE);
+    fallRight(board2);
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    fallLeft(board2);
+
+    expect(board2.toString()).to.equalShape(
       `..........
       ..........
       ..........
       ..........
-      .T..T.....
-      TTTTTT....`
+      TTTTTT....
+      .T..T.....`
     );
   });
 
 
   test("cannot be moved right onto another block", () => {
-    board.drop(Tetromino.T_SHAPE);
-    fallRight(board);
-    fallToBottom(board);
+    // board.drop(Tetromino.T_SHAPE);
+    // fallRight(board);
+    // fallToBottom(board);
 
-    board.drop(Tetromino.T_SHAPE);
-    fallLeft(board);
-    board.tick();
-    board.tick();
-    board.tick();
-    board.tick();
-    fallRight(board);
-    expect(board.toString()).to.equalShape(
+    // board.drop(Tetromino.T_SHAPE);
+    // fallLeft(board);
+    // board.tick();
+    // board.tick();
+    // board.tick();
+    // board.tick();
+    // fallRight(board);
+    board2.drop(Tetromino2.T_SHAPE);
+    fallRight(board2);
+    fallToBottom(board2);
+
+    board2.drop(Tetromino2.T_SHAPE);
+    fallLeft(board2);
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    fallRight(board2);
+    expect(board2.toString()).to.equalShape(
       `..........
       ..........
       ..........
       ..........
-      .....T..T.
-      ....TTTTTT`
+      ....TTTTTT
+      .....T..T.`
     );
   });
 

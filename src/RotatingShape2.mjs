@@ -3,7 +3,7 @@ export class RotatingShape2{
     rows = 0;
     cols = 0;
     
-    constructor(str){
+    constructor2(str){
         let cols = 0;
         let row = [];
         for(let i=0; i<str.length; i++){
@@ -26,6 +26,11 @@ export class RotatingShape2{
             }
             row.push(str[i]);
         }
+    }
+
+    constructor(){
+        this.i = 0;
+        this.shapes = []
     }
     
     static fromString(str) {

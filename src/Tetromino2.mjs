@@ -24,6 +24,14 @@ export class Tetromino2 {
     static T_SHAPE = new RotatingShape2([
 
         `.T..
+         TT..
+         .T..
+         ....`,
+        `....
+         .T..
+         TTT.
+         ....`,
+        `.T..
          .TT.
          .T..
          ....`]);

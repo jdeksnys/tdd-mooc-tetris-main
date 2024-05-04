@@ -185,6 +185,16 @@ export class Board2 {
         r_coords.push(r);
       }
     }
+		for(let j=0; j<this.fallBlock.shape[0].length; j++){
+      let u = this.get_shape_U_most_coord(j);
+      let b = this.get_shape_B_most_coord(j);
+      if(u != null && u != undefined){
+        u_coords.push(u);
+      }
+      if(b != null && b != undefined){
+        b_coords.push(b);
+      }
+    }
 	}
 
   tick() {

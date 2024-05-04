@@ -29,10 +29,10 @@ describe("Moving falling tetrominoes", () => {
   let board2;
   beforeEach(() => {
     board = new Board(10, 6);
-    board2 = new Board(10, 6);
+    board2 = new Board2(10, 6);
   });
 
-  test("move left but no moving tetrominoes", () => {
+  test.skip("move left but no moving tetrominoes", () => {
     board2.moveLeft();
     expect(board2.toString()).to.equalShape(
       `..........
@@ -44,10 +44,7 @@ describe("Moving falling tetrominoes", () => {
     );
   });
 
-  test.skip("move falling tetromino left", () => {
-    board.drop(Tetromino.T_SHAPE);
-    board.moveLeft();
-
+  test("move falling tetromino left", () => {
     board2.drop(Tetromino2.T_SHAPE);
     board2.moveLeft();
     

@@ -79,14 +79,16 @@ export class Board2 {
 
   get_shape_actual_cols(){
     let res = {};
-    for(let i=0; i<this.get_shape_actual_rows(); i++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
       let cols = 0;
       for(let j=0; j<this.fallBlock.shape[0].length; j++){
         if (this.fallBlock.shape[i][j] != ".") {;
           cols += 1;
         }
       }
-      res[i.toString()] = cols;
+      if(cols != 0){
+        res[i.toString()] = cols;
+      }
     }
     return res;
   }
@@ -286,9 +288,11 @@ export class Board2 {
     }
     let actual_rows = this.get_shape_actual_rows();
     let actual_cols = this.get_shape_actual_cols();
-    for(let i=0; i<actual_rows; i++){
-      let actual_cols_i = actual_cols[i];
-      for(let j=this.get_shape_L_most_coord(i); j<this.get_shape_L_most_coord(i)+actual_cols_i; j++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
+      if(!actual_cols[i]){
+        continue;
+      }
+      for(let j=this.get_shape_L_most_coord(i); j<this.get_shape_L_most_coord(i)+actual_cols[i]; j++){
           this.board[i+this.fallBlock.y_pos][j-1] = this.board[i+this.fallBlock.y_pos][j];
           this.board[i+this.fallBlock.y_pos][j] = ".";
       }

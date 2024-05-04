@@ -35,7 +35,7 @@ export class RotatingShape2{
         this.shapes = []
         shape_strings.forEach(rec => {
             let test = this.stringToArray(res);
-            this.shapes.push();
+            this.shapes.push(test);
         });
     }
     

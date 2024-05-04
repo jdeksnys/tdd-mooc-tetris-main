@@ -3,7 +3,7 @@ export class RotatingShape2{
     rows = 0;
     cols = 0;
     
-    stringToArray(str){
+    static stringToArray(str){
         let cols = 0;
         let row = [];
         let res = [];
@@ -34,17 +34,16 @@ export class RotatingShape2{
         this.i = 0;
         this.shapes = []
         shape_strings.forEach(rec => {
-            let test = this.stringToArray(res);
+            let test = RotatingShape2.stringToArray(rec);
             this.shapes.push(test);
         });
     }
     
     static fromString(str) {
-        str = 
-        let str0 = this.rotateRight_str(str);
-        let str1 = this.rotateRight_str(str0);
-        let str2 = this.rotateRight_str(str1);
-        let str3 = this.rotateRight_str(str2);
+        let str0 = RotatingShape2.rotateRight_str(str);
+        let str1 = RotatingShape2.rotateRight_str(str0);
+        let str2 = RotatingShape2.rotateRight_str(str1);
+        let str3 = RotatingShape2.rotateRight_str(str2);
         return new RotatingShape2([str0, str1, str2, str3]);
     }
     
@@ -57,9 +56,9 @@ export class RotatingShape2{
         return res;
     }
 
-    rotateRight_str() {
+    static rotateRight_str(shape_str) {
         let res = "";
-        let shape = this.stringToArray(shape_str);
+        let shape = RotatingShape2.stringToArray(shape_str);
         for (let j=0; j<shape[0].length; j++) {
           let row = "";
           for (let i=shape.length-1; i>=0; i--) {
@@ -102,7 +101,7 @@ export class RotatingShape2{
         return res;
     }
     
-    rotateLeft_str(shape_str) {
+    static rotateLeft_str(shape_str) {
         let res = "";
         let shape = this.stringToArray(shape_str);
         for (let j=shape[0].length-1; j>=0; j--) {

@@ -113,7 +113,7 @@ export class Board2 {
         return this.fallBlock.y_pos + i;
       }
     }
-    return 0;
+    return null;
   }
 
   get_shape_U_most_coord(shape_col){
@@ -186,7 +186,7 @@ export class Board2 {
       }
     }
 
-		for(let j=0; j<this.fallBlock.shape[0].length; j++){
+    for(let j=0; j<this.fallBlock.shape[0].length; j++){
       let u = this.get_shape_U_most_coord(j);
       let b = this.get_shape_B_most_coord(j);
       if(u != null && u != undefined){
@@ -197,7 +197,7 @@ export class Board2 {
       }
     }
 
-		let l_most_coord = Math.min(...Object.values(l_coords));
+    let l_most_coord = Math.min(...Object.values(l_coords));
     let r_most_coord = Math.max(...Object.values(r_coords));
     let u_most_coord = Math.min(...Object.values(u_coords));
     let b_most_coord = Math.max(...Object.values(b_coords));
@@ -208,7 +208,7 @@ export class Board2 {
     res["B"] = b_most_coord;
 
     return res;
-	}
+  }
 
   tick() {
     if (!this.hasFalling) {
@@ -223,10 +223,12 @@ export class Board2 {
     let extreme_coords = this.get_extreme_coords();
     let min_y = (this.fallBlock.y_pos == -1) ? 0 : this.fallBlock.y_pos;
     
-    for(let j=extreme_coords["L"]; j<=extreme_coords["R"]; j++) {
-      for(let i = this.get_shape_B_most_coord(j); i>=min_y; i--) {
-        this.board[i+1][j] = this.board[i][j];
-        this.board[i][j] = ".";
+    for(let j=0; j<this.fallBlock.shape[0].length; j++) {
+      let start_i = this.get_shape_B_most_coord(j);
+      if(start_i == null || start_i == undefined){
+        continue;
+      }
+      for(let i = start_i; i>=extreme_coords["U"]; i--) {let j_ = extreme_coords["L"]+j;this.board[i+1][j_] = this.board[i][j_];this.board[i][j_] = ".";
 
       }
     }

@@ -40,9 +40,10 @@ export class RotatingShape2{
     }
     
     static fromString(str) {
-        for(let i=0; i<4; i++){
-            let shape
-        }
+        let str0 = this.rotateRight_str(str);
+        let str1 = this.rotateRight_str(str0);
+        let str2 = this.rotateRight_str(str1);
+        let str3 = this.rotateRight_str(str2);
     }
     
     toString() {

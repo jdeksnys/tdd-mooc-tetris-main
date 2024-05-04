@@ -112,9 +112,6 @@ export class RotatingShape2{
               row += shape[i][j];
             }
             res += row + "\n";}
-        // let arr = (new RotatingShape(res)).shape;
-        // let arr = this.trimEdges(arr);
-        // return this.arrToString(arr);
         return res;
       }
   }

@@ -169,7 +169,15 @@ export class Board2 {
     return dist_to_walls;
   }
 
-  get_extreme_coords(){}
+  get_extreme_coords(){
+    let l_coords = [];
+    let r_coords = [];
+    let u_coords = [];
+    let b_coords = [];
+
+
+	}
+
   tick() {
     if (!this.hasFalling) {
       return;

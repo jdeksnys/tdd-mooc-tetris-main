@@ -55,14 +55,6 @@ export class RotatingShape{
         return new RotatingShape(this.arrToString(arr));
     }
 
-    rotateRight2() {
-        let res = "";
-        for (let j=0; j<this.shape[0].length; j++) {
-        }
-        let arr = (new RotatingShape(res)).shape;
-        arr = this.trimEdges(arr);
-        return new RotatingShape(this.arrToString(arr));
-    }
 
     trimEdges(arr){
         let R_null = arr.every(rec => rec[rec.length-1] == arr[0][rec.length-1]);

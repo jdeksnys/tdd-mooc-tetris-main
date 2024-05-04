@@ -40,7 +40,7 @@ export class RotatingShape2{
     }
     
     static fromString(str) {
-        let str0 = RotatingShape2.rotateRight_str(str);
+        let str0 = str;
         let str1 = RotatingShape2.rotateRight_str(str0);
         let str2 = RotatingShape2.rotateRight_str(str1);
         let str3 = RotatingShape2.rotateRight_str(str2);
@@ -49,7 +49,8 @@ export class RotatingShape2{
     
     toString() {
         let res = "";
-        this.shape.forEach(row => {
+        let shape = this.shapes[this.i];
+        shape.forEach(row => {
             row.forEach(char => {res += char;});
             res += "\n";
         })

@@ -122,7 +122,7 @@ export class Board2 {
         return this.fallBlock.y_pos + i;
       }
     }
-    return 0;
+    return null;
   }
 
   get_dist_to_wall_R(){

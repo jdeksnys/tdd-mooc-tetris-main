@@ -48,12 +48,11 @@ export class Board2 {
     }
     this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock2(val, this.width, this.height);
-    let actual_rows = this.get_shape_actual_rows();
     if (val) {
       for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.length; i++){
         for(let j=0; j<this.fallBlock.shape[0].length; j++){
           if(this.fallBlock.shape[i][j] != "."){
-            this.board[i][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
+            this.board[i-1][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
           }
         }
       }
@@ -92,24 +91,24 @@ export class Board2 {
   }
 
   get_shape_R_most_coord(shape_row){
-    for(let j=this.fallBlock.shape.cols-1; j>=0; j--){
-      if (this.fallBlock.shape.shape[shape_row][j] != ".") {
+    for(let j=this.fallBlock.shape[0].length-1; j>=0; j--){
+      if (this.fallBlock.shape[shape_row][j] != ".") {
         return this.fallBlock.x_pos + j;
       }
     }
   }
 
   get_shape_L_most_coord(shape_row){
-    for(let j=0; j<this.fallBlock.shape.cols; j++){
-      if (this.fallBlock.shape.shape[shape_row][j] != ".") {
+    for(let j=0; j<this.fallBlock.shape[0].length; j++){
+      if (this.fallBlock.shape[shape_row][j] != ".") {
         return this.fallBlock.x_pos + j;
       }
     }
   }
 
   get_shape_B_most_coord(shape_col){
-    for(let i=this.fallBlock.shape.rows-1; i>=0; i--){
-      if (this.fallBlock.shape.shape[i][shape_col] != ".") {
+    for(let i=this.fallBlock.shape.length-1; i>=0; i--){
+      if (this.fallBlock.shape[i][shape_col] != ".") {
         return this.fallBlock.y_pos + i;
       }
     }
@@ -117,8 +116,8 @@ export class Board2 {
   }
 
   get_shape_U_most_coord(shape_col){
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
-      if (this.fallBlock.shape.shape[i][shape_col] != ".") {
+    for(let i=0; i<this.fallBlock.shape.length; i++){
+      if (this.fallBlock.shape[i][shape_col] != ".") {
         return this.fallBlock.y_pos + i;
       }
     }

@@ -20,7 +20,7 @@ describe("Falling tetrominoes", () => {
     board2 = new Board2(10, 6);
   });
 
-  test.skip("start from the top middle", () => {
+  test("start from the top middle", () => {
     board.drop(Tetromino.T_SHAPE);
     board2.drop(Tetromino2.T_SHAPE);
 

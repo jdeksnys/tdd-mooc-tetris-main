@@ -51,8 +51,7 @@ export class RotatingShape2{
     
     toString() {
         let res = "";
-        let shape = this.shapes[this.i];
-        shape.forEach(row => {
+        this.shapes[this.i].forEach(row => {
             row.forEach(char => {res += char;});
             res += "\n";
         })
@@ -80,11 +79,12 @@ export class RotatingShape2{
         return new RotatingShape2(this.shapes, this.i);
     }
 
-    static rotateLeft() {
+    rotateLeft() {
         this.i -= 1;
         if(this.i < 0){
             this.i = 3;
         }
+        return new RotatingShape2(this.shapes, this.i);
     }
 
     trimEdges(arr){

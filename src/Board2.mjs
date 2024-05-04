@@ -47,13 +47,13 @@ export class Board2 {
       throw new Error("already falling");
     }
     this.hasFallingBlock = true;
-    this.fallBlock = new FallingBlock(val, this.width, this.height);
+    this.fallBlock = new FallingBlock2(val, this.width, this.height);
     let actual_rows = this.get_shape_actual_rows();
     if (val) {
-      for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.rows; i++){
-        for(let j=0; j<this.fallBlock.shape.cols; j++){
-          if(this.fallBlock.shape.shape[i][j] != "."){
-            this.board[i][j+this.fallBlock.x_pos] = this.fallBlock.shape.shape[i][j];
+      for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.length; i++){
+        for(let j=0; j<this.fallBlock.shape[0].length; j++){
+          if(this.fallBlock.shape[i][j] != "."){
+            this.board[i][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
           }
         }
       }
@@ -62,10 +62,10 @@ export class Board2 {
 
   get_shape_actual_rows(){
     let res = 0;
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
       let line_empty = true;
-      for(let j=0; j<this.fallBlock.shape.cols; j++){
-        let test = this.fallBlock.shape.shape[i][j];
+      for(let j=0; j<this.fallBlock.shape[0].length; j++){
+        let test = this.fallBlock.shape[i][j];
         if (test != ".") {
           line_empty = false;
         }
@@ -392,7 +392,7 @@ class FallingBlock2 {
   y_pos;
   shape;
   constructor(shape, board_width, board_height, x_pos=null, y_pos=null) {
-    let temp = shape.cols==1 ? 0 : Math.round(shape.cols/2);
+    let temp = shape[0].length==1 ? 0 : Math.round(shape[0].length/2);
     this.x_pos = x_pos!=null ? x_pos : (Math.floor(board_width / 2) - temp);
     this.y_pos = y_pos!=null ? y_pos : 0;
     this.shape = shape;

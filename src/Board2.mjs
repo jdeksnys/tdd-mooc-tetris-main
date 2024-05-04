@@ -81,8 +81,8 @@ export class Board2 {
     let res = {};
     for(let i=0; i<this.get_shape_actual_rows(); i++){
       let cols = 0;
-      for(let j=0; j<this.fallBlock.shape.cols; j++){
-        if (this.fallBlock.shape.shape[i][j] != ".") {;
+      for(let j=0; j<this.fallBlock.shape[0].length; j++){
+        if (this.fallBlock.shape[i][j] != ".") {;
           cols += 1;
         }
       }
@@ -127,7 +127,7 @@ export class Board2 {
 
   get_dist_to_wall_R(){
     let dist_to_walls = {};
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
       let r_ended = false;
       let dist = 0;
       let r_coord = this.get_shape_R_most_coord(i);
@@ -149,7 +149,7 @@ export class Board2 {
 
   get_dist_to_wall_L(){
     let dist_to_walls = {};
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
       let l_ended = false;
       let dist = 0;
       let l_coord = this.get_shape_L_most_coord(i);
@@ -229,9 +229,9 @@ export class Board2 {
         continue;
       }
       for(let i = start_i; i>=extreme_coords["U"]; i--) {
-				let j_ = extreme_coords["L"]+j;
-				this.board[i+1][j_] = this.board[i][j_];
-				this.board[i][j_] = ".";
+        let j_ = extreme_coords["L"]+j;
+        this.board[i+1][j_] = this.board[i][j_];
+        this.board[i][j_] = ".";
 
       }
     }
@@ -427,8 +427,8 @@ export class Board2 {
   updateFallblockInBoard(clean=false){
     for(let i=0; i<this.fallBlock.shape.rows; i++){
       for(let j=0; j<this.fallBlock.shape.cols; j++){
-        if(this.fallBlock.shape.shape[i][j] != "."){
-          this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = clean ? "." : this.fallBlock.shape.shape[i][j];
+        if(this.fallBlock.shape[i][j] != "."){
+          this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = clean ? "." : this.fallBlock.shape[i][j];
         }
       }
     }

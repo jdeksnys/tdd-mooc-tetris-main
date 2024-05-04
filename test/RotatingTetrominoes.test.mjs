@@ -98,26 +98,29 @@ describe("The O shape", () => {
   const shape2 = Tetromino2.O_SHAPE;
 
   test("initial orientation", () => {
-    expect(shape.toString()).to.equalShape(
-      `.OO
-       .OO
-       ...`
+    expect(shape2.toString()).to.equalShape(
+      `....
+       .OO.
+       .OO.
+       ....`
     );
   });
 
   test("cannot be rotated right/clockwise", () => {
-    expect(shape.rotateRight().toString()).to.equalShape(
-      `.OO
-       .OO
-       ...`
+    expect(shape2.rotateRight().toString()).to.equalShape(
+      `....
+       .OO.
+       .OO.
+       ....`
     );
   });
 
   test("cannot be rotated left/counter-clockwise", () => {
-    expect(shape.rotateLeft().toString()).to.equalShape(
-      `.OO
-       .OO
-       ...`
+    expect(shape2.rotateLeft().toString()).to.equalShape(
+      `....
+       .OO.
+       .OO.
+       ....`
     );
   });
 

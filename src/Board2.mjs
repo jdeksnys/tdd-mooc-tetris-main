@@ -56,6 +56,7 @@ export class Board2 {
           }
         }
       }
+      this.fallBlock.y_pos -= 1;
     }
   }
 
@@ -168,6 +169,7 @@ export class Board2 {
     return dist_to_walls;
   }
 
+  get_extreme_coords(){}
   tick() {
     if (!this.hasFalling) {
       return;
@@ -178,11 +180,13 @@ export class Board2 {
       return;
     }
     let min_h = Math.min(...Object.values(heights));
-    for(let j=0; j<this.fallBlock.shape.cols; j++) {
-      for(let i = this.get_shape_B_most_coord(j); i>=this.fallBlock.y_pos; i--) {
-        let j_ = this.fallBlock.x_pos+j;
-        this.board[i+1][j_] = this.board[i][j_];
-        this.board[i][j_] = ".";
+    let extreme_coords = this.get_extreme_coords();
+    let min_y = (this.fallBlock.y_pos == -1) ? 0 : this.fallBlock.y_pos;
+    
+    for(let j=extreme_coords["L"]; j<=extreme_coords["R"]; j++) {
+      for(let i = this.get_shape_B_most_coord(j); i>=min_y; i--) {
+        this.board[i+1][j] = this.board[i][j];
+        this.board[i][j] = ".";
 
       }
     }
@@ -201,7 +205,7 @@ export class Board2 {
     let l_coords = [];
     let r_coords = [];
 
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
       let l = this.get_shape_L_most_coord(i);
       let r = this.get_shape_R_most_coord(i);
       if(l != null && l != undefined){

@@ -353,14 +353,9 @@ export class Board2 {
       this.updateFallblockInBoard(false);
 
     } else if(this.can_wall_kick()){
-      let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
-      this.updateFallblockInBoard(true);
-
       let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
       let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
       let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
-      let actual_rows_old = this.get_shape_actual_rows();
-      let rotated_shape = rot_shape.rotateLeft();
       let x = this.fallBlock.x_pos < 0
       ? 0
       : this.fallBlock.x_pos >= this.width
@@ -373,7 +368,11 @@ export class Board2 {
       } else if(dist_R_old + actual_cols_old < actual_rows_old){
         x = x - dist_R_old;
       }
-      this.fallBlock = new FallingBlock(rotated_shape, this.width, this.height, x, y);
+      if(dist_U_old + actual_rows_old < actual_cols_old){
+        y = y - dist_U_old;
+      }
+      this.fallBlock.x_pos = x;
+      this.fallBlock.y_pos = y;
       this.updateFallblockInBoard(false);
     }
   }

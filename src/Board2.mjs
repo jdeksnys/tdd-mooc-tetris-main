@@ -220,6 +220,7 @@ export class Board2 {
     let min_h = Math.min(...Object.values(heights));
     let extreme_coords = this.get_extreme_coords();
     let min_y = (this.fallBlock.y_pos == -1) ? 0 : this.fallBlock.y_pos;
+    let col_counter = 0;
     
     for(let j=0; j<this.fallBlock.shape[0].length; j++) {
       let start_i = this.get_shape_B_most_coord(j);
@@ -227,11 +228,13 @@ export class Board2 {
         continue;
       }
       for(let i = start_i; i>=extreme_coords["U"]; i--) {
-        let j_ = extreme_coords["L"]+j;
+        let j_ = extreme_coords["L"]+col_counter;
         this.board[i+1][j_] = this.board[i][j_];
         this.board[i][j_] = ".";
 
       }
+
+      col_counter += 1;
     }
     this.fallBlock.y_pos += 1;
   }
@@ -449,6 +452,7 @@ class FallingBlock2 {
   rotatingShape;
 
   constructor(rotatingShape, board_width, board_height, x_pos=null, y_pos=null) {
+    rotatingShape.i = 0;
     this.rotatingShape = rotatingShape;
     let shape = this.rotatingShape.shapes[this.rotatingShape.i];
     let temp = shape[0].length==1 ? 0 : Math.round(shape[0].length/2);

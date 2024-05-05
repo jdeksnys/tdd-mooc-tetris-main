@@ -280,6 +280,7 @@ export class Board2 {
       col_counter += 1;
     }
     this.fallBlock.y_pos += 1;
+    
   }
 
   hasFalling = () => this.hasFallingBlock;
@@ -364,6 +365,7 @@ export class Board2 {
 
   moveDown() {
     this.tick();
+    this.clearLines();
   }
 
   rotateLeft() {
@@ -378,7 +380,7 @@ export class Board2 {
       }
       this.fallBlock.i = i;
       this.updateFallblockInBoard(false);
-
+      this.clearLines();
     } else if(this.can_wall_kick()){
       let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
       let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
@@ -412,6 +414,7 @@ export class Board2 {
       this.fallBlock.x_pos = x;
       this.fallBlock.y_pos = y;
       this.updateFallblockInBoard(false);
+      this.clearLines();
     }
   }
 
@@ -478,6 +481,7 @@ export class Board2 {
       }
       this.fallBlock.i = i;
       this.updateFallblockInBoard(false);
+      this.clearLines();
 
     } else if(this.can_wall_kick()){
       let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
@@ -512,6 +516,7 @@ export class Board2 {
       this.fallBlock.x_pos = x;
       this.fallBlock.y_pos = y;
       this.updateFallblockInBoard(false);
+      this.clearLines();
     }
   }
 
@@ -531,14 +536,14 @@ export class Board2 {
       let lines_to_clear = [];
       let streak = 0;
       for(let j=0; j<this.board[0].length; j++){
-        if(this.board[i][j] != "."){
+        if(this.board[i][j] == "."){
           line_full = false;
           break;
         }
       }
       if(line_full){
         lines_to_clear.push(i);
-        clearRowAndPushDown(i);
+        this.clearRowAndPushDown(i);
       }
       if(i != 0 && line_full && lines_to_clear.includes(i-1)){
         streak += 1;

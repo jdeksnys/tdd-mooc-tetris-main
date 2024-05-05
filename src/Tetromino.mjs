@@ -1,4 +1,4 @@
-import { RotatingShape } from "../src/RotatingShape.mjs";
+import { RotatingShape } from "./RotatingShape.mjs";
 import { RotatingShape2 } from "./RotatingShape2.mjs";
 
 export class Tetromino2 {

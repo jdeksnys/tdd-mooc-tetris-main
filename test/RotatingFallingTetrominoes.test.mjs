@@ -28,7 +28,6 @@ describe("Rotating falling tetrominoes", () => {
   let board;
   let board2;
   beforeEach(() => {
-    board = new Board(10, 8);
     board2 = new Board2(10, 8);
   });
 
@@ -203,25 +202,28 @@ describe("Rotating falling tetrominoes", () => {
 
 
   test("no room to rotate left (L side test)", () => {
-    board.drop(Tetromino.T_SHAPE);
-    board.moveLeft();
-    fallToBottom(board);
-    board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
-    board.moveLeft();
-    board.moveLeft();
-    fallToBottom(board);
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.moveLeft();
+    board2.rotateRight();
+    board2.rotateRight();
+    fallToBottom(board2);
+    
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.rotateLeft();
+    board2.moveLeft();
+    board2.moveLeft();
+    fallToBottom(board2);
+    
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.rotateLeft();
+    fallLeft(board2);
+    
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    board2.rotateLeft()
 
-    board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
-    fallLeft(board);
-    
-    board.tick();
-    board.tick();
-    board.tick();
-    board.rotateLeft()
-    
-    expect(board.toString()).to.equalShape(
+    expect(board2.toString()).to.equalShape(
       `..........
        ..........
        ..........

@@ -485,15 +485,6 @@ export class Board2 {
       this.updateFallblockInBoard(true);
 
       let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
-      let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
-      let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
-      let actual_rows_old = this.get_shape_actual_rows();
-      let rotated_shape = rot_shape.rotateRight();
-      let x = this.fallBlock.x_pos < 0
-        ? 0
-        : this.fallBlock.x_pos >= this.width
-          ? this.width-1
-          : this.fallBlock.x_pos;
 
     }
   }

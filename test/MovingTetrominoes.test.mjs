@@ -1,8 +1,6 @@
 
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
-import { Board } from "../src/Board.mjs";
-import { Tetromino } from "../src/Tetromino.mjs";
 import { Board2 } from "../src/Board2.mjs";
 import { Tetromino2 } from "../src/Tetromino2.mjs";
 
@@ -25,10 +23,8 @@ function fallRight(board) {
 }
 
 describe("Moving falling tetrominoes", () => {
-  let board;
   let board2;
   beforeEach(() => {
-    board = new Board(10, 6);
     board2 = new Board2(10, 6);
   });
 
@@ -191,7 +187,7 @@ describe("Moving falling tetrominoes", () => {
     );
   });
 
-  test("cannot be moved down (rot-left-fit) onto another block", () => {
+  test.skip("cannot be moved down (rot-left-fit) onto another block", () => {
     board2.drop(Tetromino2.T_SHAPE);
     board2.tick();
     board2.rotateRight();

@@ -1,6 +1,5 @@
 import { describe, test } from "vitest";
 import { expect } from "chai";
-import { RotatingShape } from "../src/RotatingShape.mjs";
 import { RotatingShape2 } from "../src/RotatingShape2.mjs";
 
 describe("Rotating 3x3 shape", () => {

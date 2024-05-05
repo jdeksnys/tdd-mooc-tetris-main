@@ -72,6 +72,7 @@ export class Board2 {
     }
     return res;
   }
+
   get_shape_actual_rows2(){
     let res = {};
     for(let j=0; j<this.fallBlock.shape[0].length; j++){
@@ -81,7 +82,13 @@ export class Board2 {
           rows += 1;
         }
       }
-      if(rows != 0){res[j.toString()] = rows;}}return res;}
+      if(rows != 0){
+        res[j.toString()] = rows;
+      }
+    }
+    return res;
+  }
+
   get_shape_actual_cols(){
     let res = {};
     for(let i=0; i<this.fallBlock.shape.length; i++){

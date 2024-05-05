@@ -57,10 +57,6 @@ export class Board2 {
       }
       this.fallBlock.y_pos -= 1;
     }
-    }
-  }
-  }
-  }
 
   get_shape_actual_rows(){
     let res = 0;
@@ -447,7 +443,7 @@ class FallingBlock2 {
   x_pos;
   y_pos;
   rotatingShape;
-  
+
   constructor(rotatingShape, board_width, board_height, x_pos=null, y_pos=null) {
     this.rotatingShape = rotatingShape;
     let shape = this.rotatingShape.shapes[this.rotatingShape.i];

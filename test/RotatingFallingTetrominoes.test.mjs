@@ -308,30 +308,30 @@ describe("Rotating falling tetrominoes", () => {
   });
 
   test("no room to rotate right (squeezed)", () => {
-    board.drop(Tetromino.I_SHAPE);
-    board.rotateRight();
-    board.moveLeft();
-    fallToBottom(board);
+    board2.drop(Tetromino2.I_SHAPE);
+    board2.rotateRight();
+    board2.moveLeft();
+    fallToBottom(board2);
 
-    board.drop(Tetromino.I_SHAPE);
-    board.rotateRight();
-    board.moveRight();
-    fallToBottom(board);
+    board2.drop(Tetromino2.I_SHAPE);
+    board2.rotateRight();
+    board2.moveRight();
+    fallToBottom(board2);
 
-    board.drop(Tetromino.I_SHAPE);
-    board.rotateRight();
-    board.tick();
-    board.rotateRight();
+    board2.drop(Tetromino2.I_SHAPE);
+    board2.rotateRight();
+    board2.tick();
+    board2.rotateRight();
     
-    expect(board.toString()).to.equalShape(
+    expect(board2.toString()).to.equalShape(
       `..........
-       ....I.....
-       ....I.....
-       ....I.....
-       ...III....
-       ...I.I....
-       ...I.I....
-      ...I.I....`
+       .....I....
+       .....I....
+       .....I....
+       ....III...
+       ....I.I...
+       ....I.I...
+       ....I.I...`
     );
   });
 

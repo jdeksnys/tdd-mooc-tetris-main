@@ -271,29 +271,31 @@ describe("Rotating falling tetrominoes", () => {
 
 
   test("no room to rotate left (R side test)", () => {
-    board.drop(Tetromino.T_SHAPE);
-    board.moveRight();
-    board.moveRight();
-    fallToBottom(board);
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.moveRight();
+    board2.moveRight();
+    board2.rotateLeft();
+    board2.rotateLeft();
+    fallToBottom(board2);
+
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.rotateRight();
+    board2.moveRight();
+    board2.moveRight();
+    board2.moveRight();
+    fallToBottom(board2);
+
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.rotateRight();
+    fallRight(board2);
+
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    console.log(board2.toString());
+    board2.rotateLeft()
     
-    board.drop(Tetromino.T_SHAPE);
-    board.rotateLeft();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    fallToBottom(board);
-    
-    board.drop(Tetromino.T_SHAPE);
-    board.rotateLeft();
-    fallRight(board);
-    
-    board.tick();
-    board.tick();
-    board.tick();
-    console.log(board.toString());
-    board.rotateLeft()
-    
-    expect(board.toString()).to.equalShape(
+    expect(board2.toString()).to.equalShape(
       `..........
        ..........
        ..........

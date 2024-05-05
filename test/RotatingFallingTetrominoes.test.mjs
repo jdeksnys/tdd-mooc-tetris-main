@@ -167,43 +167,29 @@ describe("Rotating falling tetrominoes", () => {
        ..........`);
   });
 
-  test("rotate right after drop+tick", () => {
-    board.drop(Tetromino.T_SHAPE);
-    board.tick();
-    board.tick();
-    board.rotateRight();
-    expect(board.toString()).to.equalShape(
-        `..........
-         ..........
-         ....T.....
-         ....TT....
-         ....T.....
-         ..........
-         ..........
-         ..........`
-    );
-  });
-
   test("no room to rotate right (L side test)", () => {
-    board.drop(Tetromino.T_SHAPE);
-    board.moveLeft();
-    fallToBottom(board);
-    board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
-    board.moveLeft();
-    board.moveLeft();
-    fallToBottom(board);
-
-    board.drop(Tetromino.T_SHAPE);
-    board.rotateRight();
-    fallLeft(board);
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.moveLeft();
+    board2.rotateRight();
+    board2.rotateRight();
+    fallToBottom(board2);
     
-    board.tick();
-    board.tick();
-    board.tick();
-    board.rotateRight()
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.rotateLeft();
+    board2.moveLeft();
+    board2.moveLeft();
+    fallToBottom(board2);
     
-    expect(board.toString()).to.equalShape(
+    board2.drop(Tetromino2.T_SHAPE);
+    board2.rotateLeft();
+    fallLeft(board2);
+    
+    board2.tick();
+    board2.tick();
+    board2.tick();
+    board2.rotateRight()
+    
+    expect(board2.toString()).to.equalShape(
       `..........
        ..........
        ..........

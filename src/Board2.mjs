@@ -507,6 +507,15 @@ export class Board2 {
     }
   }
 
+  rotateRight2() {
+    if(!this.fallBlock){return;}
+    if(this.can_rotate()){
+      this.updateFallblockInBoard(true);
+      let i = this.fallBlock.i - 1;
+      if(i < 0){i = 3;}
+      this.fallBlock.i = i;
+      this.updateFallblockInBoard(false);} else if(this.can_wall_kick()){}}
+
   updateFallblockInBoard(clean=false){
     for(let i=0; i<this.fallBlock.shape.length; i++){
       for(let j=0; j<this.fallBlock.shape[0].length; j++){

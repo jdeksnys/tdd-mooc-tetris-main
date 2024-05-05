@@ -59,16 +59,6 @@ export class Board2 {
   get_shape_actual_rows_old(){
     let res = 0;
     for(let i=0; i<this.fallBlock.shape.length; i++){
-      let line_empty = true;
-      for(let j=0; j<this.fallBlock.shape[0].length; j++){
-        let test = this.fallBlock.shape[i][j];
-        if (test != ".") {
-          line_empty = false;
-        }
-      }
-      if(!line_empty){
-        res += 1;
-      }
     }
     return res;
   }

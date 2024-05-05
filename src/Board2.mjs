@@ -538,12 +538,21 @@ export class Board2 {
       }
       if(line_full){
         lines_to_clear.push(i);
+        //clearRowAndPushDown(i);
       }
       if(i != 0 && lines_to_clear.includes(i-1)){
         streak += 1;
       }
     }
-    
+  }
+   
+  clearRowAndPushDown(line_no){
+    for(let j=0; j<this.board[0].length; j++){
+      this.board[line_no][j] = ".";
+      for(let i=0; i<line_no; i++){
+        this.board[i][j] = this.board[i+1][j];
+      }
+    }
   }
 }
 

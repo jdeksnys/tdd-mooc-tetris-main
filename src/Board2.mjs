@@ -387,7 +387,16 @@ export class Board2 {
     let actual_rows = this.get_shape_actual_rows();
     let max_rows = Math.max(...Object.values(actual_rows));
     let can_rotate = true;
-    return can_rotate;
+    for(let i=0; i<this.fallBlock.shape.length; i++){
+      if(dist_L[i] <= 0 || dist_R[i] <= 0 || max_rows > (actual_cols[i]+dist_L[i]+dist_R[i])){
+        can_rotate = false;
+        break;
+      }
+    }
+    for(let j=0; j<this.fallBlock.shape[0].length; j++){
+      if(dist_U[j] <= 0 || dist_B[j] <= 0){
+        can_rotate = false;
+        break;}}return can_rotate;
   }
 
   can_rotate() {

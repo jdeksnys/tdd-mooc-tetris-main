@@ -396,7 +396,10 @@ export class Board2 {
     for(let j=0; j<this.fallBlock.shape[0].length; j++){
       if(dist_U[j] <= 0 || dist_B[j] <= 0){
         can_rotate = false;
-        break;}}return can_rotate;
+        break;
+      }
+    }
+    return can_rotate;
   }
 
   can_rotate() {

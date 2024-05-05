@@ -548,7 +548,8 @@ export class Board2 {
         x = x - dist_R_old;
       }
       if(dist_U_old + actual_rows_old < actual_cols_old){
-        y = y - dist_U_old;}
+        y = y - dist_U_old;
+      }
       this.fallBlock.x_pos = x;
       this.fallBlock.y_pos = y;
       this.updateFallblockInBoard(false);

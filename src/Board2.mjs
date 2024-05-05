@@ -191,8 +191,11 @@ export class Board2 {
       let u_coord = this.get_shape_U_most_coord(j);
       if(u_coord == null || u_coord == undefined){
         continue;
-      }}return dist_to_walls;
+      }
+    }
+    return dist_to_walls;
   }
+
   get_extreme_coords(){
     let l_coords = [];
     let r_coords = [];

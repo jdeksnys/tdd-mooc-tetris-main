@@ -556,8 +556,7 @@ export class Board2 {
    
   clearRowAndPushDown(line_no){
     for(let j=0; j<this.board[0].length; j++){
-      this.board[line_no][j] = ".";
-      for(let i=0; i<line_no; i++){
+      for(let i=line_no-1; i>=0; i--){
         this.board[i+1][j] = this.board[i][j];
         this.board[i][j] = ".";
       }

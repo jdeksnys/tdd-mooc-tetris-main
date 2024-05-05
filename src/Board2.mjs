@@ -529,6 +529,7 @@ export class Board2 {
     for(let i=0; i<this.board.length; i++){
       let line_full = true;
       let lines_to_clear = [];
+      let streak = 0;
       for(let j=0; j<this.board[0].length; j++){
         if(this.board[i][j] != "."){
           line_full = false;
@@ -538,7 +539,11 @@ export class Board2 {
       if(line_full){
         lines_to_clear.push(i);
       }
+      if(i != 0 && lines_to_clear.includes(i-1)){
+        streak += 1;
+      }
     }
+    
   }
 }
 

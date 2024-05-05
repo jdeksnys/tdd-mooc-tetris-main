@@ -538,7 +538,7 @@ export class Board2 {
       }
       if(line_full){
         lines_to_clear.push(i);
-        //clearRowAndPushDown(i);
+        clearRowAndPushDown(i);
       }
       if(i != 0 && line_full && lines_to_clear.includes(i-1)){
         streak += 1;

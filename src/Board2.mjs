@@ -407,7 +407,7 @@ export class Board2 {
       if(dist_L_old + actual_cols_old < actual_rows_old){
         x = x - dist_L_old;
       } else if(dist_R_old + actual_cols_old < actual_rows_old){
-        x = x - dist_R_old;
+        x = x - (actual_rows_old-actual_cols_old);
       }
       if(dist_U_old + actual_rows_old < actual_cols_old){
         y = y - dist_U_old;
@@ -495,6 +495,7 @@ export class Board2 {
       if(i > 3){
         i = 0;
       }
+      debugger;
       this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0
       ? 0
@@ -509,7 +510,7 @@ export class Board2 {
       if(dist_L_old + actual_cols_old < actual_rows_old){
         x = x - dist_L_old;
       } else if(dist_R_old + actual_cols_old < actual_rows_old){
-        x = x - dist_R_old;
+        x = x - (actual_rows_old-actual_cols_old);
       }
       if(dist_U_old + actual_rows_old < actual_cols_old){
         y = y - dist_U_old;

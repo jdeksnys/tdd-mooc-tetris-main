@@ -3,6 +3,8 @@ import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
+import { Board2 } from "../src/Board2.mjs";
+import { Tetromino2 } from "../src/Tetromino2.mjs";
 
 function fallToBottom(board) {
   for (let i = 0; i < 10; i++) {
@@ -24,12 +26,14 @@ function fallRight(board) {
 
 describe("Rotating falling tetrominoes", () => {
   let board;
+  let board2;
   beforeEach(() => {
     board = new Board(10, 8);
+    board2 = new Board2(10, 8);
   });
 
   test("rotate left but no moving tetrominoes", () => {
-    board.rotateLeft();
+    board2.rotateLeft();
     expect(board.toString()).to.equalShape(
       `..........
        ..........

@@ -466,16 +466,6 @@ export class Board2 {
     return can_kick;
   }
 
-  rotateRight2() {
-    if(!this.fallBlock){
-      return;
-    }
-    if(this.can_rotate()){
-    } else if(this.can_wall_kick()){
-
-    }
-  }
-
   rotateRight() {
     if(!this.fallBlock){
       return;

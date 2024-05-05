@@ -524,6 +524,16 @@ export class Board2 {
       }
     }
   }
+
+  clearLines(){
+    for(let i=0; i<this.board.length; i++){
+      let line_full = true;
+      for(let j=0; j<this.board[0].length; j++){
+        if(this.board[i][j] != "."){
+          line_full = false;}
+      }
+    }
+  }
 }
 
 class FallingBlock2 {

@@ -1,8 +1,7 @@
 import { RotatingShape } from "./RotatingShape.mjs";
-import { RotatingShape2 } from "./RotatingShape2.mjs";
 
 export class Tetromino2 {
-    static T_SHAPE = new RotatingShape2([
+    static T_SHAPE = new RotatingShape([
         `....
          TTT.
          .T..
@@ -21,7 +20,7 @@ export class Tetromino2 {
          ....`]);
     
 
-    static I_SHAPE = new RotatingShape2([
+    static I_SHAPE = new RotatingShape([
         `....
          IIII
          ....
@@ -39,7 +38,7 @@ export class Tetromino2 {
          ..I.
          ..I.`]);
     
-    static O_SHAPE = new RotatingShape2([
+    static O_SHAPE = new RotatingShape([
         `....
          .OO.
          .OO.

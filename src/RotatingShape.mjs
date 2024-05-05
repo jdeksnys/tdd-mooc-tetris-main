@@ -1,4 +1,4 @@
-export class RotatingShape2{
+export class RotatingShape{
     shapes = [];
     rows = 0;
     cols = 0;
@@ -35,7 +35,7 @@ export class RotatingShape2{
         this.shapes = []
         shape_strings.forEach(rec => {
           if(!Array.isArray(rec)){
-            rec = RotatingShape2.stringToArray(rec);
+            rec = RotatingShape.stringToArray(rec);
           }
             this.shapes.push(rec);
         });
@@ -43,10 +43,10 @@ export class RotatingShape2{
     
     static fromString(str) {
         let str0 = str;
-        let str1 = RotatingShape2.rotateRight_str(str0);
-        let str2 = RotatingShape2.rotateRight_str(str1);
-        let str3 = RotatingShape2.rotateRight_str(str2);
-        return new RotatingShape2([str0, str1, str2, str3]);
+        let str1 = RotatingShape.rotateRight_str(str0);
+        let str2 = RotatingShape.rotateRight_str(str1);
+        let str3 = RotatingShape.rotateRight_str(str2);
+        return new RotatingShape([str0, str1, str2, str3]);
     }
     
     toString() {
@@ -60,7 +60,7 @@ export class RotatingShape2{
 
     static rotateRight_str(shape_str) {
         let res = "";
-        let shape = RotatingShape2.stringToArray(shape_str);
+        let shape = RotatingShape.stringToArray(shape_str);
         for (let j=0; j<shape[0].length; j++) {
           let row = "";
           for (let i=shape.length-1; i>=0; i--) {
@@ -76,7 +76,7 @@ export class RotatingShape2{
         if(i > 3){
             i = 0;
         }
-        return new RotatingShape2(this.shapes, i);
+        return new RotatingShape(this.shapes, i);
     }
 
     rotateLeft() {
@@ -85,7 +85,7 @@ export class RotatingShape2{
         if(i < 0){
             i = 3;
         }
-        return new RotatingShape2(this.shapes, i);
+        return new RotatingShape(this.shapes, i);
     }
 
     trimEdges(arr){

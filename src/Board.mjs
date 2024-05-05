@@ -1,6 +1,4 @@
-import { RotatingShape } from "./RotatingShape.mjs";
-
-export class Board2 {
+export class Board {
   width;
   height;
   board;

@@ -394,9 +394,9 @@ export class Board2 {
     }
 
     if(this.can_rotate()){
-      let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
+      // let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
-      this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
+      // this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
       // this.fallBlock.rotateRight();
       // let shape = RotatingShape2.rotateRight();
       let i = this.fallBlock.i + 1;
@@ -459,5 +459,12 @@ class FallingBlock2 {
 
   get shape(){
     return this.rotatingShape.shapes[this.rotatingShape.i];
+  }
+
+  get i(){
+    return this.rotatingShape.i;
+  }
+  set i(value) {
+    this.rotatingShape.i = value;
   }
 }

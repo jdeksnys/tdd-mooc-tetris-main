@@ -395,15 +395,15 @@ export class Board2 {
       }
       this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0
-      ? 0
-      : this.fallBlock.x_pos >= this.width
-        ? this.width-1
-        : this.fallBlock.x_pos;
+                ? 0
+                : this.fallBlock.x_pos >= this.width
+                  ? this.width-1
+                  : this.fallBlock.x_pos;
       let y = this.fallBlock.y_pos < 0
-      ? 0
-      : this.fallBlock.y_pos >= this.height
-        ? this.height-1
-        : this.fallBlock.y_pos;
+                ? 0
+                : this.fallBlock.y_pos >= this.height
+                  ? this.height-1
+                  : this.fallBlock.y_pos;
       if(dist_L_old + actual_cols_old < actual_rows_old){
         x = x - dist_L_old;
       } else if(dist_R_old + actual_cols_old < actual_rows_old){

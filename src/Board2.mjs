@@ -433,7 +433,10 @@ export class Board2 {
     for(let j=0; j<this.fallBlock.shape[0].length; j++){
       if(max_cols > (actual_rows[j]+dist_U[j]+dist_B[j])){
         can_kick = false;
-        break;}}return can_kick;
+        break;
+      }
+    }
+    return can_kick;
   }
 
   rotateRight() {

@@ -381,6 +381,18 @@ export class Board2 {
   can_rotate() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
+    let dist_U = this.get_dist_to_wall_U();
+    let dist_B = this.get_dist_to_wall_B();
+    let actual_cols = this.get_shape_actual_cols();
+    let actual_rows = this.get_shape_actual_rows();
+    let max_rows = Math.max(...Object.values(actual_rows));
+    let can_rotate = true;
+    return can_rotate;
+  }
+
+  can_rotate() {
+    let dist_L = this.get_dist_to_wall_L();
+    let dist_R = this.get_dist_to_wall_R();
     let actual_cols = this.get_shape_actual_cols();
     let actual_rows = this.get_shape_actual_rows();
     let can_rotate = true;

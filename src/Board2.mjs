@@ -481,10 +481,6 @@ export class Board2 {
       this.updateFallblockInBoard(false);
 
     } else if(this.can_wall_kick()){
-      let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
-      this.updateFallblockInBoard(true);
-
-      let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
 
     }
   }

@@ -108,7 +108,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("no vertical space for wallkick (right rotate)", () => {
+  test("no vertical space for wallkick (right rotate)", () => {
     board2.drop(Tetromino2.T_SHAPE);
     fallToBottom(board2);
     board2.drop(Tetromino2.T_SHAPE);

@@ -56,7 +56,7 @@ export class Board2 {
     this.fallBlock.y_pos -= 1;
   }
 
-  get_shape_actual_rows(){
+  get_shape_actual_rows_old(){
     let res = 0;
     for(let i=0; i<this.fallBlock.shape.length; i++){
       let line_empty = true;
@@ -73,7 +73,7 @@ export class Board2 {
     return res;
   }
 
-  get_shape_actual_rows2(){
+  get_shape_actual_rows(){
     let res = {};
     for(let j=0; j<this.fallBlock.shape[0].length; j++){
       let rows = 0;

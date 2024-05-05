@@ -60,7 +60,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("rotate right after drop", () => {
+  test("rotate right after drop", () => {
     board2.drop(Tetromino2.T_SHAPE);
     board2.rotateRight();
     expect(board2.toString()).to.equalShape(

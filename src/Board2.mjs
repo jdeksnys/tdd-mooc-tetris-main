@@ -472,9 +472,9 @@ export class Board2 {
     }
     if(this.can_rotate()){
       this.updateFallblockInBoard(true);
-      let i = this.fallBlock.i - 1;
-      if(i < 0){
-        i = 3;
+      let i = this.fallBlock.i + 1;
+      if(i > 3){
+        i = 0;
       }
       this.fallBlock.i = i;
       this.updateFallblockInBoard(false);
@@ -486,9 +486,9 @@ export class Board2 {
       let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
       let actual_rows_old = Math.max(...Object.values(this.get_shape_actual_rows()));
       this.updateFallblockInBoard(true);
-      let i = this.fallBlock.i - 1;
-      if(i < 0){
-        i = 3;
+      let i = this.fallBlock.i + 1;
+      if(i > 3){
+        i = 0;
       }
       this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0

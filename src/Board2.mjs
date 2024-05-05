@@ -39,10 +39,6 @@ export class Board2 {
   }
 
   drop(rot_shape2) {
-    let val = rot_shape2.shapes[rot_shape2.i];
-    if (typeof val === 'string') {
-      val = new RotatingShape(val);
-    }
     if (this.hasFallingBlock) {
       throw new Error("already falling");
     }

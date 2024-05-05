@@ -28,7 +28,7 @@ describe("Moving falling tetrominoes", () => {
     board2 = new Board2(10, 6);
   });
 
-  test.skip("move left but no moving tetrominoes", () => {
+  test("move left but no moving tetrominoes", () => {
     board2.moveLeft();
     expect(board2.toString()).to.equalShape(
       `..........
@@ -187,7 +187,7 @@ describe("Moving falling tetrominoes", () => {
     );
   });
 
-  test.skip("cannot be moved down (rot-left-fit) onto another block", () => {
+  test("cannot be moved down (rot-left-fit) onto another block", () => {
     board2.drop(Tetromino2.T_SHAPE);
     board2.tick();
     board2.rotateRight();
@@ -210,7 +210,7 @@ describe("Moving falling tetrominoes", () => {
     );
   });
 
-  test.skip("cannot be moved down (rot-right-fit) onto another block", () => {
+  test("cannot be moved down (rot-right-fit) onto another block", () => {
     board2.drop(Tetromino2.T_SHAPE);
     board2.tick();
     board2.rotateRight();

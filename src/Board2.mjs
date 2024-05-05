@@ -529,13 +529,19 @@ export class Board2 {
       this.updateFallblockInBoard(true);
       let i = this.fallBlock.i - 1;
       if(i < 0){
-        i = 3;}
+        i = 3;
+      }
       this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0
       ? 0
       : this.fallBlock.x_pos >= this.width
         ? this.width-1
         : this.fallBlock.x_pos;
+      let y = this.fallBlock.y_pos < 0
+      ? 0
+      : this.fallBlock.y_pos >= this.height
+        ? this.height-1
+        : this.fallBlock.y_pos;
     }
   }
 

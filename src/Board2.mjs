@@ -47,8 +47,7 @@ export class Board2 {
       throw new Error("already falling");
     }
     this.hasFallingBlock = true;
-    this.fallBlock = new FallingBlock2(val, this.width, this.height);
-    if (val) {
+    this.fallBlock = new FallingBlock2(rot_shape2, this.width, this.height);
       for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.length; i++){
         for(let j=0; j<this.fallBlock.shape[0].length; j++){
           if(this.fallBlock.shape[i][j] != "."){
@@ -58,6 +57,9 @@ export class Board2 {
       }
       this.fallBlock.y_pos -= 1;
     }
+    }
+  }
+  }
   }
 
   get_shape_actual_rows(){
@@ -444,11 +446,15 @@ export class Board2 {
 class FallingBlock2 {
   x_pos;
   y_pos;
-  shape;
+  rotatingShape;
   constructor(shape, board_width, board_height, x_pos=null, y_pos=null) {
+    this.rotatingShape = shape;
+    let shape = this.rotatingShape.shapes[this.rotatingShape.i];
     let temp = shape[0].length==1 ? 0 : Math.round(shape[0].length/2);
     this.x_pos = x_pos!=null ? x_pos : (Math.floor(board_width / 2) - temp);
     this.y_pos = y_pos!=null ? y_pos : 0;
-    this.shape = shape;
+  }
+  get shape(){
+    return this.rotatingShape.shapes[this.rotatingShape.i];
   }
 }

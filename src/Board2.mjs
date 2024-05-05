@@ -44,14 +44,15 @@ export class Board2 {
     }
     this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock2(rot_shape2, this.width, this.height);
-      for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.length; i++){
-        for(let j=0; j<this.fallBlock.shape[0].length; j++){
-          if(this.fallBlock.shape[i][j] != "."){
-            this.board[i-1][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
-          }
+    
+    for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.length; i++){
+      for(let j=0; j<this.fallBlock.shape[0].length; j++){
+        if(this.fallBlock.shape[i][j] != "."){
+          this.board[i-1][j+this.fallBlock.x_pos] = this.fallBlock.shape[i][j];
         }
       }
-      this.fallBlock.y_pos -= 1;
+    }
+    this.fallBlock.y_pos -= 1;
     }
 
   get_shape_actual_rows(){

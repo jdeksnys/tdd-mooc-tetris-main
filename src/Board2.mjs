@@ -356,13 +356,21 @@ export class Board2 {
       let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
       let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
       let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
+      let actual_rows_old = Math.max(...Object.values(this.get_shape_actual_rows()));
+      this.updateFallblockInBoard(true);
+      let i = this.fallBlock.i - 1;
+      if(i < 0){i = 3;}
+      this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0
       ? 0
       : this.fallBlock.x_pos >= this.width
         ? this.width-1
         : this.fallBlock.x_pos;
-      let y = this.fallBlock.y_pos;
-
+      let y = this.fallBlock.y_pos < 0
+      ? 0
+      : this.fallBlock.y_pos >= this.height
+        ? this.height-1
+        : this.fallBlock.y_pos;
       if(dist_L_old + actual_cols_old < actual_rows_old){
         x = x - dist_L_old;
       } else if(dist_R_old + actual_cols_old < actual_rows_old){

@@ -192,6 +192,15 @@ export class Board2 {
       if(u_coord == null || u_coord == undefined){
         continue;
       }
+      for(let i=u_coord-1; i>=0; i--){
+        if (this.board[i][j+this.fallBlock.x_pos] != "."){
+          l_ended = true;
+        }
+        if(!l_ended){
+          dist += 1;
+        }
+      }
+      dist_to_walls[j.toString()] = dist;
     }
     return dist_to_walls;
   }

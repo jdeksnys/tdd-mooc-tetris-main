@@ -183,6 +183,16 @@ export class Board2 {
     return dist_to_walls;
   }
 
+  get_dist_to_wall_U(){
+    let dist_to_walls = {};
+    for(let j=0; j<this.fallBlock.shape[0].length; j++){
+      let l_ended = false;
+      let dist = 0;
+      let u_coord = this.get_shape_U_most_coord(j);
+      if(u_coord == null || u_coord == undefined){
+        continue;
+      }}return dist_to_walls;
+  }
   get_extreme_coords(){
     let l_coords = [];
     let r_coords = [];

@@ -54,6 +54,7 @@ export class Board2 {
     }
 
     this.fallBlock.y_pos -= 1;
+    this.clearLines();
   }
 
   get_shape_actual_rows(){
@@ -280,7 +281,7 @@ export class Board2 {
       col_counter += 1;
     }
     this.fallBlock.y_pos += 1;
-    
+    this.clearLines();
   }
 
   hasFalling = () => this.hasFallingBlock;

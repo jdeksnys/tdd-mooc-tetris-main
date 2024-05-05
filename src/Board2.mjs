@@ -355,11 +355,14 @@ export class Board2 {
     } else if(this.can_wall_kick()){
       let dist_L_old = Math.min(...Object.values(this.get_dist_to_wall_L()));
       let dist_R_old = Math.min(...Object.values(this.get_dist_to_wall_R()));
+      let dist_U_old = Math.min(...Object.values(this.get_dist_to_wall_U()));
       let actual_cols_old = Math.max(...Object.values(this.get_shape_actual_cols()));
       let actual_rows_old = Math.max(...Object.values(this.get_shape_actual_rows()));
       this.updateFallblockInBoard(true);
       let i = this.fallBlock.i - 1;
-      if(i < 0){i = 3;}
+      if(i < 0){
+        i = 3;
+      }
       this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0
       ? 0

@@ -394,11 +394,7 @@ export class Board2 {
     }
 
     if(this.can_rotate()){
-      // let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
-      // this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
-      // this.fallBlock.rotateRight();
-      // let shape = RotatingShape2.rotateRight();
       let i = this.fallBlock.i + 1;
       if(i > 3){
         i = 0;
@@ -434,8 +430,8 @@ export class Board2 {
   }
 
   updateFallblockInBoard(clean=false){
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
-      for(let j=0; j<this.fallBlock.shape.cols; j++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
+      for(let j=0; j<this.fallBlock.shape[0].length; j++){
         if(this.fallBlock.shape[i][j] != "."){
           this.board[i+this.fallBlock.y_pos][j+this.fallBlock.x_pos] = clean ? "." : this.fallBlock.shape[i][j];
         }
@@ -464,6 +460,7 @@ class FallingBlock2 {
   get i(){
     return this.rotatingShape.i;
   }
+
   set i(value) {
     this.rotatingShape.i = value;
   }

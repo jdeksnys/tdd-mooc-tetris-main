@@ -220,7 +220,11 @@ export class Board2 {
         }
         if(!l_ended){
           dist += 1;
-        }}dist_to_walls[j.toString()] = dist;}return dist_to_walls;
+        }
+      }
+      dist_to_walls[j.toString()] = dist;
+    }
+    return dist_to_walls;
   }
 
   get_extreme_coords(){

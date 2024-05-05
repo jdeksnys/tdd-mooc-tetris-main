@@ -211,8 +211,16 @@ export class Board2 {
       let l_ended = false;
       let dist = 0;
       let b_coord = this.get_shape_B_most_coord(j);
-      dist_to_walls[j.toString()] = dist;}
-    return dist_to_walls;
+      if(b_coord == null || b_coord == undefined){
+        continue;
+      }
+      for(let i=b_coord+1; i<this.board.length; i++){
+        if (this.board[i][j+this.fallBlock.x_pos] != "."){
+          l_ended = true;
+        }
+        if(!l_ended){
+          dist += 1;
+        }}dist_to_walls[j.toString()] = dist;}return dist_to_walls;
   }
 
   get_extreme_coords(){

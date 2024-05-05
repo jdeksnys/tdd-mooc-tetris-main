@@ -447,13 +447,15 @@ class FallingBlock2 {
   x_pos;
   y_pos;
   rotatingShape;
-  constructor(shape, board_width, board_height, x_pos=null, y_pos=null) {
-    this.rotatingShape = shape;
+  
+  constructor(rotatingShape, board_width, board_height, x_pos=null, y_pos=null) {
+    this.rotatingShape = rotatingShape;
     let shape = this.rotatingShape.shapes[this.rotatingShape.i];
     let temp = shape[0].length==1 ? 0 : Math.round(shape[0].length/2);
     this.x_pos = x_pos!=null ? x_pos : (Math.floor(board_width / 2) - temp);
     this.y_pos = y_pos!=null ? y_pos : 0;
   }
+
   get shape(){
     return this.rotatingShape.shapes[this.rotatingShape.i];
   }

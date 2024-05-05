@@ -466,7 +466,7 @@ export class Board2 {
     return can_kick;
   }
 
-  rotateRight() {
+  rotateRight2() {
     if(!this.fallBlock){
       return;
     }
@@ -507,7 +507,7 @@ export class Board2 {
     }
   }
 
-  rotateRight2() {
+  rotateRight() {
     if(!this.fallBlock){
       return;
     }

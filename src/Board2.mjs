@@ -205,6 +205,16 @@ export class Board2 {
     return dist_to_walls;
   }
 
+  get_dist_to_wall_B(){
+    let dist_to_walls = {};
+    for(let j=0; j<this.fallBlock.shape[0].length; j++){
+      let l_ended = false;
+      let dist = 0;
+      let b_coord = this.get_shape_B_most_coord(j);
+      dist_to_walls[j.toString()] = dist;}
+    return dist_to_walls;
+  }
+
   get_extreme_coords(){
     let l_coords = [];
     let r_coords = [];

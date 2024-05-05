@@ -398,7 +398,7 @@ describe("Rotating falling tetrominoes", () => {
     );
   });
 
-  test.skip("wallkick rotate right (R wall)", () => {
+  test("wallkick rotate right (R wall)", () => {
     board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
     fallRight(board);

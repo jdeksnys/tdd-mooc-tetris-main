@@ -470,16 +470,7 @@ export class Board2 {
     if(!this.fallBlock){
       return;
     }
-
     if(this.can_rotate()){
-      this.updateFallblockInBoard(true);
-      let i = this.fallBlock.i + 1;
-      if(i > 3){
-        i = 0;
-      }
-      this.fallBlock.i = i;
-      this.updateFallblockInBoard(false);
-
     } else if(this.can_wall_kick()){
 
     }

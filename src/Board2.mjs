@@ -415,18 +415,25 @@ export class Board2 {
   can_wall_kick() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();
+    let dist_U = this.get_dist_to_wall_U();
+    let dist_B = this.get_dist_to_wall_B();
     let actual_cols = this.get_shape_actual_cols();
     let actual_rows = this.get_shape_actual_rows();
+    let max_rows = Math.max(...Object.values(actual_rows));
+    let max_cols = Math.max(...Object.values(actual_cols));
     let can_kick = true;
-    for(let i=0; i<this.fallBlock.shape.rows; i++){
+    for(let i=0; i<this.fallBlock.shape.length; i++){
       let test0 = dist_L[i];
       let test1 = dist_R[i];
-      if(actual_rows > (actual_cols[i]+test0+test1)){
+      if(max_rows > (actual_cols[i]+test0+test1)){
         can_kick = false;
         break;
       }
     }
-    return can_kick;
+    for(let j=0; j<this.fallBlock.shape[0].length; j++){
+      if(max_cols > (actual_rows[j]+dist_U[j]+dist_B[j])){
+        can_kick = false;
+        break;}}return can_kick;
   }
 
   rotateRight() {

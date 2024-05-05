@@ -44,7 +44,7 @@ export class Board2 {
     }
     this.hasFallingBlock = true;
     this.fallBlock = new FallingBlock2(rot_shape2, this.width, this.height);
-    
+
     for(let i=this.fallBlock.y_pos; i<this.fallBlock.y_pos+this.fallBlock.shape.length; i++){
       for(let j=0; j<this.fallBlock.shape[0].length; j++){
         if(this.fallBlock.shape[i][j] != "."){
@@ -52,8 +52,9 @@ export class Board2 {
         }
       }
     }
+
     this.fallBlock.y_pos -= 1;
-    }
+  }
 
   get_shape_actual_rows(){
     let res = 0;
@@ -396,6 +397,13 @@ export class Board2 {
       let rot_shape = new RotatingShape(this.fallBlock.shape.toString());
       this.updateFallblockInBoard(true);
       this.fallBlock = new FallingBlock(rot_shape.rotateRight(), this.width, this.height, this.fallBlock.x_pos, this.fallBlock.y_pos);
+      // this.fallBlock.rotateRight();
+      // let shape = RotatingShape2.rotateRight();
+      let i = this.fallBlock.i + 1;
+      if(i > 3){
+        i = 0;
+      }
+      this.fallBlock.i = i;
       this.updateFallblockInBoard(false);
 
     } else if(this.can_wall_kick()){

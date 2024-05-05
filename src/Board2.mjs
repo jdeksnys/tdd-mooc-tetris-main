@@ -402,13 +402,6 @@ export class Board2 {
     return can_rotate;
   }
 
-  can_rotate2() {
-    let dist_L = this.get_dist_to_wall_L();
-    let dist_R = this.get_dist_to_wall_R();
-    let actual_cols = this.get_shape_actual_cols();
-    return can_rotate;
-  }
-
   can_wall_kick() {
     let dist_L = this.get_dist_to_wall_L();
     let dist_R = this.get_dist_to_wall_R();

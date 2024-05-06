@@ -60,6 +60,14 @@ export class Tetromino {
             `....
              LLLL
              L...
+             ....`,
+             `LL..
+             .L..
+             .L..
+             ....`,
+             `....
+             ..L.
+             LLLL
              ....`
             ]);
 }

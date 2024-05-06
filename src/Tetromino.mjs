@@ -113,5 +113,14 @@ export class Tetromino {
          ....`,
     ]);
 
-    static Z_SHAPE = new RotatingShape([]);
+    static Z_SHAPE = new RotatingShape([
+        `....
+         ZZ..
+         .ZZ.
+         ....`,
+        `..Z.
+         .ZZ.
+         .Z..
+         ...`
+    ]);
 }

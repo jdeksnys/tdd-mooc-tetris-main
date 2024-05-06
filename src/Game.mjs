@@ -3,6 +3,8 @@ export class Game{
     rows;
     tickDuration;
     nextTick;
+    scoring;
+    board;
 
     constructor(columns, rows, tickDuration, nextTick){
         this.columns = columns;

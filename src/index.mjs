@@ -15,7 +15,6 @@ function initGame() {
     nextTick: 0,
   };
   game.scoring = new ScoringSystem();
-  debugger;
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);

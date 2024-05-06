@@ -493,7 +493,6 @@ export class Board {
       if(i > 3){
         i = 0;
       }
-      debugger;
       this.fallBlock.i = i;
       let x = this.fallBlock.x_pos < 0
       ? 0

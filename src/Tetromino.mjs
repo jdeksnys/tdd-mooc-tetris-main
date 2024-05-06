@@ -102,7 +102,15 @@ export class Tetromino {
         `S...
          SS..
          .S..
-         ....`
+         ....`,
+        `....
+         .SS.
+         SS..
+         ....`,
+        `S...
+         SS..
+         .S..
+         ....`,
     ]);
 
     static Z_SHAPE = new RotatingShape([]);

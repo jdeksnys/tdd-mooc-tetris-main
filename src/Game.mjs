@@ -6,12 +6,16 @@ export class Game{
     scoring;
     board;
     tetrominoes;
+    level;
+    score;
 
     constructor(columns, rows, tickDuration, nextTick){
         this.columns = columns;
         this.rows = rows;
         this.tickDuration = tickDuration;
         this.nextTick = nextTick;
+        this.level = 0;
+        this.score = 0;
     }
 
     next_shape(){

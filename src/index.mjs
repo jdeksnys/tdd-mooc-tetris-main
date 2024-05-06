@@ -19,7 +19,7 @@ function initGame() {
   game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);
   };
-  game.tetrominoes = new [
+  game.tetrominoes = [
     Tetromino.I_SHAPE,
     Tetromino.T_SHAPE,
     Tetromino.L_SHAPE,

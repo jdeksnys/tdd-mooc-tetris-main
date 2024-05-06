@@ -1,18 +1,20 @@
 export class ScoringSystem {
-    tot_points;
+    score;
+    level;
+    
     constructor(){
         this.tot_points = 0;
     }
 
     linesCleared(lines_cleared){
         if(lines_cleared == 1){
-            this.tot_points += 40;
+            this.score += 40;
         } else if(lines_cleared == 2){
-            this.tot_points += 100;
+            this.score += 100;
         } else if(lines_cleared == 3){
-            this.tot_points += 300;
+            this.score += 300;
         } else if(lines_cleared == 4){
-            this.tot_points += 1200;
+            this.score += 1200;
         }
     }
 }

@@ -3,7 +3,7 @@ export class ScoringSystem {
     level;
 
     constructor(){
-        this.tot_points = 0;
+        this.score = 0;
         this.level = 0;
     }
 

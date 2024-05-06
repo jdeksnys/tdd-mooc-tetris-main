@@ -1,6 +1,6 @@
 import { Board } from "./Board.mjs";
 import { ScoringSystem } from "./ScoringSystem.mjs";
-import { ShuffleBag } from "./ShuffleBag.mjs";
+// import { ShuffleBag } from "./ShuffleBag.mjs";
 import { Tetromino } from "./Tetromino.mjs";
 
 // TODO: change this code to match the API you have created, if you want to run the game for some manual testing
@@ -15,6 +15,7 @@ function initGame() {
     nextTick: 0,
   };
   game.scoring = new ScoringSystem();
+  debugger;
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);
@@ -73,7 +74,8 @@ function progressTime(game, timestamp) {
 
 function tick(game) {
   if (!game.board.hasFalling()) {
-    game.board.drop(game.next_shape());
+    // game.board.drop(game.next_shape());
+    game.board.drop(Tetromino.T_SHAPE);
   } else {
     game.board.tick();
   }
@@ -111,7 +113,8 @@ function renderGame(game, canvas, timestamp) {
   drawBackground(ctx, canvasWidth, canvasHeight);
   for (let row = 0; row < game.rows; row++) {
     for (let column = 0; column < game.columns; column++) {
-      const cell = game.board.cellAt(row, column);
+      // const cell = game.board.cellAt(row, column);
+      const cell = game.board.board[row][column];
       drawCell(ctx, { cell, row, column, cellWidth, cellHeight });
     }
   }

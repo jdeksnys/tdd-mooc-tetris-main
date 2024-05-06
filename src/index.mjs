@@ -18,12 +18,12 @@ function initGame() {
   };
   game.tetrominoes = [
     Tetromino.I_SHAPE,
-    // Tetromino.T_SHAPE,
-    // Tetromino.L_SHAPE,
-    // Tetromino.J_SHAPE,
-    // Tetromino.T_SHAPE,
-    // Tetromino.S_SHAPE,
-    // Tetromino.Z_SHAPE,
+    Tetromino.T_SHAPE,
+    Tetromino.L_SHAPE,
+    Tetromino.J_SHAPE,
+    Tetromino.T_SHAPE,
+    Tetromino.S_SHAPE,
+    Tetromino.Z_SHAPE,
     Tetromino.O_SHAPE,
   ];
 

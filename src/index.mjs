@@ -19,7 +19,7 @@ function initGame() {
   game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);
   };
-  game.tetrominoes = new ShuffleBag([
+  game.tetrominoes = new [
     Tetromino.I_SHAPE,
     Tetromino.T_SHAPE,
     Tetromino.L_SHAPE,
@@ -28,7 +28,7 @@ function initGame() {
     Tetromino.S_SHAPE,
     Tetromino.Z_SHAPE,
     Tetromino.O_SHAPE,
-  ]);
+  ];
 
   document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
@@ -73,7 +73,7 @@ function progressTime(game, timestamp) {
 
 function tick(game) {
   if (!game.board.hasFalling()) {
-    game.board.drop(game.tetrominoes.next());
+    game.board.drop(game.next_shape());
   } else {
     game.board.tick();
   }

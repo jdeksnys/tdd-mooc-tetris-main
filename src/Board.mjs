@@ -530,10 +530,10 @@ export class Board {
   }
 
   clearLines(){
+    let lines_to_clear = [];
+    let streak = 0;
     for(let i=0; i<this.board.length; i++){
       let line_full = true;
-      let lines_to_clear = [];
-      let streak = 0;
       for(let j=0; j<this.board[0].length; j++){
         if(this.board[i][j] == "."){
           line_full = false;
@@ -543,21 +543,20 @@ export class Board {
       if(line_full){
         lines_to_clear.push(i);
         this.clearRowAndPushDown(i);
-        this.onClearLine(1);
       }
-      if(i != 0 && line_full && lines_to_clear.includes(i-1)){
+      if(line_full){
+        debugger;
+      }
+      if(line_full && lines_to_clear.includes(i)){
         streak += 1;
       }
-      if(!line_full && lines_to_clear.includes(i-1)){
-        debugger;
+      if(!line_full && lines_to_clear.includes(i)){
         this.onClearLine(streak);
         streak = 0;
+        lines_to_clear = [];
       }
     }
   }
-
-  // onClearLine(){
-  // }
    
   clearRowAndPushDown(line_no){
     for(let j=0; j<this.board[0].length; j++){

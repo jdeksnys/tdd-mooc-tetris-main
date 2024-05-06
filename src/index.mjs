@@ -13,16 +13,17 @@ function initGame() {
   game.scoring = new ScoringSystem();
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
+    debugger;
     game.scoring.linesCleared(lineCount);
   };
   game.tetrominoes = [
     Tetromino.I_SHAPE,
-    Tetromino.T_SHAPE,
-    Tetromino.L_SHAPE,
-    Tetromino.J_SHAPE,
-    Tetromino.T_SHAPE,
-    Tetromino.S_SHAPE,
-    Tetromino.Z_SHAPE,
+    // Tetromino.T_SHAPE,
+    // Tetromino.L_SHAPE,
+    // Tetromino.J_SHAPE,
+    // Tetromino.T_SHAPE,
+    // Tetromino.S_SHAPE,
+    // Tetromino.Z_SHAPE,
     Tetromino.O_SHAPE,
   ];
 

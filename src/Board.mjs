@@ -543,16 +543,21 @@ export class Board {
       if(line_full){
         lines_to_clear.push(i);
         this.clearRowAndPushDown(i);
+        this.onClearLine(1);
       }
       if(i != 0 && line_full && lines_to_clear.includes(i-1)){
         streak += 1;
       }
       if(!line_full && lines_to_clear.includes(i-1)){
+        debugger;
         this.onClearLine(streak);
         streak = 0;
       }
     }
   }
+
+  // onClearLine(){
+  // }
    
   clearRowAndPushDown(line_no){
     for(let j=0; j<this.board[0].length; j++){

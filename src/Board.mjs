@@ -546,7 +546,8 @@ export class Board {
       }
       if(i != 0 && line_full && lines_to_clear.includes(i-1)){
         streak += 1;
-      } else {
+      }
+      if(!line_full && lines_to_clear.includes(i-1)){
         this.onClearLine(streak);
         streak = 0;
       }
@@ -560,10 +561,6 @@ export class Board {
         this.board[i][j] = ".";
       }
     }
-  }
-
-  onClearLine(line_count){
-
   }
 }
 

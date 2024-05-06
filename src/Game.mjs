@@ -19,6 +19,8 @@ export class Game{
     }
 
     next_shape(){
-        return this.tetrominoes[Math.floor(Math.random() * (this.tetrominoes.length-1))];
+        debugger;
+        let test = Math.floor(Math.random() * this.tetrominoes.length);
+        return this.tetrominoes[test];
     }
 }

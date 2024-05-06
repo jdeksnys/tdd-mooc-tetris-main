@@ -2,18 +2,14 @@ import { Board } from "./Board.mjs";
 import { ScoringSystem } from "./ScoringSystem.mjs";
 // import { ShuffleBag } from "./ShuffleBag.mjs";
 import { Tetromino } from "./Tetromino.mjs";
+import { Game } from "./Game.mjs";
 
 // TODO: change this code to match the API you have created, if you want to run the game for some manual testing
 
 function initGame() {
   const canvas = document.getElementById("game");
 
-  const game = {
-    columns: 10,
-    rows: 20,
-    tickDuration: 1000,
-    nextTick: 0,
-  };
+  const game = new Game(10,20,1000,0);
   game.scoring = new ScoringSystem();
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
@@ -73,8 +69,7 @@ function progressTime(game, timestamp) {
 
 function tick(game) {
   if (!game.board.hasFalling()) {
-    // game.board.drop(game.next_shape());
-    game.board.drop(Tetromino.T_SHAPE);
+    game.board.drop(game.next_shape());
   } else {
     game.board.tick();
   }

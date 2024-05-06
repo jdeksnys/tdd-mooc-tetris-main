@@ -544,11 +544,11 @@ export class Board {
         lines_to_clear.push(i);
         this.clearRowAndPushDown(i);
       }
-      
+
       if(line_full && lines_to_clear.includes(i)){
         streak += 1;
       }
-      if(!line_full && lines_to_clear.includes(i-1)){
+      if((!line_full && (lines_to_clear.includes(i-1)) || (line_full && i==(this.board.length-1)))){
         this.onClearLine(streak);
         streak = 0;
         lines_to_clear = [];

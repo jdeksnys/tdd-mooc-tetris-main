@@ -86,6 +86,10 @@ export class Tetromino {
          `....
           J...
           JJJJ
+          ....`,
+         `.JJ.
+          .J..
+          .J..
           ....`
         ]);
 }

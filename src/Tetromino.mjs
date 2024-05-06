@@ -76,10 +76,12 @@ export class Tetromino {
             ]);
     static J_SHAPE = new RotatingShape([
         `....
-         LLL.
-         ..L.
+         JJJ.
+         ..J.
          ....`,
-        `.L..
-        ....`
+        `..J.
+         ..J.
+         .JJ.
+         ....`
         ]);
 }

@@ -55,4 +55,11 @@ export class Tetromino {
          .OO.
          .OO.
          ....`]);
+        
+         static L_SHAPE = new RotatingShape([
+            `....
+             LLLL
+             L...
+             ....`
+            ]);
 }

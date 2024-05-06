@@ -74,6 +74,7 @@ export class Tetromino {
               .LLL
               ....`
             ]);
+
     static J_SHAPE = new RotatingShape([
         `....
          JJJ.
@@ -92,4 +93,8 @@ export class Tetromino {
           .J..
           ....`
         ]);
+
+    static S_SHAPE = new RotatingShape([]);
+
+    static Z_SHAPE = new RotatingShape([]);
 }
